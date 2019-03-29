@@ -4,6 +4,10 @@
         android:id="@+id/homeNavigation"
         android:icon="@drawable/ic_home"
         android:title="@string/home_bottom_navigation" />
+    <item
+        android:id="@+id/sportsNavigation"
+        android:icon="@drawable/ic_sports"
+        android:title="@string/sports_bottom_navigation" />
 
     <item
         android:id="@+id/leaguesNavigation"
@@ -18,5 +22,4 @@
         android:id="@+id/playersNavigation"
         android:icon="@drawable/ic_players"
         android:title="@string/players_bottom_navigation" />
-
 </menu>

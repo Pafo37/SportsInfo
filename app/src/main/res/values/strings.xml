@@ -6,4 +6,5 @@
     <string name="leagues_bottom_navigation">Leagues</string>
     <string name="teams_bottom_navigation">Teams</string>
     <string name="players_bottom_navigation">Players</string>
+    <string name="sports_bottom_navigation">Sports</string>
 </resources>
