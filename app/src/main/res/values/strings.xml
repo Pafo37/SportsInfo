@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">SportsInfo</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_bottom_navigation">Home</string>
+    <string name="leagues_bottom_navigation">Leagues</string>
+    <string name="teams_bottom_navigation">Teams</string>
+    <string name="players_bottom_navigation">Players</string>
 </resources>
