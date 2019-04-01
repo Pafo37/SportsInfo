@@ -58,6 +58,7 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
+
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.design.card.MaterialCardView>
@@ -210,6 +211,7 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
+
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.design.card.MaterialCardView>
