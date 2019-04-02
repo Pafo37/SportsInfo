@@ -14,7 +14,7 @@
             android:layout_height="wrap_content">
 
             <android.support.design.card.MaterialCardView
-                android:id="@+id/sports_cardview"
+                android:id="@+id/cardview_sports"
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/homescreen_cardview_corner_radiues"
@@ -64,14 +64,14 @@
             </android.support.design.card.MaterialCardView>
 
             <android.support.design.card.MaterialCardView
-                android:id="@+id/leagues_cardview"
+                android:id="@+id/cardview_leagues"
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin_between_elements"
                 app:cardCornerRadius="@dimen/homescreen_cardview_corner_radiues"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sports_cardview">
+                app:layout_constraintTop_toBottomOf="@id/cardview_sports">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -115,14 +115,14 @@
             </android.support.design.card.MaterialCardView>
 
             <android.support.design.card.MaterialCardView
-                android:id="@+id/teams_cardview"
+                android:id="@+id/cardview_teams"
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin_between_elements"
                 app:cardCornerRadius="@dimen/homescreen_cardview_corner_radiues"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/leagues_cardview">
+                app:layout_constraintTop_toBottomOf="@id/cardview_leagues">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -166,14 +166,14 @@
             </android.support.design.card.MaterialCardView>
 
             <android.support.design.card.MaterialCardView
-                android:id="@+id/players_cardview"
+                android:id="@+id/cardview_players"
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin_between_elements"
                 app:cardCornerRadius="@dimen/homescreen_cardview_corner_radiues"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/teams_cardview">
+                app:layout_constraintTop_toBottomOf="@id/cardview_teams">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
