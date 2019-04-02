@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/default_margin_between_elements">
+
+    <android.support.design.card.MaterialCardView
+        android:layout_width="@dimen/no_dimens"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/default_margin_between_elements">
+
+            <ImageView
+                android:id="@+id/img_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/sports_test_image" />
+
+            <TextView
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:textSize="@dimen/material_design_headline_txt_size"
+                app:layout_constraintBottom_toBottomOf="@id/img_test"
+                app:layout_constraintEnd_toStartOf="@id/img_test"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Football" />
+
+            <TextView
+                android:id="@+id/description_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_between_elements"
+                android:text="@string/sports_description"
+                android:textSize="@dimen/material_design_title_txt_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_test" />
+
+            <TextView
+                android:id="@+id/description_body"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_between_elements"
+                android:maxLines="4"
+                android:textSize="@dimen/material_design_body_txt_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description_title"
+                tools:text="Association football, more commonly known as football or soccer, is a team sport played between two teams of eleven players with a spherical ball. It is played by 250 million players in over 200 countries and dependencies, making it the world's most popular sport. The game is played on a rectangular field with a goal at each end. The object of the game is to score by getting the ball into the opposing goal.\r\n\r\nPlayers are not allowed to touch the ball with their hands or arms while it is in play, unless they are goalkeepers (and then only when within their penalty area). Other players mainly use their feet to strike or pass the ball, but may also use any part of their body except the hands and the arms. The team that scores the most goals by the end of the match wins. If the score is level at the end of the game, either a draw is declared or the game goes into extra time or a penalty shootout depending on the format of the competition. The Laws of the Game were originally codified in England by The Football Association in 1863. Association football is governed internationally by the International Federation of Association Football (FIFA; French: Fédération Internationale de Football Association), which organises World Cups for both men and women every four years. " />
+
+            <ImageView
+                android:id="@+id/button_expand_more"
+                android:layout_width="@dimen/expand_more_button_height_width"
+                android:layout_height="@dimen/expand_more_button_height_width"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_test"
+                app:srcCompat="@drawable/ic_expand_more" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.card.MaterialCardView>
+
+</android.support.constraint.ConstraintLayout>
