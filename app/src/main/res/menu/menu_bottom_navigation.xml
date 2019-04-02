@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/homeNavigation"
+        android:id="@+id/menu_home"
         android:icon="@drawable/ic_home"
         android:title="@string/home_bottom_navigation" />
     <item
-        android:id="@+id/sportsNavigation"
+        android:id="@+id/menu_sports"
         android:icon="@drawable/ic_sports"
         android:title="@string/sports_bottom_navigation" />
 
     <item
-        android:id="@+id/leaguesNavigation"
+        android:id="@+id/menu_leagues"
         android:icon="@drawable/ic_leagues"
         android:title="@string/leagues_bottom_navigation" />
 
     <item
-        android:id="@+id/teamsNavigation"
+        android:id="@+id/menu_teams"
         android:icon="@drawable/ic_teams"
         android:title="@string/teams_bottom_navigation" />
     <item
-        android:id="@+id/playersNavigation"
+        android:id="@+id/menu_players"
         android:icon="@drawable/ic_players"
         android:title="@string/players_bottom_navigation" />
 </menu>
