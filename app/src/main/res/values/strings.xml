@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">SportsInfo</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_bottom_navigation">Home</string>
+    <string name="leagues_bottom_navigation">Leagues</string>
+    <string name="teams_bottom_navigation">Teams</string>
+    <string name="players_bottom_navigation">Players</string>
+    <string name="sports_bottom_navigation">Sports</string>
+    <string name="homescreen_sports_title">Sports</string>
+    <string name="homescreen_leagues_title">Leagues</string>
+    <string name="homescreen_teams_title">Teams</string>
+    <string name="homescreen_players_title">Players</string>
+    <string name="homescreen_secondary_title_sports">Discover all sports</string>
+    <string name="homescreen_secondary_title_leagues">Discover all leagues</string>
+    <string name="homescreen_secondary_title_teams">Discover all teams</string>
+    <string name="homescreen_secondary_title_players">Discover all players</string>
 </resources>

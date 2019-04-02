@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="homescreen_cardview_height">160dp</dimen>
+    <dimen name="homescreen_cardview_title">30sp</dimen>
+    <dimen name="homescreen_image_height_width">90dp</dimen>
+    <dimen name="default_margin_between_elements">8dp</dimen>
+    <dimen name="homescreen_cardview_secondary_title">16sp</dimen>
+    <dimen name="homescreen_cardview_corner_radiues">16dp</dimen>
+    <dimen name="no_dimens">0dp</dimen>
+</resources>
