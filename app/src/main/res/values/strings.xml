@@ -15,4 +15,7 @@
     <string name="homescreen_secondary_title_leagues">Discover all leagues</string>
     <string name="homescreen_secondary_title_teams">Discover all teams</string>
     <string name="homescreen_secondary_title_players">Discover all players</string>
+    <string name="player_name_title">Name</string>
+    <string name="player_nationality">Nationality</string>
+    <string name="player_team_title">Team</string>
 </resources>
