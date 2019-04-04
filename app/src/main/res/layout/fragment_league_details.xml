@@ -57,7 +57,7 @@
                 android:text="@string/league_details_name"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/material_design_title_txt_size"
-                app:layout_constraintEnd_toStartOf="@id/txt_year_formed_title"
+                app:layout_constraintEnd_toStartOf="@id/txt_league_year_formed_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_league_sport_body" />
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin_between_elements"
                 android:textSize="@dimen/material_design_body_txt_size"
-                app:layout_constraintEnd_toStartOf="@id/txt_year_formed_body"
+                app:layout_constraintEnd_toStartOf="@id/txt_league_year_formed_body"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_league_name_title"
                 tools:text="American Major League Soccer" />
@@ -94,7 +94,7 @@
                 tools:text="USA" />
 
             <TextView
-                android:id="@+id/txt_year_formed_title"
+                android:id="@+id/txt_league_year_formed_title"
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin_between_elements"
@@ -105,13 +105,13 @@
                 app:layout_constraintTop_toBottomOf="@id/txt_league_country_body" />
 
             <TextView
-                android:id="@+id/txt_year_formed_body"
+                android:id="@+id/txt_league_year_formed_body"
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin_between_elements"
                 android:textSize="@dimen/material_design_body_txt_size"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_year_formed_title"
+                app:layout_constraintTop_toBottomOf="@id/txt_league_year_formed_title"
                 tools:text="1993" />
 
             <TextView
