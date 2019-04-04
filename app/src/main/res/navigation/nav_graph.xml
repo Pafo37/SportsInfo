@@ -3,12 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment">
+    app:startDestination="@id/homescreen_fragment">
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/homescreen_fragment"
         android:name="com.pavelkovachev.sportsinfo.HomeScreenFragment"
         android:label="fragment_homescreen"
-        tools:layout="@layout/fragment_homescreen" />
+        tools:layout="@layout/fragment_homescreen">
+        <action
+            android:id="@+id/action_homescreen_fragment_to_sports_fragment"
+            app:destination="@id/sports_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sports_fragment"
+        android:name="com.pavelkovachev.sportsinfo.SportsFragment"
+        android:label="fragment_homescreen"
+        tools:layout="@layout/fragment_sports" />
 
 </navigation>
