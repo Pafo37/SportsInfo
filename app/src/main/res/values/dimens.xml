@@ -5,7 +5,7 @@
     <dimen name="homescreen_image_height_width">90dp</dimen>
     <dimen name="default_margin_between_elements">8dp</dimen>
     <dimen name="homescreen_cardview_secondary_title">16sp</dimen>
-    <dimen name="homescreen_cardview_corner_radiues">16dp</dimen>
+    <dimen name="homescreen_cardview_corner_radius">16dp</dimen>
     <dimen name="no_dimens">0dp</dimen>
 
     <dimen name="material_design_headline_txt_size">24sp</dimen>
@@ -17,4 +17,5 @@
     <dimen name="material_design_caption_txt_size">12sp</dimen>
     <dimen name="material_design_body_txt_size">14sp</dimen>
     <dimen name="expand_more_button_height_width">30dp</dimen>
+
 </resources>
