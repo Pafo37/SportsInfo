@@ -7,6 +7,7 @@
     <string name="teams_bottom_navigation">Teams</string>
     <string name="players_bottom_navigation">Players</string>
     <string name="sports_bottom_navigation">Sports</string>
+
     <string name="homescreen_sports_title">Sports</string>
     <string name="homescreen_leagues_title">Leagues</string>
     <string name="homescreen_teams_title">Teams</string>
@@ -20,6 +21,7 @@
     <string name="team_title">Team</string>
     <string name="btn_see_more">See more</string>
 
+    <string name="see_more">See more</string>
     <string name="sports_description">Description</string>
 
 </resources>
