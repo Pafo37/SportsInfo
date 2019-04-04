@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/img_league"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/img_league_details_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_test_league_details"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/txt_league_sport_title"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:text="@string/league_details_sport"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/material_design_title_txt_size"
+            app:layout_constraintEnd_toStartOf="@id/txt_league_country_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_league" />
+
+        <TextView
+            android:id="@+id/txt_league_sport_body"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:textSize="@dimen/material_design_body_txt_size"
+            app:layout_constraintEnd_toStartOf="@id/txt_league_country_body"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_league_sport_title"
+            tools:text="Soccer" />
+
+        <TextView
+            android:id="@+id/txt_league_name_title"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:text="@string/league_details_name"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/material_design_title_txt_size"
+            app:layout_constraintEnd_toStartOf="@id/txt_year_formed_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_league_sport_body" />
+
+        <TextView
+            android:id="@+id/txt_league_name_body"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:textSize="@dimen/material_design_body_txt_size"
+            app:layout_constraintEnd_toStartOf="@id/txt_year_formed_body"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_league_name_title"
+            tools:text="American Major League Soccer" />
+
+        <TextView
+            android:id="@+id/txt_league_country_title"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:text="@string/league_details_country"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/material_design_title_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_league" />
+
+        <TextView
+            android:id="@+id/txt_league_country_body"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:textSize="@dimen/material_design_body_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_league_country_title"
+            tools:text="USA" />
+
+        <TextView
+            android:id="@+id/txt_year_formed_title"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:text="@string/league_details_year_formed"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/material_design_title_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_league_country_body" />
+
+        <TextView
+            android:id="@+id/txt_year_formed_body"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:textSize="@dimen/material_design_body_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_year_formed_title"
+            tools:text="1993" />
+
+        <TextView
+            android:id="@+id/txt_league_description_title"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:text="@string/league_details_description"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/material_design_title_txt_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_league_name_body" />
+
+        <TextView
+            android:id="@+id/txt_league_description_body"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:paddingBottom="@dimen/default_margin_between_elements"
+            android:textSize="@dimen/material_design_body_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_league_description_title"
+            tools:text="Major League Soccer (MLS) is a professional soccer league representing the sport's highest level in both the United States and Canada. MLS constitutes one of the major professional sports leagues of the United States and Canada. The league is composed of 20 teams—17 in the U.S. and 3 in Canada. The MLS regular season runs from March to October, with each team playing 34 games; the team with the best record is awarded the Supporters' Shield. The post season includes twelve teams competing in the MLS Cup Playoffs through November and December, culminating in the championship game, the MLS Cup. MLS teams also play in other competitions against teams from other divisions and countries, such as the U.S. Open Cup, the Canadian Championship, and the CONCACAF Champions League. " />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
