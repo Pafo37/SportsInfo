@@ -18,4 +18,6 @@
     <dimen name="material_design_body_txt_size">14sp</dimen>
     <dimen name="expand_more_button_height_width">30dp</dimen>
 
+    <dimen name="img_team_height">140dp</dimen>
+
 </resources>
