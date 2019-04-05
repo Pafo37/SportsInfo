@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/img_test_player"
+            android:id="@+id/img_player_details_test"
             android:layout_width="@dimen/img_player_height_width"
             android:layout_height="@dimen/img_player_height_width"
             app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/txt_name_title"
+            android:id="@+id/txt_player_details_name_title"
             android:layout_width="@dimen/no_dimens"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin_between_elements"
@@ -29,62 +29,62 @@
             android:textColor="@android:color/black"
             android:textSize="@dimen/material_design_title_txt_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_test_player"
+            app:layout_constraintStart_toEndOf="@+id/img_player_details_test"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_name_body"
+            android:id="@+id/txt_player_details_name_body"
             android:layout_width="@dimen/no_dimens"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin_between_elements"
             android:textSize="@dimen/material_design_body_txt_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_test_player"
-            app:layout_constraintTop_toBottomOf="@id/txt_name_title"
+            app:layout_constraintStart_toEndOf="@id/img_player_details_test"
+            app:layout_constraintTop_toBottomOf="@id/txt_player_details_name_title"
             tools:text="Sokratis Papastathopoulos" />
 
         <TextView
-            android:id="@+id/txt_nationality_title"
+            android:id="@+id/txt_player_details_nationality_title"
             android:layout_width="@dimen/no_dimens"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin_between_elements"
             android:text="@string/player_nationality"
             android:textColor="@android:color/black"
             android:textSize="@dimen/material_design_title_txt_size"
-            app:layout_constraintStart_toEndOf="@id/img_test_player"
-            app:layout_constraintTop_toBottomOf="@id/txt_name_body" />
+            app:layout_constraintStart_toEndOf="@id/img_player_details_test"
+            app:layout_constraintTop_toBottomOf="@id/txt_player_details_name_body" />
 
         <TextView
-            android:id="@+id/txt_nationality_body"
+            android:id="@+id/txt_player_details_nationality_body"
             android:layout_width="@dimen/no_dimens"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin_between_elements"
             android:textSize="@dimen/material_design_body_txt_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_test_player"
-            app:layout_constraintTop_toBottomOf="@id/txt_nationality_title"
+            app:layout_constraintStart_toEndOf="@id/img_player_details_test"
+            app:layout_constraintTop_toBottomOf="@id/txt_player_details_nationality_title"
             tools:text="Greek" />
 
         <TextView
-            android:id="@+id/txt_team_title"
+            android:id="@+id/txt_player_details_team_title"
             android:layout_width="@dimen/no_dimens"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin_between_elements"
             android:text="@string/player_team_title"
             android:textColor="@android:color/black"
             android:textSize="@dimen/material_design_title_txt_size"
-            app:layout_constraintStart_toEndOf="@id/img_test_player"
-            app:layout_constraintTop_toBottomOf="@id/txt_nationality_body" />
+            app:layout_constraintStart_toEndOf="@id/img_player_details_test"
+            app:layout_constraintTop_toBottomOf="@id/txt_player_details_nationality_body" />
 
         <TextView
-            android:id="@+id/txt_team_body"
+            android:id="@+id/txt_player_details_team_body"
             android:layout_width="@dimen/no_dimens"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_margin_between_elements"
             android:textSize="@dimen/material_design_body_txt_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_test_player"
-            app:layout_constraintTop_toBottomOf="@id/txt_team_title"
+            app:layout_constraintStart_toEndOf="@id/img_player_details_test"
+            app:layout_constraintTop_toBottomOf="@id/txt_player_details_team_title"
             tools:text="Arsenal" />
 
     </android.support.constraint.ConstraintLayout>

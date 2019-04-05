@@ -27,5 +27,8 @@
 
     <string name="see_more">See more</string>
     <string name="sports_description">Description</string>
+    <string name="player_details_height">Height</string>
+    <string name="players_detail_date_born">Date Born</string>
+    <string name="player_details_birthplace">Birthplace</string>
 
 </resources>
