@@ -29,6 +29,7 @@
     <string name="sports_description">Description</string>
     <string name="league_details_sport">Sport</string>
     <string name="team_details_name">Team Name</string>
+    <string name="league_details_name">League Name</string>
     <string name="league_details_country">Country</string>
     <string name="league_details_year_formed">Year Formed</string>
     <string name="league_details_description">Description</string>
