@@ -30,5 +30,10 @@
     <string name="player_details_height">Height</string>
     <string name="players_detail_date_born">Date Born</string>
     <string name="player_details_birthplace">Birthplace</string>
+    <string name="league_details_sport">Sport</string>
+    <string name="league_details_name">League Name</string>
+    <string name="league_details_country">Country</string>
+    <string name="league_details_year_formed">Year Formed</string>
+    <string name="league_details_description">Description</string>
 
 </resources>
