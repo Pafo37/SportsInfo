@@ -36,6 +36,10 @@
     <string name="league_details_country">Country</string>
     <string name="league_details_year_formed">Year Formed</string>
     <string name="league_details_description">Description</string>
+    <string name="search_events">Search</string>
+    <string name="all_events">All events</string>
+    <string name="tv_events">TV events</string>
+    <string name="select_event_type">Select event type:</string>
     <string name="tv_channel">Channel</string>
     <string name="tv_sport">Sport</string>
 

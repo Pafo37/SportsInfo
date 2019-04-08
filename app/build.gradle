@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.pavelkovachev.sportsinfo"
         minSdkVersion 16
@@ -34,4 +38,7 @@ dependencies {
 
     //BottomNavigationViewEx
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.2'
+
+    //Material-Calendar-View
+    implementation 'com.applandeo:material-calendar-view:1.5.1'
 }

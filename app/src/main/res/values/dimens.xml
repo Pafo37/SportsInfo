@@ -20,6 +20,8 @@
     <dimen name="img_player_height_width">200dp</dimen>
     <dimen name="img_team_height">140dp</dimen>
     <dimen name="img_league_details_height">150dp</dimen>
+    <dimen name="calendar_height">300dp</dimen>
+    <dimen name="margin_between_elements_events">16dp</dimen>
     <dimen name="tv_logo_height">120dp</dimen>
 
 </resources>
