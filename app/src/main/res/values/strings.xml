@@ -36,5 +36,7 @@
     <string name="league_details_country">Country</string>
     <string name="league_details_year_formed">Year Formed</string>
     <string name="league_details_description">Description</string>
+    <string name="tv_channel">Channel</string>
+    <string name="tv_sport">Sport</string>
 
 </resources>

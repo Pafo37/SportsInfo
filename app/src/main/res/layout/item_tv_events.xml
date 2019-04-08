@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_between_elements"
+    app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_tv_logo"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="120dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/tv_logo_test" />
+
+        <TextView
+            android:id="@+id/txt_event_name"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/material_design_title_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_tv_logo"
+            tools:text="Colorado Rockies vs Los Angeles Dodgers" />
+
+        <TextView
+            android:id="@+id/txt_event_date"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:textSize="@dimen/material_design_subheading_txt_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_event_name"
+            tools:text="2018-07-07" />
+
+        <TextView
+            android:id="@+id/txt_event_time"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:textSize="@dimen/material_design_subheading_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt_event_date"
+            app:layout_constraintTop_toBottomOf="@id/txt_event_name"
+            tools:text="01:37:00" />
+
+        <TextView
+            android:id="@+id/txt_channel_title"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:text="@string/tv_channel"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/material_design_title_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_event_time" />
+
+        <TextView
+            android:id="@+id/txt_channel_body"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_channel_title"
+            tools:text="Eurosport" />
+
+        <TextView
+            android:id="@+id/txt_sport_title"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:text="@string/tv_sport"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/material_design_title_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_channel_body" />
+
+        <TextView
+            android:id="@+id/txt_sport_body"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            android:paddingBottom="@dimen/default_margin_between_elements"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_sport_title"
+            tools:text="Baseball" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.card.MaterialCardView>
