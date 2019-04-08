@@ -6,7 +6,7 @@
     android:background="@android:color/white">
 
     <com.applandeo.materialcalendarview.CalendarView
-        android:id="@+id/calendarView"
+        android:id="@+id/calendar_view"
         android:layout_width="@dimen/no_dimens"
         android:layout_height="@dimen/calendar_height"
         app:headerColor="@color/colorPrimary"
@@ -24,7 +24,7 @@
         android:textSize="@dimen/material_design_heading_txt_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calendarView" />
+        app:layout_constraintTop_toBottomOf="@id/calendar_view" />
 
     <RadioGroup
         android:layout_width="@dimen/no_dimens"
