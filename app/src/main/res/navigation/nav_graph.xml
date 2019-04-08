@@ -9,15 +9,6 @@
         android:id="@+id/homescreen_fragment"
         android:name="com.pavelkovachev.sportsinfo.HomeScreenFragment"
         android:label="fragment_homescreen"
-        tools:layout="@layout/fragment_homescreen">
-        <action
-            android:id="@+id/action_homescreen_fragment_to_eventsFragment"
-            app:destination="@id/eventsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/eventsFragment"
-        android:name="com.pavelkovachev.sportsinfo.EventsFragment"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_homescreen"/>
 
 </navigation>

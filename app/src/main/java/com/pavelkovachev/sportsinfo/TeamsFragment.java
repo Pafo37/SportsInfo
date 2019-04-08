@@ -13,6 +13,6 @@ public class TeamsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.item_teams, container, false);
+        return inflater.inflate(R.layout.fragment_teams, container, false);
     }
 }
