@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo;
+package com.pavelkovachev.sportsinfo.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class PlayerDetailsFragment extends Fragment {
+import com.pavelkovachev.sportsinfo.R;
+
+public class EventsFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_player_details,container,false);
+        return inflater.inflate(R.layout.fragment_events, container, false);
     }
 }
