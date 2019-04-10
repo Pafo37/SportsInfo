@@ -10,4 +10,6 @@ public interface SportsRepository {
 
     void deleteSport(SportsModel sportsModel);
 
+    void getAllSports();
+
 }

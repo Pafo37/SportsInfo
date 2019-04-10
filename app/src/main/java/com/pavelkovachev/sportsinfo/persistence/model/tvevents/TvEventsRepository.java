@@ -10,4 +10,6 @@ public interface TvEventsRepository {
 
     void deleteTvEvent(TvEventsModel tvEventsModel);
 
+    void getAllTvEvents();
+
 }

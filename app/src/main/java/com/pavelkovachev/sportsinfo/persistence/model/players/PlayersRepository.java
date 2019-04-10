@@ -10,4 +10,6 @@ public interface PlayersRepository {
 
     void deletePlayer(PlayersModel playersModel);
 
+    void getAllPlayers();
+
 }

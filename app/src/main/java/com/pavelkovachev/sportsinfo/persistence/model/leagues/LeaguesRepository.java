@@ -10,4 +10,6 @@ public interface LeaguesRepository {
 
     void deleteLeague(LeaguesModel leaguesModel);
 
+    void getAllLeagues();
+
 }

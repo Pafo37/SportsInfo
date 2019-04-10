@@ -10,4 +10,6 @@ public interface TeamsRepository {
 
     void deleteTeam(TeamsModel teamsModel);
 
+    void getAllTeams();
+
 }

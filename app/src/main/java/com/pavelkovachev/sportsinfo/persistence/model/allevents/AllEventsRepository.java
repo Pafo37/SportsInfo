@@ -10,4 +10,6 @@ public interface AllEventsRepository {
 
     void deleteAllEvent(AllEventsModel allEventsModel);
 
+    void getAllEvents();
+
 }
