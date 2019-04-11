@@ -13,10 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class BaseFragment<V extends ViewModel> extends Fragment {
+public abstract class BaseFragment<V extends ViewModel,B extends ViewDataBinding> extends Fragment {
 
-    private ViewModel viewModel;
-    private ViewDataBinding binding;
+    private V viewModel;
+    private B binding;
 
     @Nullable
     @Override

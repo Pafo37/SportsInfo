@@ -1,9 +1,10 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.tvevents;
 
 import com.pavelkovachev.sportsinfo.R;
+import com.pavelkovachev.sportsinfo.databinding.FragmentTvEventsBinding;
 import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
-public class TvEventsFragment extends BaseFragment {
+public class TvEventsFragment extends BaseFragment<TvEventsViewModel, FragmentTvEventsBinding> {
 
     @Override
     protected int getLayoutResId() {
