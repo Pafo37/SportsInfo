@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.ui.viewmodel.base;
+package com.pavelkovachev.sportsinfo.ui.fragment.base;
 
 import android.arch.lifecycle.ViewModel;
 
