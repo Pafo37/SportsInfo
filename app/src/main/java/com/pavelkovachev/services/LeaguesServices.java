@@ -7,11 +7,18 @@ import com.pavelkovachev.sportsinfo.persistence.model.leagues.LeaguesRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import io.reactivex.Single;
+
+@Singleton
 public class LeaguesServices implements LeaguesRepository {
 
     private final LeaguesModelDao leaguesModelDao;
     private final AppExecutor executor;
 
+    @Inject
     public LeaguesServices(final LeaguesModelDao leaguesModelDao,
                            final AppExecutor executor) {
         this.leaguesModelDao = leaguesModelDao;
@@ -34,7 +41,7 @@ public class LeaguesServices implements LeaguesRepository {
     }
 
     @Override
-    public void getAllLeagues() {
-
+    public Single<List<LeaguesModel>> getAllLeagues() {
+        return leaguesModelDao.getAllLeagues();
     }
 }

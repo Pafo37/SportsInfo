@@ -2,6 +2,8 @@ package com.pavelkovachev.sportsinfo.persistence.model.leagues;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public interface LeaguesRepository {
 
     void insertLeagues(List<LeaguesModel> leaguesModelList);
@@ -10,6 +12,6 @@ public interface LeaguesRepository {
 
     void deleteLeague(LeaguesModel leaguesModel);
 
-    void getAllLeagues();
+    Single<List<LeaguesModel>> getAllLeagues();
 
 }

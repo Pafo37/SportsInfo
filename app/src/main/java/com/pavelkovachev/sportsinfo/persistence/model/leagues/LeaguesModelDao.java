@@ -12,7 +12,7 @@ import io.reactivex.Single;
 @Dao
 public interface LeaguesModelDao {
 
-    @Query("SELECT * from LeaguesModel")
+    @Query("SELECT * FROM LeaguesModel")
     Single<List<LeaguesModel>> getAllLeagues();
 
     @Insert
