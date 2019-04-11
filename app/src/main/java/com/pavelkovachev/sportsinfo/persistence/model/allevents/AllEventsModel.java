@@ -64,4 +64,36 @@ public class AllEventsModel {
     public String getAllEventsAwayTeamScore() {
         return allEventsAwayTeamScore;
     }
+
+    public void setAllEventsId(int allEventsId) {
+        this.allEventsId = allEventsId;
+    }
+
+    public void setAllEventsSport(String allEventsSport) {
+        this.allEventsSport = allEventsSport;
+    }
+
+    public void setAllEventsLeague(String allEventsLeague) {
+        this.allEventsLeague = allEventsLeague;
+    }
+
+    public void setAllEventsDate(String allEventsDate) {
+        this.allEventsDate = allEventsDate;
+    }
+
+    public void setAllEventsHomeTeamName(String allEventsHomeTeamName) {
+        this.allEventsHomeTeamName = allEventsHomeTeamName;
+    }
+
+    public void setAllEventsAwayTeamName(String allEventsAwayTeamName) {
+        this.allEventsAwayTeamName = allEventsAwayTeamName;
+    }
+
+    public void setAllEventsHomeTeamScore(String allEventsHomeTeamScore) {
+        this.allEventsHomeTeamScore = allEventsHomeTeamScore;
+    }
+
+    public void setAllEventsAwayTeamScore(String allEventsAwayTeamScore) {
+        this.allEventsAwayTeamScore = allEventsAwayTeamScore;
+    }
 }

@@ -36,4 +36,20 @@ public class SportsModel {
     public String getSportDescription() {
         return sportDescription;
     }
+
+    public void setSportId(int sportId) {
+        this.sportId = sportId;
+    }
+
+    public void setSportName(String sportName) {
+        this.sportName = sportName;
+    }
+
+    public void setSportImage(String sportImage) {
+        this.sportImage = sportImage;
+    }
+
+    public void setSportDescription(String sportDescription) {
+        this.sportDescription = sportDescription;
+    }
 }

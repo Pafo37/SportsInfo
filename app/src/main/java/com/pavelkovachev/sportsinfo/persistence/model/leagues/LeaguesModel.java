@@ -29,4 +29,16 @@ public class LeaguesModel {
     public String getLeagueSport() {
         return leagueSport;
     }
+
+    public void setLeagueId(int leagueId) {
+        this.leagueId = leagueId;
+    }
+
+    public void setLeagueName(String leagueName) {
+        this.leagueName = leagueName;
+    }
+
+    public void setLeagueSport(String leagueSport) {
+        this.leagueSport = leagueSport;
+    }
 }

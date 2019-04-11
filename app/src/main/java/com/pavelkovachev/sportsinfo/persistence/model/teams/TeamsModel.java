@@ -12,22 +12,22 @@ public class TeamsModel {
     @PrimaryKey
     private int teamId;
 
-    @ColumnInfo(name = "league_name")
+    @ColumnInfo(name = "team_name")
     private String teamName;
 
-    @ColumnInfo(name = "league_name")
+    @ColumnInfo(name = "team_league_name")
     private String teamLeagueName;
 
-    @ColumnInfo(name = "league_logo")
+    @ColumnInfo(name = "team_logo")
     private String teamLogo;
 
-    @ColumnInfo(name = "league_country")
+    @ColumnInfo(name = "team_country")
     private String teamCountry;
 
-    @ColumnInfo(name = "league_year_formed")
+    @ColumnInfo(name = "team_year_formed")
     private String teamYearFormed;
 
-    @ColumnInfo(name = "league_description")
+    @ColumnInfo(name = "tea_description")
     private String teamDescription;
 
     public int getTeamId() {
@@ -44,6 +44,34 @@ public class TeamsModel {
 
     public String getTeamLogo() {
         return teamLogo;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public void setTeamLeagueName(String teamLeagueName) {
+        this.teamLeagueName = teamLeagueName;
+    }
+
+    public void setTeamLogo(String teamLogo) {
+        this.teamLogo = teamLogo;
+    }
+
+    public void setTeamCountry(String teamCountry) {
+        this.teamCountry = teamCountry;
+    }
+
+    public void setTeamYearFormed(String teamYearFormed) {
+        this.teamYearFormed = teamYearFormed;
+    }
+
+    public void setTeamDescription(String teamDescription) {
+        this.teamDescription = teamDescription;
     }
 
     public String getTeamCountry() {

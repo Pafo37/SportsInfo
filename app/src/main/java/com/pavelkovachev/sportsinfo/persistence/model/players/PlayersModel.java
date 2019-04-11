@@ -64,4 +64,36 @@ public class PlayersModel {
     public String getPlayerDescription() {
         return playerDescription;
     }
+
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public void setPlayerNationality(String playerNationality) {
+        this.playerNationality = playerNationality;
+    }
+
+    public void setPlayerTeamName(String playerTeamName) {
+        this.playerTeamName = playerTeamName;
+    }
+
+    public void setPlayerHeight(String playerHeight) {
+        this.playerHeight = playerHeight;
+    }
+
+    public void setPlayerDateBorn(String playerDateBorn) {
+        this.playerDateBorn = playerDateBorn;
+    }
+
+    public void setPlayerBirthplace(String playerBirthplace) {
+        this.playerBirthplace = playerBirthplace;
+    }
+
+    public void setPlayerDescription(String playerDescription) {
+        this.playerDescription = playerDescription;
+    }
 }

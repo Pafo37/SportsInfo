@@ -57,4 +57,32 @@ public class TvEventsModel {
     public String getTvEventChannel() {
         return tvEventChannel;
     }
+
+    public void setTvEventId(int tvEventId) {
+        this.tvEventId = tvEventId;
+    }
+
+    public void setTvEventName(String tvEventName) {
+        this.tvEventName = tvEventName;
+    }
+
+    public void setTvEventDate(String tvEventDate) {
+        this.tvEventDate = tvEventDate;
+    }
+
+    public void setTvEventTime(String tvEventTime) {
+        this.tvEventTime = tvEventTime;
+    }
+
+    public void setTvEventSport(String tvEventSport) {
+        this.tvEventSport = tvEventSport;
+    }
+
+    public void setTvEventLogo(String tvEventLogo) {
+        this.tvEventLogo = tvEventLogo;
+    }
+
+    public void setTvEventChannel(String tvEventChannel) {
+        this.tvEventChannel = tvEventChannel;
+    }
 }

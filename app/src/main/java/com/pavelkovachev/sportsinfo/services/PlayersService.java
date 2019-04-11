@@ -1,4 +1,4 @@
-package com.pavelkovachev.services;
+package com.pavelkovachev.sportsinfo.services;
 
 import com.pavelkovachev.sportsinfo.AppExecutor;
 import com.pavelkovachev.sportsinfo.persistence.model.players.PlayersModel;
