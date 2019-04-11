@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 public abstract class BaseFragment<V extends ViewModel> extends Fragment {
 
     private ViewModel viewModel;
-    protected ViewDataBinding binding;
+    private ViewDataBinding binding;
 
     @Nullable
     @Override
