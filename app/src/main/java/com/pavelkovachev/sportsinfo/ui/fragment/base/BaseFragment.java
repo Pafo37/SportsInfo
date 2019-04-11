@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.ui.fragment;
+package com.pavelkovachev.sportsinfo.ui.fragment.base;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
@@ -13,22 +13,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class BaseFragment<V extends ViewModel> extends Fragment {
+public abstract class BaseFragment<V extends ViewModel,B extends ViewDataBinding> extends Fragment {
 
-    protected ViewModel viewModel;
-    protected ViewModel viewModelProvide;
+    private V viewModel;
+    private B binding;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = DataBindingUtil.inflate(inflater, getLayoutResId(), container, false);
+        return binding.getRoot();
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(getViewModel());
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewDataBinding binding = DataBindingUtil.inflate(inflater, getLayoutResId(), container, false);
-        return binding.getRoot();
     }
 
     @LayoutRes

@@ -1,9 +1,10 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.allevents;
 
 import com.pavelkovachev.sportsinfo.R;
-import com.pavelkovachev.sportsinfo.ui.fragment.BaseFragment;
+import com.pavelkovachev.sportsinfo.databinding.FragmentAllEventsBinding;
+import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
-public class AllEventsFragment extends BaseFragment {
+public class AllEventsFragment extends BaseFragment<AllEventsViewModel, FragmentAllEventsBinding> {
 
     @Override
     protected int getLayoutResId() {

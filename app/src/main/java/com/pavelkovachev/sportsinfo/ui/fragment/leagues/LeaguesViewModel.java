@@ -1,10 +1,11 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.leagues;
 
+
 import android.util.Log;
 
 import com.pavelkovachev.sportsinfo.persistence.model.leagues.LeaguesModel;
 import com.pavelkovachev.sportsinfo.services.LeaguesServices;
-import com.pavelkovachev.sportsinfo.ui.BaseViewModel;
+import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseViewModel;
 
 import java.util.List;
 
@@ -36,6 +37,4 @@ public class LeaguesViewModel extends BaseViewModel {
             }
         });
     }
-
-
 }

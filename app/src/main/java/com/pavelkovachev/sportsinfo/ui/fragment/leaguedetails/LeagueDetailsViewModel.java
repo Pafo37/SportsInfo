@@ -1,4 +1,7 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.leaguedetails;
 
-public class LeagueDetailsViewModel {
+import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseViewModel;
+
+public class LeagueDetailsViewModel extends BaseViewModel {
+
 }
