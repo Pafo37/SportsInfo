@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.ui.fragment;
+package com.pavelkovachev.sportsinfo.ui.fragment.tvevents;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 
 import com.pavelkovachev.sportsinfo.R;
 
-public class LeagueDetailsFragment extends Fragment {
+public class TvEventsFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_league_details, container, false);
+        return inflater.inflate(R.layout.fragment_tv_events, container, false);
     }
 }

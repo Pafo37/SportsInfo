@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.ui.fragment;
+package com.pavelkovachev.sportsinfo.ui.fragment.homescreen;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
