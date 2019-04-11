@@ -1,66 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.applandeo.materialcalendarview.CalendarView
-        android:id="@+id/calendar_view"
-        android:layout_width="@dimen/no_dimens"
-        android:layout_height="@dimen/calendar_height"
-        app:headerColor="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@id/txt_radio_button_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <TextView
-        android:id="@+id/txt_radio_button_description"
-        android:layout_width="@dimen/no_dimens"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_between_elements_events"
-        android:text="@string/select_event_type"
-        android:textSize="@dimen/material_design_heading_txt_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calendar_view" />
+    </data>
 
-    <RadioGroup
-        android:layout_width="@dimen/no_dimens"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_between_elements_events"
-        android:checkedButton="@+id/radio_btn_tv_events"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_radio_button_description">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
-        <RadioButton
-            android:id="@+id/radio_btn_tv_events"
+        <com.applandeo.materialcalendarview.CalendarView
+            android:id="@+id/calendar_view"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="@dimen/calendar_height"
+            app:headerColor="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@id/txt_radio_button_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_radio_button_description"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_between_elements_events"
+            android:text="@string/select_event_type"
+            android:textSize="@dimen/material_design_heading_txt_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendar_view" />
+
+        <RadioGroup
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_between_elements_events"
+            android:checkedButton="@+id/radio_btn_tv_events"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_radio_button_description">
+
+            <RadioButton
+                android:id="@+id/radio_btn_tv_events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_margin_between_elements"
+                android:text="@string/tv_events"
+                android:textSize="@dimen/material_design_subheading_txt_size" />
+
+            <RadioButton
+                android:id="@+id/radio_btn_all_events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_margin_between_elements"
+                android:text="@string/all_events"
+                android:textSize="@dimen/material_design_subheading_txt_size" />
+        </RadioGroup>
+
+        <android.support.design.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/default_margin_between_elements"
-            android:text="@string/tv_events"
-            android:textSize="@dimen/material_design_subheading_txt_size" />
+            android:layout_marginEnd="@dimen/homescreen_cardview_corner_radius"
+            android:layout_marginRight="@dimen/homescreen_cardview_corner_radius"
+            android:layout_marginBottom="@dimen/default_margin_between_elements"
+            android:text="@string/search_events"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <RadioButton
-            android:id="@+id/radio_btn_all_events"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/default_margin_between_elements"
-            android:text="@string/all_events"
-            android:textSize="@dimen/material_design_subheading_txt_size" />
-    </RadioGroup>
-
-    <android.support.design.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/homescreen_cardview_corner_radius"
-        android:layout_marginRight="@dimen/homescreen_cardview_corner_radius"
-        android:layout_marginBottom="@dimen/default_margin_between_elements"
-        android:text="@string/search_events"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

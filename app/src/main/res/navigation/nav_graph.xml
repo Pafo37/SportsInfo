@@ -7,8 +7,75 @@
 
     <fragment
         android:id="@+id/homescreen_fragment"
-        android:name="com.pavelkovachev.sportsinfo.ui.fragment.HomeScreenFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.homescreen.HomeScreenFragment"
         android:label="fragment_homescreen"
-        tools:layout="@layout/fragment_homescreen" />
+        tools:layout="@layout/fragment_homescreen">
+        <action
+            android:id="@+id/action_homescreen_fragment_to_leaguesFragment"
+            app:destination="@id/leaguesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leaguesFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.leagues.LeaguesFragment"
+        android:label="LeaguesFragment"
+        tools:layout="@layout/fragment_leagues">
+        <action
+            android:id="@+id/action_leaguesFragment_to_leagueDetailsFragment"
+            app:destination="@id/leagueDetailsFragment" />
+        <action
+            android:id="@+id/action_leaguesFragment_to_teamsFragment"
+            app:destination="@id/teamsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leagueDetailsFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.leaguedetails.LeagueDetailsFragment"
+        android:label="LeagueDetailsFragment"
+        tools:layout="@layout/fragment_league_details" />
+    <fragment
+        android:id="@+id/teamsFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.teams.TeamsFragment"
+        android:label="TeamsFragment"
+        tools:layout="@layout/fragment_teams">
+        <action
+            android:id="@+id/action_teamsFragment_to_teamDetailsFragment"
+            app:destination="@id/teamDetailsFragment" />
+        <action
+            android:id="@+id/action_teamsFragment_to_playersFragment"
+            app:destination="@id/playersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailsFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.teamdetails.TeamDetailsFragment"
+        android:label="TeamDetailsFragment"
+        tools:layout="@layout/fragment_team_details" />
+    <fragment
+        android:id="@+id/playersFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.players.PlayersFragment"
+        android:label="PlayersFragment"
+        tools:layout="@layout/fragment_players">
+        <action
+            android:id="@+id/action_playersFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerDetailsFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.playerdetails.PlayerDetailsFragment"
+        android:label="PlayerDetailsFragment"
+        tools:layout="@layout/fragment_player_details" />
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.events.EventsFragment"
+        android:label="EventsFragment"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/tvEventsFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.tvevents.TvEventsFragment"
+        android:label="TvEventsFragment"
+        tools:layout="@layout/fragment_tv_events" />
+    <fragment
+        android:id="@+id/allEventsFragment"
+        android:name="com.pavelkovachev.sportsinfo.ui.fragment.allevents.AllEventsFragment"
+        android:label="AllEventsFragment"
+        tools:layout="@layout/fragment_all_events" />
 
 </navigation>
