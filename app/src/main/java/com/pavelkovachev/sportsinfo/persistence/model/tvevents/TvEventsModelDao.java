@@ -12,7 +12,7 @@ import io.reactivex.Single;
 @Dao
 public interface TvEventsModelDao {
 
-    @Query("SELECT * from TvEventsModel")
+    @Query("SELECT * FROM TvEventsModel")
     Single<List<TvEventsModel>> getAllTvEvents();
 
     @Insert
