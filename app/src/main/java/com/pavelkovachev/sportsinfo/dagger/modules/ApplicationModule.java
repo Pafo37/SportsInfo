@@ -10,7 +10,6 @@ import java.util.concurrent.Executors;
 import dagger.Module;
 import dagger.Provides;
 
-
 @Module
 public class ApplicationModule {
 

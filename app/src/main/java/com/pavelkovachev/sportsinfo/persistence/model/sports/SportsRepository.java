@@ -2,6 +2,8 @@ package com.pavelkovachev.sportsinfo.persistence.model.sports;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public interface SportsRepository {
 
     void insertSports(List<SportsModel> sportsModelList);
@@ -10,6 +12,6 @@ public interface SportsRepository {
 
     void deleteSport(SportsModel sportsModel);
 
-    void getAllSports();
+    Single<List<SportsModel>> getAllSports();
 
 }

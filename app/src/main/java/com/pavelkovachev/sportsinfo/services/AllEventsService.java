@@ -7,6 +7,8 @@ import com.pavelkovachev.sportsinfo.persistence.model.allevents.AllEventsReposit
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public class AllEventsService implements AllEventsRepository {
 
     private final AllEventsModelDao allEventsModelDao;
@@ -34,7 +36,7 @@ public class AllEventsService implements AllEventsRepository {
     }
 
     @Override
-    public void getAllEvents() {
-
+    public Single<List<AllEventsModel>> getAllEvents() {
+        return allEventsModelDao.getAllEvents();
     }
 }

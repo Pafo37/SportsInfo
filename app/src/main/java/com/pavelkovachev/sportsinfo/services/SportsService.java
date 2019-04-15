@@ -7,6 +7,8 @@ import com.pavelkovachev.sportsinfo.persistence.model.sports.SportsRepository;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public class SportsService implements SportsRepository {
 
     private final SportsModelDao sportsModelDao;
@@ -33,7 +35,7 @@ public class SportsService implements SportsRepository {
     }
 
     @Override
-    public void getAllSports() {
-
+    public Single<List<SportsModel>> getAllSports() {
+        return sportsModelDao.getAllSports();
     }
 }

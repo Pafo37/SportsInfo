@@ -1,20 +1,18 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.tvevents;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.pavelkovachev.sportsinfo.R;
+import com.pavelkovachev.sportsinfo.databinding.FragmentTvEventsBinding;
+import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
-public class TvEventsFragment extends Fragment {
+public class TvEventsFragment extends BaseFragment<TvEventsViewModel, FragmentTvEventsBinding> {
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tv_events, container, false);
+    protected int getLayoutResId() {
+        return R.layout.fragment_tv_events;
+    }
+
+    @Override
+    protected Class<TvEventsViewModel> getViewModel() {
+        return TvEventsViewModel.class;
     }
 }

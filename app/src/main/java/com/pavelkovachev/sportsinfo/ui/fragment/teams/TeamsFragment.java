@@ -1,20 +1,18 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.teams;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.pavelkovachev.sportsinfo.R;
+import com.pavelkovachev.sportsinfo.databinding.FragmentTeamsBinding;
+import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
-public class TeamsFragment extends Fragment {
+public class TeamsFragment extends BaseFragment<TeamsViewModel, FragmentTeamsBinding> {
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_teams, container, false);
+    protected int getLayoutResId() {
+        return R.layout.fragment_teams;
+    }
+
+    @Override
+    protected Class<TeamsViewModel> getViewModel() {
+        return TeamsViewModel.class;
     }
 }

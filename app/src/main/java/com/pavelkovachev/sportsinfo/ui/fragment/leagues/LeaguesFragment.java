@@ -3,18 +3,26 @@ package com.pavelkovachev.sportsinfo.ui.fragment.leagues;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.pavelkovachev.sportsinfo.R;
+import com.pavelkovachev.sportsinfo.databinding.FragmentLeaguesBinding;
+import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
-public class LeaguesFragment extends Fragment {
+public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeaguesBinding> {
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.item_leagues, container, false);
+    protected int getLayoutResId() {
+        return R.layout.fragment_leagues;
+    }
+
+    @Override
+    protected Class<LeaguesViewModel> getViewModel() {
+        return LeaguesViewModel.class;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 }

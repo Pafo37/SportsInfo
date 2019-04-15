@@ -1,20 +1,18 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.homescreen;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.pavelkovachev.sportsinfo.R;
+import com.pavelkovachev.sportsinfo.databinding.FragmentHomescreenBinding;
+import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
-public class HomeScreenFragment extends Fragment {
+public class HomeScreenFragment extends BaseFragment<HomeScreenViewModel, FragmentHomescreenBinding> {
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_homescreen, container, false);
+    protected int getLayoutResId() {
+        return R.layout.fragment_homescreen;
+    }
+
+    @Override
+    protected Class<HomeScreenViewModel> getViewModel() {
+        return HomeScreenViewModel.class;
     }
 }

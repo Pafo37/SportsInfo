@@ -7,6 +7,8 @@ import com.pavelkovachev.sportsinfo.persistence.model.teams.TeamsRepository;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public class TeamsService implements TeamsRepository {
 
     private final TeamsModelDao teamsModelDao;
@@ -33,7 +35,7 @@ public class TeamsService implements TeamsRepository {
     }
 
     @Override
-    public void getAllTeams() {
-
+    public Single<List<TeamsModel>> getAllTeams() {
+        return teamsModelDao.getAllTeams();
     }
 }

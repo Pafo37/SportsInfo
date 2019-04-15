@@ -2,6 +2,8 @@ package com.pavelkovachev.sportsinfo.persistence.model.tvevents;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public interface TvEventsRepository {
 
     void insertTvEvents(List<TvEventsModel> tvEventsModelList);
@@ -10,6 +12,6 @@ public interface TvEventsRepository {
 
     void deleteTvEvent(TvEventsModel tvEventsModel);
 
-    void getAllTvEvents();
+    Single<List<TvEventsModel>> getAllTvEvents();
 
 }

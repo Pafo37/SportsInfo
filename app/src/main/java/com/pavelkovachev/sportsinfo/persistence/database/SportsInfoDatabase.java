@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.persistence;
+package com.pavelkovachev.sportsinfo.persistence.database;
 
 
 import android.arch.persistence.room.Database;
@@ -17,8 +17,13 @@ import com.pavelkovachev.sportsinfo.persistence.model.teams.TeamsModelDao;
 import com.pavelkovachev.sportsinfo.persistence.model.tvevents.TvEventsModel;
 import com.pavelkovachev.sportsinfo.persistence.model.tvevents.TvEventsModelDao;
 
-@Database(entities = {AllEventsModel.class, LeaguesModel.class, PlayersModel.class,
-        SportsModel.class, TeamsModel.class, TvEventsModel.class}, version = 1, exportSchema = false)
+@Database(entities = {
+        AllEventsModel.class,
+        LeaguesModel.class,
+        PlayersModel.class,
+        SportsModel.class,
+        TeamsModel.class,
+        TvEventsModel.class}, version = 1, exportSchema = false)
 public abstract class SportsInfoDatabase extends RoomDatabase {
 
     public abstract AllEventsModelDao allEventsModelDao();

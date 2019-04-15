@@ -7,6 +7,8 @@ import com.pavelkovachev.sportsinfo.persistence.model.players.PlayersRepository;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public class PlayersService implements PlayersRepository {
 
     private final PlayersModelDao playersModelDao;
@@ -34,7 +36,7 @@ public class PlayersService implements PlayersRepository {
     }
 
     @Override
-    public void getAllPlayers() {
-
+    public Single<List<PlayersModel>> getAllPlayers() {
+        return playersModelDao.getAllPlayers();
     }
 }

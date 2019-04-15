@@ -2,6 +2,8 @@ package com.pavelkovachev.sportsinfo.persistence.model.allevents;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public interface AllEventsRepository {
 
     void insertAllEvents(List<AllEventsModel> allEventsModelList);
@@ -10,6 +12,6 @@ public interface AllEventsRepository {
 
     void deleteAllEvent(AllEventsModel allEventsModel);
 
-    void getAllEvents();
+    Single<List<AllEventsModel>> getAllEvents();
 
 }

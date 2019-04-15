@@ -2,6 +2,8 @@ package com.pavelkovachev.sportsinfo.persistence.model.players;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public interface PlayersRepository {
 
     void insertPlayers(List<PlayersModel> playersModelList);
@@ -10,6 +12,6 @@ public interface PlayersRepository {
 
     void deletePlayer(PlayersModel playersModel);
 
-    void getAllPlayers();
+    Single<List<PlayersModel>> getAllPlayers();
 
 }

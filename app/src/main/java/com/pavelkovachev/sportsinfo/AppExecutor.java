@@ -2,7 +2,6 @@ package com.pavelkovachev.sportsinfo;
 
 import java.util.concurrent.Executor;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton

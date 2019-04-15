@@ -7,6 +7,8 @@ import com.pavelkovachev.sportsinfo.persistence.model.tvevents.TvEventsRepositor
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public class TvEventsService implements TvEventsRepository {
 
     private final TvEventsModelDao tvEventsModelDao;
@@ -33,7 +35,7 @@ public class TvEventsService implements TvEventsRepository {
     }
 
     @Override
-    public void getAllTvEvents() {
-
+    public Single<List<TvEventsModel>> getAllTvEvents() {
+        return tvEventsModelDao.getAllTvEvents();
     }
 }
