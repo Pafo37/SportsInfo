@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.persistence.model.players;
+package com.pavelkovachev.sportsinfo.persistence.model.player;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity
-public class PlayersModel {
+public class PlayerModel {
 
     @NonNull
     @PrimaryKey
