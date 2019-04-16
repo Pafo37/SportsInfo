@@ -6,6 +6,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
     defaultConfig {
         applicationId "com.pavelkovachev.sportsinfo"
         minSdkVersion 16
@@ -26,6 +29,12 @@ android {
     }
 }
 
+ext {
+    room_version = '1.1.1'
+    dagger_version = '2.21'
+    viewmodel_version = '1.1.1'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -42,7 +51,23 @@ dependencies {
     //Material-Calendar-View
     implementation 'com.applandeo:material-calendar-view:1.5.1'
 
+    //Room
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxjava:2.2.8"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
+
+    //Dagger2
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
     //ViewModel
-    implementation "android.arch.lifecycle:extensions:1.1.0"
-    implementation "android.arch.lifecycle:viewmodel:1.1.0"
+    implementation "android.arch.lifecycle:extensions:$viewmodel_version"
+    implementation "android.arch.lifecycle:viewmodel:$viewmodel_version"
 }

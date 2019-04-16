@@ -13,10 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class BaseFragment<V extends ViewModel,B extends ViewDataBinding> extends Fragment {
+import com.pavelkovachev.sportsinfo.dagger.ViewModelFactory;
 
-    private V viewModel;
+import javax.inject.Inject;
+
+import dagger.android.support.AndroidSupportInjection;
+
+public abstract class BaseFragment<V extends ViewModel, B extends ViewDataBinding> extends Fragment {
+
+    protected V viewModel;
     private B binding;
+
+    @Inject
+    ViewModelFactory viewModelFactory;
 
     @Nullable
     @Override
@@ -27,8 +36,9 @@ public abstract class BaseFragment<V extends ViewModel,B extends ViewDataBinding
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        AndroidSupportInjection.inject(this);
         super.onCreate(savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(getViewModel());
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModel());
     }
 
     @LayoutRes

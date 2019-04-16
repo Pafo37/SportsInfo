@@ -4,7 +4,7 @@ import com.pavelkovachev.sportsinfo.R;
 import com.pavelkovachev.sportsinfo.databinding.FragmentTeamDetailsBinding;
 import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
-public class TeamDetailsFragment extends BaseFragment<TeamDetailViewModel, FragmentTeamDetailsBinding> {
+public class TeamDetailsFragment extends BaseFragment<TeamDetailsViewModel, FragmentTeamDetailsBinding> {
 
     @Override
     protected int getLayoutResId() {
@@ -12,7 +12,7 @@ public class TeamDetailsFragment extends BaseFragment<TeamDetailViewModel, Fragm
     }
 
     @Override
-    protected Class<TeamDetailViewModel> getViewModel() {
-        return TeamDetailViewModel.class;
+    protected Class<TeamDetailsViewModel> getViewModel() {
+        return TeamDetailsViewModel.class;
     }
 }
