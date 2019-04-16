@@ -30,6 +30,17 @@ public class TeamModel {
     @ColumnInfo(name = "tea_description")
     private String teamDescription;
 
+    public TeamModel(int teamId, String teamName, String teamLeagueName, String teamLogo,
+                     String teamCountry, String teamYearFormed, String teamDescription) {
+        this.teamId = teamId;
+        this.teamName = teamName;
+        this.teamLeagueName = teamLeagueName;
+        this.teamLogo = teamLogo;
+        this.teamCountry = teamCountry;
+        this.teamYearFormed = teamYearFormed;
+        this.teamDescription = teamDescription;
+    }
+
     public int getTeamId() {
         return teamId;
     }

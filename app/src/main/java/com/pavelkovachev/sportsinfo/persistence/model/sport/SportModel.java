@@ -21,6 +21,13 @@ public class SportModel {
     @ColumnInfo(name = "sport_description")
     private String sportDescription;
 
+    public SportModel(int sportId, String sportName, String sportImage, String sportDescription) {
+        this.sportId = sportId;
+        this.sportName = sportName;
+        this.sportImage = sportImage;
+        this.sportDescription = sportDescription;
+    }
+
     public int getSportId() {
         return sportId;
     }

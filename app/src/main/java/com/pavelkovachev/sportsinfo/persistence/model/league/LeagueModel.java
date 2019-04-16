@@ -18,6 +18,12 @@ public class LeagueModel {
     @ColumnInfo(name = "league_sport")
     private String leagueSport;
 
+    public LeagueModel(int leagueId, String leagueName, String leagueSport) {
+        this.leagueId = leagueId;
+        this.leagueName = leagueName;
+        this.leagueSport = leagueSport;
+    }
+
     public int getLeagueId() {
         return leagueId;
     }

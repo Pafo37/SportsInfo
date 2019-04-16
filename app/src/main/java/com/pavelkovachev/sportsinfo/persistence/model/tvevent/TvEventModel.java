@@ -30,6 +30,17 @@ public class TvEventModel {
     @ColumnInfo(name = "tv_event_channel")
     private String tvEventChannel;
 
+    public TvEventModel(int tvEventId, String tvEventName, String tvEventDate, String tvEventTime,
+                        String tvEventSport, String tvEventLogo, String tvEventChannel) {
+        this.tvEventId = tvEventId;
+        this.tvEventName = tvEventName;
+        this.tvEventDate = tvEventDate;
+        this.tvEventTime = tvEventTime;
+        this.tvEventSport = tvEventSport;
+        this.tvEventLogo = tvEventLogo;
+        this.tvEventChannel = tvEventChannel;
+    }
+
     public int getTvEventId() {
         return tvEventId;
     }

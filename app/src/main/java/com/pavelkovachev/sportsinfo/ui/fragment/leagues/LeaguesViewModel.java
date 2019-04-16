@@ -7,10 +7,7 @@ import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseViewModel;
 import javax.inject.Inject;
 
 public class LeaguesViewModel extends BaseViewModel {
-
-    @Inject
-    LeagueServices leaguesServices;
-
+    
     @Inject
     public LeaguesViewModel() {
     }
