@@ -10,9 +10,6 @@ public class LeaguesResponse {
     private String strLeague;
     @SerializedName("strSport")
     private String strSport;
-    @SerializedName("strLeagueAlternate")
-    private String strLeagueAlternate;
-
     public String getIdLeague() {
         return idLeague;
     }
@@ -35,14 +32,6 @@ public class LeaguesResponse {
 
     public void setStrSport(String strSport) {
         this.strSport = strSport;
-    }
-
-    public String getStrLeagueAlternate() {
-        return strLeagueAlternate;
-    }
-
-    public void setStrLeagueAlternate(String strLeagueAlternate) {
-        this.strLeagueAlternate = strLeagueAlternate;
     }
 
 }

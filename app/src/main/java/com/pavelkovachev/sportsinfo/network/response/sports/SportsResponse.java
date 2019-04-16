@@ -44,5 +44,4 @@ public class SportsResponse {
     public void setStrSportDescription(String strSportDescription) {
         this.strSportDescription = strSportDescription;
     }
-
 }
