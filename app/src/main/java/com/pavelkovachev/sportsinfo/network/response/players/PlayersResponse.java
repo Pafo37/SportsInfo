@@ -124,5 +124,4 @@ public class PlayersResponse {
     public void setStrThumb(String strThumb) {
         this.strThumb = strThumb;
     }
-
 }

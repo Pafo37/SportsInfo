@@ -94,5 +94,4 @@ public class TeamsResponse {
     public void setStrTeamLogo(String strTeamLogo) {
         this.strTeamLogo = strTeamLogo;
     }
-
 }

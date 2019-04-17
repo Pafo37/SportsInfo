@@ -33,5 +33,4 @@ public class LeaguesResponse {
     public void setStrSport(String strSport) {
         this.strSport = strSport;
     }
-
 }
