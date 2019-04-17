@@ -16,7 +16,6 @@ import retrofit2.Retrofit;
 public class ApiService extends BaseService {
 
     private static final int DEFAULT_TIMEOUT = 60;
-    private static final Object LOCK = new Object();
     private SportsInfoApi sportsInfoApi;
 
     @Inject
@@ -34,12 +33,8 @@ public class ApiService extends BaseService {
     }
 
     SportsInfoApi getSportsInfoApi() {
-        if (sportsInfoApi == null) {
-            synchronized (LOCK) {
-                Retrofit retrofit = initRetrofit(BuildConfig.BASE_URL, createOkHttp());
-                sportsInfoApi = retrofit.create(SportsInfoApi.class);
-            }
-        }
+        Retrofit retrofit = initRetrofit(BuildConfig.BASE_URL, createOkHttp());
+        sportsInfoApi = retrofit.create(SportsInfoApi.class);
         return sportsInfoApi;
     }
 }
