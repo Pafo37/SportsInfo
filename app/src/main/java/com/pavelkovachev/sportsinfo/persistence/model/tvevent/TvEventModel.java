@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.persistence.model.tvevents;
+package com.pavelkovachev.sportsinfo.persistence.model.tvevent;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity
-public class TvEventsModel {
+public class TvEventModel {
 
     @NonNull
     @PrimaryKey
@@ -29,6 +29,17 @@ public class TvEventsModel {
 
     @ColumnInfo(name = "tv_event_channel")
     private String tvEventChannel;
+
+    public TvEventModel(int tvEventId, String tvEventName, String tvEventDate, String tvEventTime,
+                        String tvEventSport, String tvEventLogo, String tvEventChannel) {
+        this.tvEventId = tvEventId;
+        this.tvEventName = tvEventName;
+        this.tvEventDate = tvEventDate;
+        this.tvEventTime = tvEventTime;
+        this.tvEventSport = tvEventSport;
+        this.tvEventLogo = tvEventLogo;
+        this.tvEventChannel = tvEventChannel;
+    }
 
     public int getTvEventId() {
         return tvEventId;

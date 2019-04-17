@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.persistence.model.allevents;
+package com.pavelkovachev.sportsinfo.persistence.model.event;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity
-public class AllEventsModel {
+public class EventModel {
 
     @NonNull
     @PrimaryKey
@@ -32,6 +32,19 @@ public class AllEventsModel {
 
     @ColumnInfo(name = "all_events_away_team_score")
     private String allEventsAwayTeamScore;
+
+    public EventModel(int allEventsId, String allEventsSport, String allEventsLeague,
+                      String allEventsDate, String allEventsHomeTeamName, String allEventsAwayTeamName,
+                      String allEventsHomeTeamScore, String allEventsAwayTeamScore) {
+        this.allEventsId = allEventsId;
+        this.allEventsSport = allEventsSport;
+        this.allEventsLeague = allEventsLeague;
+        this.allEventsDate = allEventsDate;
+        this.allEventsHomeTeamName = allEventsHomeTeamName;
+        this.allEventsAwayTeamName = allEventsAwayTeamName;
+        this.allEventsHomeTeamScore = allEventsHomeTeamScore;
+        this.allEventsAwayTeamScore = allEventsAwayTeamScore;
+    }
 
     public int getAllEventsId() {
         return allEventsId;

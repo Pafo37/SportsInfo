@@ -1,4 +1,4 @@
-package com.pavelkovachev.sportsinfo.persistence.model.leagues;
+package com.pavelkovachev.sportsinfo.persistence.model.league;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity
-public class LeaguesModel {
+public class LeagueModel {
 
     @NonNull
     @PrimaryKey
@@ -17,6 +17,12 @@ public class LeaguesModel {
 
     @ColumnInfo(name = "league_sport")
     private String leagueSport;
+
+    public LeagueModel(int leagueId, String leagueName, String leagueSport) {
+        this.leagueId = leagueId;
+        this.leagueName = leagueName;
+        this.leagueSport = leagueSport;
+    }
 
     public int getLeagueId() {
         return leagueId;

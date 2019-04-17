@@ -4,12 +4,12 @@ import android.app.Application;
 import android.arch.persistence.room.Room;
 
 import com.pavelkovachev.sportsinfo.persistence.database.SportsInfoDatabase;
-import com.pavelkovachev.sportsinfo.persistence.model.allevents.AllEventsModelDao;
-import com.pavelkovachev.sportsinfo.persistence.model.leagues.LeaguesModelDao;
-import com.pavelkovachev.sportsinfo.persistence.model.players.PlayersModelDao;
-import com.pavelkovachev.sportsinfo.persistence.model.sports.SportsModelDao;
-import com.pavelkovachev.sportsinfo.persistence.model.teams.TeamsModelDao;
-import com.pavelkovachev.sportsinfo.persistence.model.tvevents.TvEventsModelDao;
+import com.pavelkovachev.sportsinfo.persistence.model.event.EventModelDao;
+import com.pavelkovachev.sportsinfo.persistence.model.league.LeagueModelDao;
+import com.pavelkovachev.sportsinfo.persistence.model.player.PlayerModelDao;
+import com.pavelkovachev.sportsinfo.persistence.model.sport.SportModelDao;
+import com.pavelkovachev.sportsinfo.persistence.model.team.TeamModelDao;
+import com.pavelkovachev.sportsinfo.persistence.model.tvevent.TvEventModelDao;
 
 import dagger.Module;
 import dagger.Provides;
@@ -29,32 +29,32 @@ public class RoomModule {
     }
 
     @Provides
-    AllEventsModelDao providesAllEventsDao() {
+    EventModelDao providesAllEventsDao() {
         return database.allEventsModelDao();
     }
 
     @Provides
-    LeaguesModelDao providesLeaguesModelDao() {
+    LeagueModelDao providesLeaguesModelDao() {
         return database.leaguesModelDao();
     }
 
     @Provides
-    PlayersModelDao providesPlayersModelDao() {
+    PlayerModelDao providesPlayersModelDao() {
         return database.playersModelDao();
     }
 
     @Provides
-    SportsModelDao providesSportsModelDao() {
+    SportModelDao providesSportsModelDao() {
         return database.sportsModelDao();
     }
 
     @Provides
-    TeamsModelDao providesTeamsModelDao() {
+    TeamModelDao providesTeamsModelDao() {
         return database.teamsModelDao();
     }
 
     @Provides
-    TvEventsModelDao providesTvEventsModelDao() {
+    TvEventModelDao providesTvEventsModelDao() {
         return database.tvEventsModelDao();
     }
 }
