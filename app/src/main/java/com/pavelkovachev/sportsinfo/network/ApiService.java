@@ -6,14 +6,23 @@ import com.readystatesoftware.chuck.ChuckInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 
+@Singleton
 public class ApiService extends BaseService {
 
     private static final int DEFAULT_TIMEOUT = 60;
     private static final Object LOCK = new Object();
     private SportsInfoApi sportsInfoApi;
+
+    @Inject
+    ApiService() {
+
+    }
 
     private OkHttpClient createOkHttp() {
         return new OkHttpClient.Builder()

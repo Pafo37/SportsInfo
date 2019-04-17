@@ -15,4 +15,5 @@ public class HomeScreenFragment extends BaseFragment<HomeScreenViewModel, Fragme
     protected Class<HomeScreenViewModel> getViewModel() {
         return HomeScreenViewModel.class;
     }
+
 }

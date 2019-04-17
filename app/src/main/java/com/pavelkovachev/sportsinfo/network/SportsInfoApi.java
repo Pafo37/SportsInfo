@@ -1,12 +1,11 @@
 package com.pavelkovachev.sportsinfo.network;
 
 import com.pavelkovachev.sportsinfo.network.response.events.EventsListResponse;
+import com.pavelkovachev.sportsinfo.network.response.leaguedetails.LeagueDetailsListResponse;
 import com.pavelkovachev.sportsinfo.network.response.leagues.LeaguesListResponse;
-import com.pavelkovachev.sportsinfo.network.response.leagues.LeaguesResponse;
 import com.pavelkovachev.sportsinfo.network.response.players.PlayersListResponse;
 import com.pavelkovachev.sportsinfo.network.response.sports.SportsListResponse;
 import com.pavelkovachev.sportsinfo.network.response.teams.TeamsListResponse;
-import com.pavelkovachev.sportsinfo.network.response.teams.TeamsResponse;
 import com.pavelkovachev.sportsinfo.network.response.tvevents.TvEventsListResponse;
 
 import io.reactivex.Single;
@@ -28,7 +27,7 @@ public interface SportsInfoApi {
     Single<PlayersListResponse> getPlayersResponse(@Query("id") String teamName);
 
     @GET("api/v1/json/1/lookupleague.php")
-    Single<LeaguesListResponse> getLeagueDetailsResponse(@Query("id") String leagueId);
+    Single<LeagueDetailsListResponse> getLeagueDetailsResponse(@Query("id") String leagueId);
 
     @GET("api/v1/json/1/lookupteam.php")
     Single<TeamsListResponse> getTeamDetailsResponse(@Query("id") String teamId);
