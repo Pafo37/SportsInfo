@@ -7,13 +7,17 @@ import com.pavelkovachev.sportsinfo.persistence.model.sport.SportRepository;
 
 import java.util.List;
 
-import io.reactivex.Single;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
+import io.reactivex.Single;
+@Singleton
 public class SportService implements SportRepository {
 
     private final SportModelDao sportModelDao;
     private final AppExecutor executor;
 
+    @Inject
     public SportService(SportModelDao sportModelDao, AppExecutor executor) {
         this.sportModelDao = sportModelDao;
         this.executor = executor;

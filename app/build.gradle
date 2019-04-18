@@ -3,8 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+
+    sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
     }
     dexOptions {
         javaMaxHeapSize "2g"
@@ -88,5 +89,11 @@ dependencies {
     //Chuck
     debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //Stream library
+    implementation 'com.annimon:stream:1.2.1'
 
 }

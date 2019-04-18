@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.databinding.library.baseAdapters.BR;
 import com.pavelkovachev.sportsinfo.dagger.ViewModelFactory;
 
 import javax.inject.Inject;
@@ -39,6 +40,14 @@ public abstract class BaseFragment<V extends ViewModel, B extends ViewDataBindin
         AndroidSupportInjection.inject(this);
         super.onCreate(savedInstanceState);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModel());
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.setVariable(BR.viewModel,viewModel);
+        binding.setLifecycleOwner(getViewLifecycleOwner());
+        binding.executePendingBindings();
     }
 
     @LayoutRes
