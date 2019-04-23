@@ -1,12 +1,9 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.homescreen;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import com.annimon.stream.Stream;
 import com.pavelkovachev.sportsinfo.SportsConverter;
-import com.pavelkovachev.sportsinfo.adapters.HomeScreenAdapter;
-import com.pavelkovachev.sportsinfo.adapters.HomeScreenDiffCallback;
 import com.pavelkovachev.sportsinfo.network.SportsApiService;
 import com.pavelkovachev.sportsinfo.network.response.sports.SportsListResponse;
 import com.pavelkovachev.sportsinfo.network.response.sports.SportsResponse;
@@ -24,8 +21,7 @@ import io.reactivex.disposables.Disposable;
 
 public class HomeScreenViewModel extends BaseViewModel {
 
-    private HomeScreenAdapter adapter = new HomeScreenAdapter(new HomeScreenDiffCallback());
-    MutableLiveData<List<SportModel>> sportModelList = new MutableLiveData<>();
+    private MutableLiveData<List<SportModel>> sportModelList = new MutableLiveData<>();
 
     @Inject
     SportsApiService apiService;
@@ -37,15 +33,12 @@ public class HomeScreenViewModel extends BaseViewModel {
         return sportModelList;
     }
 
-    public HomeScreenAdapter getAdapter() {
-        return adapter;
-    }
-
     @Inject
     public HomeScreenViewModel() {
     }
 
     void getSports() {
+
         subscribeSingle(apiService.getSports(), new SingleObserver<SportsListResponse>() {
             @Override
             public void onSubscribe(Disposable d) {

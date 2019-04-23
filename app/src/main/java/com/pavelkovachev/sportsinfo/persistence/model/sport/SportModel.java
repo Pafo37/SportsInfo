@@ -3,14 +3,12 @@ package com.pavelkovachev.sportsinfo.persistence.model.sport;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
-import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import com.pavelkovachev.sportsinfo.adapters.diffutil.DiffComparable;
 
 @Entity
-public class SportModel {
+public class SportModel implements DiffComparable {
 
     @NonNull
     @PrimaryKey()
@@ -64,4 +62,15 @@ public class SportModel {
         this.sportDescription = sportDescription;
     }
 
+    @Override
+    public boolean isItemTheSameAs(Object newItem) {
+        SportModel newSport = (SportModel) newItem;
+        return this.getSportId() == newSport.getSportId();
+    }
+
+    @Override
+    public boolean areContentsTheSameAs(Object newItem) {
+        SportModel newSport = (SportModel) newItem;
+        return this == newSport;
+    }
 }

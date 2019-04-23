@@ -9,6 +9,6 @@ public class ImageViewBindings {
 
     @BindingAdapter("path")
     public static void loadImage(ImageView imageView, String url) {
-        Picasso.get().load(url).into(imageView);
+        Picasso.get().load(url).resize(480, 200).into(imageView);
     }
 }
