@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         AndroidInjection.inject(this);
         ActivityMainBinding activityMainBinding = DataBindingUtil
                 .setContentView(this, R.layout.activity_main);
-        activityMainBinding.setLifecycleOwner(this);
         setSupportActionBar(activityMainBinding.toolbar);
     }
 }

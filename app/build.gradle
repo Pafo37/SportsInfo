@@ -96,6 +96,7 @@ dependencies {
     //Stream library
     implementation 'com.annimon:stream:1.2.1'
 
+    //Lifecycle
     implementation "android.arch.lifecycle:extensions:1.1.1"
 
 }

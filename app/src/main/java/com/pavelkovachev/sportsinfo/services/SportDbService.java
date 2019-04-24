@@ -12,13 +12,13 @@ import javax.inject.Singleton;
 
 import io.reactivex.Single;
 @Singleton
-public class SportService implements SportRepository {
+public class SportDbService implements SportRepository {
 
     private final SportModelDao sportModelDao;
     private final AppExecutor executor;
 
     @Inject
-    public SportService(SportModelDao sportModelDao, AppExecutor executor) {
+    public SportDbService(SportModelDao sportModelDao, AppExecutor executor) {
         this.sportModelDao = sportModelDao;
         this.executor = executor;
     }

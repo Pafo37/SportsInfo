@@ -6,6 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 import com.pavelkovachev.sportsinfo.adapters.diffutil.DiffComparable;
+import com.pavelkovachev.sportsinfo.network.response.sports.SportsResponse;
 
 @Entity
 public class SportModel implements DiffComparable {
@@ -72,5 +73,11 @@ public class SportModel implements DiffComparable {
     public boolean areContentsTheSameAs(Object newItem) {
         SportModel newSport = (SportModel) newItem;
         return this == newSport;
+    }
+
+    public static SportModel convertToSportModel(SportsResponse sportsResponse) {
+
+        return new SportModel(sportsResponse.getIdSport(), sportsResponse.getStrSport(),
+                sportsResponse.getStrSportThumb(), sportsResponse.getStrSportDescription());
     }
 }

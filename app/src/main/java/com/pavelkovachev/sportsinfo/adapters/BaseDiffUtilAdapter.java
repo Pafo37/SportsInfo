@@ -44,9 +44,8 @@ public class BaseDiffUtilAdapter<T extends DiffComparable> extends ListAdapter<T
             this.binding = binding;
         }
 
-        public DB getBinding(){
+        public DB getBinding() {
             return binding;
         }
-
     }
 }

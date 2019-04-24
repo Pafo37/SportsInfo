@@ -43,5 +43,9 @@
     <string name="tv_channel">Channel</string>
     <string name="tv_sport">Sport</string>
     <string name="bottom_navigation_events">Events</string>
+    <string name="error_message_title">Error</string>
+    <string name="error_message_description">A problem occurred while retrieving information.</string>
+    <string name="ok_message">OK</string>
+
 
 </resources>

@@ -9,12 +9,12 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-public class TvEventService implements TvEventRepository {
+public class TvEventDbService implements TvEventRepository {
 
     private final TvEventModelDao tvEventModelDao;
     private final AppExecutor executor;
 
-    public TvEventService(TvEventModelDao tvEventModelDao, AppExecutor executor) {
+    public TvEventDbService(TvEventModelDao tvEventModelDao, AppExecutor executor) {
         this.tvEventModelDao = tvEventModelDao;
         this.executor = executor;
     }

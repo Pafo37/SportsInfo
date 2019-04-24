@@ -13,14 +13,14 @@ import javax.inject.Singleton;
 import io.reactivex.Single;
 
 @Singleton
-public class PlayerService implements PlayerRepository {
+public class PlayerDbService implements PlayerRepository {
 
     private final PlayerModelDao playerModelDao;
     private final AppExecutor executor;
 
     @Inject
-    public PlayerService(final PlayerModelDao playerModelDao,
-                         final AppExecutor executor) {
+    public PlayerDbService(final PlayerModelDao playerModelDao,
+                           final AppExecutor executor) {
         this.playerModelDao = playerModelDao;
         this.executor = executor;
     }
