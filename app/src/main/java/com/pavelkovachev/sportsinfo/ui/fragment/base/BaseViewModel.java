@@ -16,12 +16,4 @@ public abstract class BaseViewModel extends ViewModel {
     protected <T> void subscribeSingle(Single<T> singleObservable, SingleObserver<T> singleObserver) {
         singleObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(singleObserver);
     }
-
-    protected void showErrorDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(App.getInstance().getApplicationContext())
-                .setTitle(App.getInstance().getResources().getString(R.string.error_message_title))
-                .setMessage(App.getInstance().getResources().getString(R.string.error_message_description));
-        builder.setNeutralButton(App.getInstance().getResources().getString(R.string.ok_message), (dialog, which) -> dialog.dismiss());
-        builder.show();
-    }
 }

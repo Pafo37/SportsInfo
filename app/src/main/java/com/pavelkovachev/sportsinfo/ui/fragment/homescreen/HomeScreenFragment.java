@@ -25,5 +25,11 @@ public class HomeScreenFragment extends BaseFragment<HomeScreenViewModel, Fragme
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModel.getSports();
+        viewModel.getIsErrorShown().observe(this, isError -> {
+            if (isError) {
+                showErrorDialog();
+                viewModel.getIsErrorShown().setValue(false);
+            }
+        });
     }
 }

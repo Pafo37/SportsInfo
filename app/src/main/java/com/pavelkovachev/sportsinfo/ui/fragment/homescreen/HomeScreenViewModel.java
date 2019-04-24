@@ -21,6 +21,7 @@ import io.reactivex.disposables.Disposable;
 public class HomeScreenViewModel extends BaseViewModel {
 
     private MutableLiveData<List<SportModel>> sportModelList = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
 
     @Inject
     SportsApiService apiService;
@@ -34,7 +35,10 @@ public class HomeScreenViewModel extends BaseViewModel {
 
     @Inject
     public HomeScreenViewModel() {
+    }
 
+    public MutableLiveData<Boolean> getIsErrorShown() {
+        return isErrorShown;
     }
 
     void getSports() {
@@ -58,7 +62,7 @@ public class HomeScreenViewModel extends BaseViewModel {
 
             @Override
             public void onError(Throwable e) {
-                showErrorDialog();
+                isErrorShown.postValue(true);
             }
         });
     }
