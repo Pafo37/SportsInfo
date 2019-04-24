@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     compileOptions {
 
-    sourceCompatibility = '1.8'
+        sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
     dexOptions {
@@ -40,6 +40,7 @@ ext {
     room_version = '1.1.1'
     dagger_version = '2.21'
     viewmodel_version = '1.1.1'
+    nav_version = '1.0.0'
 }
 
 dependencies {
@@ -50,7 +51,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+
+    //Navigation component
+    implementation "android.arch.navigation:navigation-fragment:$nav_version"
+    implementation "android.arch.navigation:navigation-ui:$nav_version"
 
     //BottomNavigationViewEx
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.2'

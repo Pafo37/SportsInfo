@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homescreenFragment">
+    app:startDestination="@id/nav_home">
 
     <fragment
-        android:id="@+id/homescreenFragment"
+        android:id="@+id/nav_home"
         android:name="com.pavelkovachev.sportsinfo.ui.fragment.homescreen.HomeScreenFragment"
         android:label="fragment_homescreen"
         tools:layout="@layout/fragment_homescreen">
@@ -63,7 +63,7 @@
         android:label="PlayerDetailsFragment"
         tools:layout="@layout/fragment_player_details" />
     <fragment
-        android:id="@+id/eventsFragment"
+        android:id="@+id/nav_events"
         android:name="com.pavelkovachev.sportsinfo.ui.fragment.events.EventsFragment"
         android:label="EventsFragment"
         tools:layout="@layout/fragment_events" />
