@@ -1,10 +1,6 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.base;
 
-import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModel;
-
-import com.pavelkovachev.sportsinfo.App;
-import com.pavelkovachev.sportsinfo.R;
 
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;

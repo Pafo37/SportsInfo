@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Single;
+
 @Singleton
 public class SportDbService implements SportRepository {
 
