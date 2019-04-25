@@ -14,7 +14,7 @@ import java.util.List;
 
 public class RecyclerViewBindings {
 
-    @BindingAdapter(value = {"items", "layoutId"}, requireAll = false)
+    @BindingAdapter(value = {"items", "layoutId"})
     public static <T extends DiffComparable<T>> void setAdapterBindings(
             RecyclerView view, MutableLiveData<List<T>> items, int itemLayoutId) {
         if (view.getLayoutManager() == null) {
