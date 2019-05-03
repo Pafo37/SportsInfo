@@ -13,14 +13,14 @@ import javax.inject.Singleton;
 import io.reactivex.Single;
 
 @Singleton
-public class LeagueServices implements LeagueRepository {
+public class LeagueDbServices implements LeagueRepository {
 
     private final LeagueModelDao leagueModelDao;
     private final AppExecutor executor;
 
     @Inject
-    public LeagueServices(final LeagueModelDao leagueModelDao,
-                          final AppExecutor executor) {
+    public LeagueDbServices(final LeagueModelDao leagueModelDao,
+                            final AppExecutor executor) {
         this.leagueModelDao = leagueModelDao;
         this.executor = executor;
     }

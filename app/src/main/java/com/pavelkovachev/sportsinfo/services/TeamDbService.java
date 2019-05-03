@@ -9,12 +9,12 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-public class TeamService implements TeamRepository {
+public class TeamDbService implements TeamRepository {
 
     private final TeamModelDao teamModelDao;
     private final AppExecutor executor;
 
-    public TeamService(TeamModelDao teamModelDao, AppExecutor executor) {
+    public TeamDbService(TeamModelDao teamModelDao, AppExecutor executor) {
         this.teamModelDao = teamModelDao;
         this.executor = executor;
     }

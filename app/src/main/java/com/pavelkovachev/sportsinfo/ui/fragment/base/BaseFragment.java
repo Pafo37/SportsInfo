@@ -1,5 +1,6 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.base;
 
+import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -13,6 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.pavelkovachev.sportsinfo.App;
+import com.pavelkovachev.sportsinfo.BR;
+import com.pavelkovachev.sportsinfo.R;
 import com.pavelkovachev.sportsinfo.dagger.ViewModelFactory;
 
 import javax.inject.Inject;
@@ -41,8 +45,24 @@ public abstract class BaseFragment<V extends ViewModel, B extends ViewDataBindin
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModel());
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.setVariable(BR.viewModel, viewModel);
+        binding.setLifecycleOwner(getViewLifecycleOwner());
+        binding.executePendingBindings();
+    }
+
     @LayoutRes
     protected abstract int getLayoutResId();
 
     protected abstract Class<V> getViewModel();
+
+    protected void showErrorDialog(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+                .setTitle(title)
+                .setMessage(message);
+        builder.setNeutralButton(getString(R.string.ok_message), (dialog, which) -> dialog.dismiss());
+        builder.show();
+    }
 }

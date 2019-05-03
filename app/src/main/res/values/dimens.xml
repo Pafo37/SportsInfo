@@ -23,5 +23,7 @@
     <dimen name="calendar_height">300dp</dimen>
     <dimen name="margin_between_elements_events">16dp</dimen>
     <dimen name="tv_logo_height">120dp</dimen>
+    <dimen name="homescreen_description_text_size">18sp</dimen>
+    <dimen name="homescreen_sport_text_size">22sp</dimen>
 
 </resources>

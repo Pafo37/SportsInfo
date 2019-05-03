@@ -7,15 +7,20 @@ import com.pavelkovachev.sportsinfo.persistence.model.player.PlayerRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Single;
 
-public class PlayerService implements PlayerRepository {
+@Singleton
+public class PlayerDbService implements PlayerRepository {
 
     private final PlayerModelDao playerModelDao;
     private final AppExecutor executor;
 
-    public PlayerService(final PlayerModelDao playerModelDao,
-                         final AppExecutor executor) {
+    @Inject
+    public PlayerDbService(final PlayerModelDao playerModelDao,
+                           final AppExecutor executor) {
         this.playerModelDao = playerModelDao;
         this.executor = executor;
     }

@@ -9,13 +9,13 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-public class EventService implements EventRepository {
+public class EventDbService implements EventRepository {
 
     private final EventModelDao eventModelDao;
     private final AppExecutor executor;
 
-    public EventService(final EventModelDao eventModelDao,
-                        final AppExecutor executor) {
+    public EventDbService(final EventModelDao eventModelDao,
+                          final AppExecutor executor) {
         this.eventModelDao = eventModelDao;
         this.executor = executor;
     }
