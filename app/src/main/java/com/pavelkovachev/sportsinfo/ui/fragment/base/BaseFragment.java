@@ -58,11 +58,11 @@ public abstract class BaseFragment<V extends ViewModel, B extends ViewDataBindin
 
     protected abstract Class<V> getViewModel();
 
-    protected void showErrorDialog() {
+    protected void showErrorDialog(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
-                .setTitle(App.getInstance().getResources().getString(R.string.error_message_title))
-                .setMessage(App.getInstance().getResources().getString(R.string.error_message_description));
-        builder.setNeutralButton(App.getInstance().getResources().getString(R.string.ok_message), (dialog, which) -> dialog.dismiss());
+                .setTitle(title)
+                .setMessage(message);
+        builder.setNeutralButton(getString(R.string.ok_message), (dialog, which) -> dialog.dismiss());
         builder.show();
     }
 }

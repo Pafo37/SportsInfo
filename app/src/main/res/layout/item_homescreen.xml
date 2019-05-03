@@ -19,10 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin_between_elements"
-        app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
