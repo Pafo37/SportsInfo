@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding activityMainBinding = DataBindingUtil
                 .setContentView(this, R.layout.activity_main);
         setSupportActionBar(activityMainBinding.toolbar);
-        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottom_navigation_bar);
-        NavigationUI.setupWithNavController(bottomNavigationViewEx, findNavController(findViewById(R.id.container)));
+        NavigationUI.setupWithNavController(activityMainBinding.bottomNavigationBar, findNavController(findViewById(R.id.container)));
     }
 }

@@ -7,13 +7,18 @@ import com.pavelkovachev.sportsinfo.persistence.model.tvevent.TvEventRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Single;
 
+@Singleton
 public class TvEventDbService implements TvEventRepository {
 
     private final TvEventModelDao tvEventModelDao;
     private final AppExecutor executor;
 
+    @Inject
     public TvEventDbService(TvEventModelDao tvEventModelDao, AppExecutor executor) {
         this.tvEventModelDao = tvEventModelDao;
         this.executor = executor;

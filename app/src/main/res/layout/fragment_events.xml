@@ -15,11 +15,14 @@
             android:id="@+id/calendar_view"
             android:layout_width="@dimen/no_dimens"
             android:layout_height="@dimen/calendar_height"
+            app:datePicker="true"
             app:headerColor="@color/colorPrimary"
             app:layout_constraintBottom_toTopOf="@id/txt_radio_button_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:selectionColor="@color/colorAccent"
+            app:todayLabelColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/txt_radio_button_description"
@@ -33,6 +36,7 @@
             app:layout_constraintTop_toBottomOf="@id/calendar_view" />
 
         <RadioGroup
+            android:id="@+id/radio_btn_group_events"
             android:layout_width="@dimen/no_dimens"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_between_elements_events"
@@ -60,6 +64,7 @@
         </RadioGroup>
 
         <android.support.design.button.MaterialButton
+            android:id="@+id/btn_search_events"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/homescreen_cardview_corner_radius"

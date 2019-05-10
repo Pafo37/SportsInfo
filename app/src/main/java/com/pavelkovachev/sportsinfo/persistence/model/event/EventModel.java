@@ -5,12 +5,15 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.pavelkovachev.sportsinfo.adapters.diffutil.DiffComparable;
+import com.pavelkovachev.sportsinfo.network.response.events.EventsResponse;
+
 @Entity
-public class EventModel {
+public class EventModel implements DiffComparable {
 
     @NonNull
     @PrimaryKey
-    private int allEventsId;
+    private String allEventsId;
 
     @ColumnInfo(name = "all_events_sport")
     private String allEventsSport;
@@ -33,7 +36,7 @@ public class EventModel {
     @ColumnInfo(name = "all_events_away_team_score")
     private String allEventsAwayTeamScore;
 
-    public EventModel(int allEventsId, String allEventsSport, String allEventsLeague,
+    public EventModel(String allEventsId, String allEventsSport, String allEventsLeague,
                       String allEventsDate, String allEventsHomeTeamName, String allEventsAwayTeamName,
                       String allEventsHomeTeamScore, String allEventsAwayTeamScore) {
         this.allEventsId = allEventsId;
@@ -46,7 +49,7 @@ public class EventModel {
         this.allEventsAwayTeamScore = allEventsAwayTeamScore;
     }
 
-    public int getAllEventsId() {
+    public String getAllEventsId() {
         return allEventsId;
     }
 
@@ -78,7 +81,7 @@ public class EventModel {
         return allEventsAwayTeamScore;
     }
 
-    public void setAllEventsId(int allEventsId) {
+    public void setAllEventsId(String allEventsId) {
         this.allEventsId = allEventsId;
     }
 
@@ -108,5 +111,25 @@ public class EventModel {
 
     public void setAllEventsAwayTeamScore(String allEventsAwayTeamScore) {
         this.allEventsAwayTeamScore = allEventsAwayTeamScore;
+    }
+
+    public static EventModel convertToEventModel(EventsResponse eventsResponse) {
+        return new EventModel(eventsResponse.getIdEvent(), eventsResponse.getStrSport(),
+                eventsResponse.getStrLeague(), eventsResponse.getDateEvent(),
+                eventsResponse.getStrHomeTeam(), eventsResponse.getStrAwayTeam(),
+                eventsResponse.getHomeScore(), eventsResponse.getAwayScore());
+
+    }
+
+    @Override
+    public boolean isItemTheSameAs(Object newItem) {
+        EventModel eventModel = (EventModel) newItem;
+        return this.getAllEventsId() == eventModel.getAllEventsId();
+    }
+
+    @Override
+    public boolean areContentsTheSameAs(Object newItem) {
+        EventModel eventModel = (EventModel) newItem;
+        return this == eventModel;
     }
 }

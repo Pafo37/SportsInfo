@@ -66,12 +66,22 @@
         android:id="@+id/nav_events"
         android:name="com.pavelkovachev.sportsinfo.ui.fragment.events.EventsFragment"
         android:label="EventsFragment"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/action_nav_events_to_tvEventsFragment"
+            app:destination="@id/tvEventsFragment" />
+        <action
+            android:id="@+id/action_nav_events_to_allEventsFragment"
+            app:destination="@id/allEventsFragment" />
+
+    </fragment>
     <fragment
         android:id="@+id/tvEventsFragment"
         android:name="com.pavelkovachev.sportsinfo.ui.fragment.tvevents.TvEventsFragment"
         android:label="TvEventsFragment"
-        tools:layout="@layout/fragment_tv_events" />
+        tools:layout="@layout/fragment_tv_events" >
+
+    </fragment>
     <fragment
         android:id="@+id/allEventsFragment"
         android:name="com.pavelkovachev.sportsinfo.ui.fragment.allevents.AllEventsFragment"

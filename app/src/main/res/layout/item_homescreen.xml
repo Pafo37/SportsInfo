@@ -35,7 +35,7 @@
                 android:layout_marginRight="@dimen/default_margin_between_elements"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:path="@{item.sportImage}"
+                app:path_homescreen="@{item.sportImage}"
                 app:srcCompat="@drawable/sports_test_image" />
 
             <TextView

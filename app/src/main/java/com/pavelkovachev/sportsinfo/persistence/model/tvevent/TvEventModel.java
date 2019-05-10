@@ -5,12 +5,15 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.pavelkovachev.sportsinfo.adapters.diffutil.DiffComparable;
+import com.pavelkovachev.sportsinfo.network.response.tvevents.TvEventsResponse;
+
 @Entity
-public class TvEventModel {
+public class TvEventModel implements DiffComparable {
 
     @NonNull
     @PrimaryKey
-    private int tvEventId;
+    private String tvEventId;
 
     @ColumnInfo(name = "tv_event_name")
     private String tvEventName;
@@ -30,7 +33,7 @@ public class TvEventModel {
     @ColumnInfo(name = "tv_event_channel")
     private String tvEventChannel;
 
-    public TvEventModel(int tvEventId, String tvEventName, String tvEventDate, String tvEventTime,
+    public TvEventModel(String tvEventId, String tvEventName, String tvEventDate, String tvEventTime,
                         String tvEventSport, String tvEventLogo, String tvEventChannel) {
         this.tvEventId = tvEventId;
         this.tvEventName = tvEventName;
@@ -41,7 +44,7 @@ public class TvEventModel {
         this.tvEventChannel = tvEventChannel;
     }
 
-    public int getTvEventId() {
+    public String getTvEventId() {
         return tvEventId;
     }
 
@@ -69,7 +72,7 @@ public class TvEventModel {
         return tvEventChannel;
     }
 
-    public void setTvEventId(int tvEventId) {
+    public void setTvEventId(String tvEventId) {
         this.tvEventId = tvEventId;
     }
 
@@ -95,5 +98,24 @@ public class TvEventModel {
 
     public void setTvEventChannel(String tvEventChannel) {
         this.tvEventChannel = tvEventChannel;
+    }
+
+    public static TvEventModel convertToTvEventModel(TvEventsResponse tvEventsResponse) {
+
+        return new TvEventModel(tvEventsResponse.getId(), tvEventsResponse.getStrEvent(),
+                tvEventsResponse.getDateEvent(), tvEventsResponse.getStrTime(),
+                tvEventsResponse.getStrSport(), tvEventsResponse.getStrLogo(), tvEventsResponse.getStrChannel());
+    }
+
+    @Override
+    public boolean isItemTheSameAs(Object newItem) {
+        TvEventModel newTvEvent = (TvEventModel) newItem;
+        return this.getTvEventId() == newTvEvent.getTvEventId();
+    }
+
+    @Override
+    public boolean areContentsTheSameAs(Object newItem) {
+        TvEventModel newTvEvent = (TvEventModel) newItem;
+        return this == newTvEvent;
     }
 }

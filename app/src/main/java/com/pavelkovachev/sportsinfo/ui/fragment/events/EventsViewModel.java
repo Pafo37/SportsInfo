@@ -9,4 +9,5 @@ public class EventsViewModel extends BaseViewModel {
     @Inject
     public EventsViewModel() {
     }
+
 }
