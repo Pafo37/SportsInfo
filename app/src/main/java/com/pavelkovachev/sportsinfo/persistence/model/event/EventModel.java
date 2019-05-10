@@ -118,7 +118,6 @@ public class EventModel implements DiffComparable {
                 eventsResponse.getStrLeague(), eventsResponse.getDateEvent(),
                 eventsResponse.getStrHomeTeam(), eventsResponse.getStrAwayTeam(),
                 eventsResponse.getHomeScore(), eventsResponse.getAwayScore());
-
     }
 
     @Override
