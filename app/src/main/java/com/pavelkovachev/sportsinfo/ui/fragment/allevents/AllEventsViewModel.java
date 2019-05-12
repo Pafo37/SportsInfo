@@ -55,13 +55,16 @@ public class AllEventsViewModel extends BaseViewModel {
 
                     @Override
                     public void onSuccess(EventsListResponse eventsListResponse) {
-                        List<EventModel> eventModelList = new ArrayList<>();
-                        Stream.of(eventsListResponse.getEvents()).forEach(
-                                eventsResponse ->
-                                        eventModelList.add(EventModel.convertToEventModel(eventsResponse))
-                        );
-                        eventDbService.insertAllEvents(eventModelList);
-                        allEventsList.setValue(eventModelList);
+                        if (eventsListResponse != null) {
+                            List<EventModel> eventModelList = new ArrayList<>();
+                            Stream.of(eventsListResponse.getEvents()).forEach(
+                                    eventsResponse ->
+                                            eventModelList.add(EventModel.convertToEventModel(eventsResponse))
+                            );
+                            eventDbService.insertAllEvents(eventModelList);
+                            allEventsList.setValue(eventModelList);
+                        }
+
                     }
 
                     @Override

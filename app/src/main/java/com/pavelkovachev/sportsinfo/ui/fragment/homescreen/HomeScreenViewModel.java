@@ -51,13 +51,15 @@ public class HomeScreenViewModel extends BaseViewModel {
 
             @Override
             public void onSuccess(SportsListResponse sportsListResponse) {
-                List<SportModel> sportModels = new ArrayList<>();
-                Stream.of(sportsListResponse.getSports()).forEach(
-                        sportsResponse ->
-                                sportModels.add(SportModel.convertToSportModel((SportsResponse) sportsResponse)));
+                if (sportsListResponse != null) {
+                    List<SportModel> sportModels = new ArrayList<>();
+                    Stream.of(sportsListResponse.getSports()).forEach(
+                            sportsResponse ->
+                                    sportModels.add(SportModel.convertToSportModel((SportsResponse) sportsResponse)));
 
-                sportDbService.insertSports(sportModels);
-                sportModelList.setValue(sportModels);
+                    sportDbService.insertSports(sportModels);
+                    sportModelList.setValue(sportModels);
+                }
             }
 
             @Override

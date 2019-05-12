@@ -25,7 +25,9 @@ public class TvEventsFragment extends BaseFragment<TvEventsViewModel, FragmentTv
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel.getEventDate().setValue(getArguments().getString(Constants.BUNDLE_DATE));
+        if (getArguments() != null) {
+            viewModel.getEventDate().setValue(getArguments().getString(Constants.BUNDLE_DATE));
+        }
         viewModel.getTvEvents();
         viewModel.getIsErrorShown().observe(this, isError -> {
             if (isError) {
