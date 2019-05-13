@@ -1,95 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/default_margin_between_elements"
-    app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout
+    <data>
+
+        <variable
+            name="item"
+            type="com.pavelkovachev.sportsinfo.persistence.model.event.EventModel" />
+
+        <variable
+            name="viewModel"
+            type="com.pavelkovachev.sportsinfo.ui.fragment.allevents.AllEventsViewModel" />
+    </data>
+
+    <android.support.design.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin_between_elements"
+        app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius">
 
-        <TextView
-            android:id="@+id/txt_all_event_sport"
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="American Football ·" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/txt_all_events_league"
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            app:layout_constraintStart_toEndOf="@id/txt_all_event_sport"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="NFL · " />
+            <TextView
+                android:id="@+id/txt_all_event_sport"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{item.allEventsSport}"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="American Football ·" />
 
-        <TextView
-            android:id="@+id/txt_all_events_date"
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            app:layout_constraintStart_toEndOf="@id/txt_all_events_league"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="2014-10-12" />
+            <TextView
+                android:id="@+id/txt_all_events_league"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{item.allEventsLeague}"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toEndOf="@id/txt_all_event_sport"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="NFL · " />
 
-        <TextView
-            android:id="@+id/txt_home_team"
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/material_design_title_txt_size"
-            app:layout_constraintBottom_toBottomOf="@id/txt_home_team_score"
-            app:layout_constraintEnd_toStartOf="@id/txt_away_team"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_all_events_league"
-            tools:text="Arizona Cardinals" />
+            <TextView
+                android:id="@+id/txt_all_events_date"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{item.allEventsDate}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txt_all_events_league"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2014-10-12" />
 
-        <TextView
-            android:id="@+id/txt_away_team"
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/material_design_title_txt_size"
-            app:layout_constraintBottom_toBottomOf="@id/txt_away_team_score"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/txt_home_team"
-            app:layout_constraintTop_toBottomOf="@id/txt_all_events_date"
-            tools:text="Washington Redskins" />
+            <TextView
+                android:id="@+id/txt_home_team"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{item.allEventsHomeTeamName}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/material_design_title_txt_size"
+                app:layout_constraintBottom_toBottomOf="@id/txt_home_team_score"
+                app:layout_constraintEnd_toStartOf="@id/txt_away_team"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_all_events_league"
+                tools:text="Arizona Cardinals" />
 
-        <TextView
-            android:id="@+id/txt_home_team_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:gravity="center"
-            android:textSize="@dimen/material_design_subheading_txt_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/txt_home_team"
-            app:layout_constraintStart_toStartOf="@id/txt_home_team"
-            app:layout_constraintTop_toBottomOf="@id/txt_home_team"
-            tools:text="30" />
+            <TextView
+                android:id="@+id/txt_away_team"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{item.allEventsAwayTeamName}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/material_design_title_txt_size"
+                app:layout_constraintBottom_toBottomOf="@id/txt_away_team_score"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txt_home_team"
+                app:layout_constraintTop_toBottomOf="@id/txt_all_event_sport"
+                tools:text="Washington Redskins" />
 
-        <TextView
-            android:id="@+id/txt_away_team_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:textSize="@dimen/material_design_subheading_txt_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/txt_away_team"
-            app:layout_constraintStart_toStartOf="@id/txt_away_team"
-            app:layout_constraintTop_toBottomOf="@id/txt_away_team"
-            tools:text="6" />
+            <TextView
+                android:id="@+id/txt_home_team_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:gravity="center"
+                android:text="@{item.allEventsHomeTeamScore}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/material_design_subheading_txt_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/txt_home_team"
+                app:layout_constraintStart_toStartOf="@id/txt_home_team"
+                app:layout_constraintTop_toBottomOf="@id/barrier"
+                tools:text="30" />
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/txt_away_team_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{item.allEventsAwayTeamScore}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/material_design_subheading_txt_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/txt_away_team"
+                app:layout_constraintStart_toStartOf="@id/txt_away_team"
+                app:layout_constraintTop_toBottomOf="@id/txt_away_team"
+                tools:text="6" />
 
-</android.support.design.card.MaterialCardView>
+            <android.support.constraint.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="txt_away_team_score,txt_home_team_score"
+                tools:layout_editor_absoluteY="146dp" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.card.MaterialCardView>
+</layout>

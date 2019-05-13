@@ -26,7 +26,7 @@ import dagger.android.support.AndroidSupportInjection;
 public abstract class BaseFragment<V extends ViewModel, B extends ViewDataBinding> extends Fragment {
 
     protected V viewModel;
-    private B binding;
+    protected B binding;
 
     @Inject
     ViewModelFactory viewModelFactory;

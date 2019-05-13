@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="com.pavelkovachev.sportsinfo.R" />
+
+        <variable
+            name="viewModel"
+            type="com.pavelkovachev.sportsinfo.ui.fragment.allevents.AllEventsViewModel" />
 
     </data>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_all_events">
+        app:items="@{viewModel.getAllEventsList()}"
+        app:layoutId="@{R.layout.item_all_events}"
+        tools:listitem="@layout/item_all_events" />
 
-    </android.support.v7.widget.RecyclerView>
 </layout>

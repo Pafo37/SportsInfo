@@ -3,6 +3,7 @@ package com.pavelkovachev.sportsinfo.persistence.model.tvevent;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface TvEventModelDao {
     @Query("SELECT * FROM TvEventModel")
     Single<List<TvEventModel>> getAllTvEvents();
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTvEvents(List<TvEventModel> tvEventModelList);
 
     @Insert

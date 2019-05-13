@@ -17,9 +17,9 @@ public class EventsResponse {
     @SerializedName("strAwayTeam")
     private String strAwayTeam;
     @SerializedName("intHomeScore")
-    private String intHomeScore;
+    private String homeScore;
     @SerializedName("intAwayScore")
-    private String intAwayScore;
+    private String awayScore;
     @SerializedName("dateEvent")
     private String dateEvent;
     @SerializedName("idHomeTeam")
@@ -75,20 +75,20 @@ public class EventsResponse {
         this.strAwayTeam = strAwayTeam;
     }
 
-    public String getIntHomeScore() {
-        return intHomeScore;
+    public String getHomeScore() {
+        return homeScore;
     }
 
-    public void setIntHomeScore(String intHomeScore) {
-        this.intHomeScore = intHomeScore;
+    public void setHomeScore(String homeScore) {
+        this.homeScore = homeScore;
     }
 
-    public String getIntAwayScore() {
-        return intAwayScore;
+    public String getAwayScore() {
+        return awayScore;
     }
 
-    public void setIntAwayScore(String intAwayScore) {
-        this.intAwayScore = intAwayScore;
+    public void setAwayScore(String awayScore) {
+        this.awayScore = awayScore;
     }
 
     public String getDateEvent() {

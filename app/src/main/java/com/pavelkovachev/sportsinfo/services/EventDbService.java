@@ -7,13 +7,18 @@ import com.pavelkovachev.sportsinfo.persistence.model.event.EventRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Single;
 
+@Singleton
 public class EventDbService implements EventRepository {
 
     private final EventModelDao eventModelDao;
     private final AppExecutor executor;
 
+    @Inject
     public EventDbService(final EventModelDao eventModelDao,
                           final AppExecutor executor) {
         this.eventModelDao = eventModelDao;
