@@ -1,6 +1,7 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.homescreen;
 
 import android.arch.lifecycle.MutableLiveData;
+import android.util.Log;
 
 import com.annimon.stream.Stream;
 import com.pavelkovachev.sportsinfo.network.SportsApiService;
@@ -22,6 +23,7 @@ public class HomeScreenViewModel extends BaseViewModel {
 
     private MutableLiveData<List<SportModel>> sportModelList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
+    private MutableLiveData<String> sportName = new MutableLiveData<>();
 
     @Inject
     SportsApiService apiService;
@@ -39,6 +41,10 @@ public class HomeScreenViewModel extends BaseViewModel {
 
     public MutableLiveData<Boolean> getIsErrorShown() {
         return isErrorShown;
+    }
+
+    public MutableLiveData<String> getSportName(){
+        return sportName;
     }
 
     void getSports() {
@@ -67,5 +73,9 @@ public class HomeScreenViewModel extends BaseViewModel {
                 isErrorShown.postValue(true);
             }
         });
+    }
+
+    public void onSportClicked(SportModel sportModel) {
+        sportName.setValue(sportModel.getSportName());
     }
 }

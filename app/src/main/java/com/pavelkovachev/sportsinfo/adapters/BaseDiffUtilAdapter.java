@@ -11,14 +11,17 @@ import android.view.ViewGroup;
 
 import com.pavelkovachev.sportsinfo.BR;
 import com.pavelkovachev.sportsinfo.adapters.diffutil.DiffComparable;
+import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseViewModel;
 
 public class BaseDiffUtilAdapter<T extends DiffComparable> extends ListAdapter<T, BaseDiffUtilAdapter.ViewHolder> {
 
     private int itemLayoutId;
+    private BaseViewModel viewModel;
 
-    public BaseDiffUtilAdapter(@NonNull DiffUtil.ItemCallback<T> diffCallback, int itemLayoutId) {
+    public BaseDiffUtilAdapter(@NonNull DiffUtil.ItemCallback<T> diffCallback, int itemLayoutId, BaseViewModel viewModel) {
         super(diffCallback);
         this.itemLayoutId = itemLayoutId;
+        this.viewModel = viewModel;
     }
 
     @NonNull
@@ -32,6 +35,7 @@ public class BaseDiffUtilAdapter<T extends DiffComparable> extends ListAdapter<T
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         viewHolder.getBinding().setVariable(BR.item, getItem(position));
+        viewHolder.getBinding().setVariable(BR.viewModel, viewModel);
         viewHolder.getBinding().executePendingBindings();
     }
 

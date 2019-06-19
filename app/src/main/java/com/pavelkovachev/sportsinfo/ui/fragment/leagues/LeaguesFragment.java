@@ -21,4 +21,9 @@ public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeag
         return LeaguesViewModel.class;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        String sportName = getArguments().getString("sportname");
+    }
 }

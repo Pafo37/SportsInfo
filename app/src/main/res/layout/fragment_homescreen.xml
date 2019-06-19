@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         app:items="@{viewModel.getSportsList()}"
         app:layoutId="@{R.layout.item_homescreen}"
+        app:vm="@{viewModel}"
         tools:listitem="@layout/item_homescreen" />
 
 </layout>
