@@ -24,6 +24,7 @@ public class HomeScreenViewModel extends BaseViewModel {
     private MutableLiveData<List<SportModel>> sportModelList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
     private MutableLiveData<String> sportName = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isSportClicked = new MutableLiveData<>();
 
     @Inject
     SportsApiService apiService;
@@ -35,6 +36,10 @@ public class HomeScreenViewModel extends BaseViewModel {
         return sportModelList;
     }
 
+    public MutableLiveData<Boolean> getIsSportClicked() {
+        return isSportClicked;
+    }
+
     @Inject
     public HomeScreenViewModel() {
     }
@@ -43,7 +48,7 @@ public class HomeScreenViewModel extends BaseViewModel {
         return isErrorShown;
     }
 
-    public MutableLiveData<String> getSportName(){
+    public MutableLiveData<String> getSportName() {
         return sportName;
     }
 
@@ -76,6 +81,7 @@ public class HomeScreenViewModel extends BaseViewModel {
     }
 
     public void onSportClicked(SportModel sportModel) {
+        isSportClicked.setValue(true);
         sportName.setValue(sportModel.getSportName());
     }
 }

@@ -34,5 +34,12 @@ public class HomeScreenFragment extends BaseFragment<HomeScreenViewModel, Fragme
                 viewModel.getIsErrorShown().setValue(false);
             }
         });
+        
+        viewModel.getIsSportClicked().observe(this, isClicked -> {
+            if (isClicked) {
+                viewModel.getIsSportClicked().setValue(false);
+                Navigation.findNavController(view).navigate(R.id.action_homescreen_fragment_to_leaguesFragment);
+            }
+        });
     }
 }
