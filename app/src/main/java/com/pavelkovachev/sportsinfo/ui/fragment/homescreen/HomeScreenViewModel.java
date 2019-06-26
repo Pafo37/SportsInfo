@@ -64,9 +64,9 @@ public class HomeScreenViewModel extends BaseViewModel {
             public void onSuccess(SportsListResponse sportsListResponse) {
                 if (sportsListResponse != null) {
                     List<SportModel> sportModels = new ArrayList<>();
-                    Stream.of(sportsListResponse.getSports()).forEach(
-                            sportsResponse ->
-                                    sportModels.add(SportModel.convertToSportModel((SportsResponse) sportsResponse)));
+                    Stream.of(sportsListResponse.getSports()).
+                            forEach(sportsResponse ->
+                                    sportModels.add(SportModel.convertToSportModel(sportsResponse)));
 
                     sportDbService.insertSports(sportModels);
                     sportModelList.setValue(sportModels);
@@ -81,7 +81,7 @@ public class HomeScreenViewModel extends BaseViewModel {
     }
 
     public void onSportClicked(SportModel sportModel) {
-        isSportClicked.setValue(true);
         sportName.setValue(sportModel.getSportName());
+        isSportClicked.setValue(true);
     }
 }

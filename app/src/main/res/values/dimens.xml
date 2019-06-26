@@ -4,6 +4,7 @@
     <dimen name="homescreen_cardview_title">30sp</dimen>
     <dimen name="homescreen_image_height_width">90dp</dimen>
     <dimen name="default_margin_between_elements">8dp</dimen>
+    <dimen name="half_margin_between_elements">4dp</dimen>
     <dimen name="homescreen_cardview_secondary_title">16sp</dimen>
     <dimen name="homescreen_cardview_corner_radius">16dp</dimen>
     <dimen name="no_dimens">0dp</dimen>

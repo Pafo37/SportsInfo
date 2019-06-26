@@ -5,12 +5,15 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.pavelkovachev.sportsinfo.adapters.diffutil.DiffComparable;
+import com.pavelkovachev.sportsinfo.network.response.leagues.LeaguesResponse;
+
 @Entity
-public class LeagueModel {
+public class LeagueModel implements DiffComparable {
 
     @NonNull
     @PrimaryKey
-    private int leagueId;
+    private String leagueId;
 
     @ColumnInfo(name = "league_name")
     private String leagueName;
@@ -18,13 +21,13 @@ public class LeagueModel {
     @ColumnInfo(name = "league_sport")
     private String leagueSport;
 
-    public LeagueModel(int leagueId, String leagueName, String leagueSport) {
+    public LeagueModel(String leagueId, String leagueName, String leagueSport) {
         this.leagueId = leagueId;
         this.leagueName = leagueName;
         this.leagueSport = leagueSport;
     }
 
-    public int getLeagueId() {
+    public String getLeagueId() {
         return leagueId;
     }
 
@@ -36,7 +39,7 @@ public class LeagueModel {
         return leagueSport;
     }
 
-    public void setLeagueId(int leagueId) {
+    public void setLeagueId(String leagueId) {
         this.leagueId = leagueId;
     }
 
@@ -46,5 +49,24 @@ public class LeagueModel {
 
     public void setLeagueSport(String leagueSport) {
         this.leagueSport = leagueSport;
+    }
+
+    public static LeagueModel convertToLeagueModel(LeaguesResponse leaguesResponse) {
+        return new LeagueModel(
+                leaguesResponse.getIdLeague(),
+                leaguesResponse.getStrLeague(),
+                leaguesResponse.getStrSport());
+    }
+
+    @Override
+    public boolean isItemTheSameAs(Object newItem) {
+        LeagueModel newLeague = (LeagueModel) newItem;
+        return this.getLeagueId() == newLeague.getLeagueId();
+    }
+
+    @Override
+    public boolean areContentsTheSameAs(Object newItem) {
+        LeagueModel newLeague = (LeagueModel) newItem;
+        return this == newLeague;
     }
 }
