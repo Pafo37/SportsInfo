@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
