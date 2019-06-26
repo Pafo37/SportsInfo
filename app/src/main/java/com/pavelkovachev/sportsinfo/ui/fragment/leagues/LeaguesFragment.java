@@ -26,6 +26,7 @@ public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeag
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String sportName = getArguments().getString(Constants.BUNDLE_SPORT_NAME);
+        getActivity().setTitle(sportName);
         viewModel.getIsErrorShown().observe(this, isError -> {
             if (isError) {
                 showErrorDialog(getString(R.string.error_message_title),

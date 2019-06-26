@@ -29,7 +29,7 @@ public class HomeScreenFragment extends BaseFragment<HomeScreenViewModel, Fragme
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(view);
-
+        getActivity().setTitle(Constants.SPORTS_INFO);
         viewModel.getSports();
         viewModel.getIsErrorShown().observe(this, isError -> {
             if (isError) {
