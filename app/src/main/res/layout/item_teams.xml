@@ -1,80 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/default_margin_between_elements"
-    app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout
+    <data>
+
+        <variable
+            name="item"
+            type="com.pavelkovachev.sportsinfo.persistence.model.team.TeamModel" />
+
+    </data>
+
+    <android.support.design.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin_between_elements"
+        app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius">
 
-        <ImageView
-            android:id="@+id/img_test_teams"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/img_team_height"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/test_image_teams" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_player_details_team_title"
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:text="@string/team_title"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/material_design_title_txt_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_test_teams" />
+            <ImageView
+                android:id="@+id/img_test_teams"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/img_team_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:path="@{item.teamLogo}"
+                app:srcCompat="@drawable/test_image_teams" />
 
-        <TextView
-            android:id="@+id/txt_player_details_team_body"
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:textSize="@dimen/material_design_body_txt_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_player_details_team_title"
-            tools:text="Arsenal" />
+            <TextView
+                android:id="@+id/txt_player_details_team_title"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@string/team_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/material_design_title_txt_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_test_teams" />
 
-        <TextView
-            android:id="@+id/txt_league_title"
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:text="@string/league_title"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/material_design_title_txt_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_player_details_team_body" />
+            <TextView
+                android:id="@+id/txt_player_details_team_body"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{item.teamName}"
+                android:textSize="@dimen/material_design_body_txt_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_player_details_team_title"
+                tools:text="Arsenal" />
 
-        <TextView
-            android:layout_width="@dimen/no_dimens"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:paddingBottom="@dimen/default_margin_between_elements"
-            android:textSize="@dimen/material_design_body_txt_size"
-            app:layout_constraintEnd_toStartOf="@id/btn_see_more"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_league_title"
-            tools:text="English Premiere League" />
+            <TextView
+                android:id="@+id/txt_league_title"
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@string/league_title"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/material_design_title_txt_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_player_details_team_body" />
 
-        <android.support.design.button.MaterialButton
-            android:id="@+id/btn_see_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/default_margin_between_elements"
-            android:text="@string/btn_see_more"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:layout_width="@dimen/no_dimens"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:paddingBottom="@dimen/default_margin_between_elements"
+                android:text="@{item.teamLeagueName}"
+                android:textSize="@dimen/material_design_body_txt_size"
+                app:layout_constraintEnd_toStartOf="@id/btn_see_more"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_league_title"
+                tools:text="English Premiere League" />
 
-    </android.support.constraint.ConstraintLayout>
+            <android.support.design.button.MaterialButton
+                android:id="@+id/btn_see_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@string/btn_see_more"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-</android.support.design.card.MaterialCardView>
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.card.MaterialCardView>
+</layout>

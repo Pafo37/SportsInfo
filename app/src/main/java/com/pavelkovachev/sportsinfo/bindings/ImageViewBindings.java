@@ -16,7 +16,9 @@ public class ImageViewBindings {
 
     @BindingAdapter("path")
     public static void loadImage(ImageView imageView, String url) {
-        if (url.isEmpty()) {
+        if (url == null) {
+            Picasso.get().load(R.drawable.img_not_available).into(imageView);
+        } else if (url.isEmpty()) {
             Picasso.get().load(R.drawable.img_not_available).into(imageView);
         } else {
             Picasso.get().load(url).into(imageView);

@@ -5,12 +5,15 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.pavelkovachev.sportsinfo.adapters.diffutil.DiffComparable;
+import com.pavelkovachev.sportsinfo.network.response.teams.TeamsResponse;
+
 @Entity
-public class TeamModel {
+public class TeamModel implements DiffComparable {
 
     @NonNull
     @PrimaryKey
-    private int teamId;
+    private String teamId;
 
     @ColumnInfo(name = "team_name")
     private String teamName;
@@ -30,7 +33,7 @@ public class TeamModel {
     @ColumnInfo(name = "tea_description")
     private String teamDescription;
 
-    public TeamModel(int teamId, String teamName, String teamLeagueName, String teamLogo,
+    public TeamModel(String teamId, String teamName, String teamLeagueName, String teamLogo,
                      String teamCountry, String teamYearFormed, String teamDescription) {
         this.teamId = teamId;
         this.teamName = teamName;
@@ -41,7 +44,7 @@ public class TeamModel {
         this.teamDescription = teamDescription;
     }
 
-    public int getTeamId() {
+    public String getTeamId() {
         return teamId;
     }
 
@@ -57,7 +60,7 @@ public class TeamModel {
         return teamLogo;
     }
 
-    public void setTeamId(int teamId) {
+    public void setTeamId(String teamId) {
         this.teamId = teamId;
     }
 
@@ -95,5 +98,29 @@ public class TeamModel {
 
     public String getTeamDescription() {
         return teamDescription;
+    }
+
+    @Override
+    public boolean isItemTheSameAs(Object newItem) {
+        TeamModel newTeam = (TeamModel) newItem;
+        return this.getTeamId() == newTeam.getTeamId();
+    }
+
+    @Override
+    public boolean areContentsTheSameAs(Object newItem) {
+        TeamModel newTeam = (TeamModel) newItem;
+        return this == newTeam;
+    }
+
+    public static TeamModel convertToTeamModel(TeamsResponse teamsResponse) {
+        return new TeamModel(
+                teamsResponse.getIdTeam(),
+                teamsResponse.getStrTeam(),
+                teamsResponse.getStrLeague(),
+                teamsResponse.getStrTeamLogo(),
+                teamsResponse.getStrCountry(),
+                teamsResponse.getYearFormed(),
+                teamsResponse.getStrDescriptionEN()
+        );
     }
 }

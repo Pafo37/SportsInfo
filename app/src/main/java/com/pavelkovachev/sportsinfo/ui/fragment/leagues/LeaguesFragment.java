@@ -5,6 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import com.pavelkovachev.sportsinfo.Constants;
 import com.pavelkovachev.sportsinfo.R;
 import com.pavelkovachev.sportsinfo.databinding.FragmentLeaguesBinding;
@@ -27,6 +30,8 @@ public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeag
         super.onViewCreated(view, savedInstanceState);
         String sportName = getArguments().getString(Constants.BUNDLE_SPORT_NAME);
         getActivity().setTitle(sportName);
+        viewModel.getLeagues(sportName);
+        NavController navController = Navigation.findNavController(view);
         viewModel.getIsErrorShown().observe(this, isError -> {
             if (isError) {
                 showErrorDialog(getString(R.string.error_message_title),
@@ -34,6 +39,13 @@ public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeag
                 viewModel.getIsErrorShown().setValue(false);
             }
         });
-        viewModel.getLeagues(sportName);
+        viewModel.getIsLeagueClicked().observe(this, isClicked -> {
+            if (isClicked) {
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.BUNDLE_LEAGUE_NAME, viewModel.getLeagueName().getValue());
+                viewModel.getIsLeagueClicked().setValue(false);
+                navController.navigate(R.id.action_leaguesFragment_to_teamsFragment, bundle);
+            }
+        });
     }
 }

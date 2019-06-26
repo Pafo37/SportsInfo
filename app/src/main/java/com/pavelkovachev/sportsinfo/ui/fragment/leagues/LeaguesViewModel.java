@@ -7,6 +7,7 @@ import com.annimon.stream.Stream;
 import com.pavelkovachev.sportsinfo.network.SportsApiService;
 import com.pavelkovachev.sportsinfo.network.response.leagues.LeaguesListResponse;
 import com.pavelkovachev.sportsinfo.persistence.model.league.LeagueModel;
+import com.pavelkovachev.sportsinfo.persistence.model.team.TeamModel;
 import com.pavelkovachev.sportsinfo.services.LeagueDbService;
 import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseViewModel;
 
@@ -22,6 +23,8 @@ public class LeaguesViewModel extends BaseViewModel {
 
     private MutableLiveData<List<LeagueModel>> leaguesModelList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
+    private MutableLiveData<String> leagueName = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isLeagueClicked = new MutableLiveData<>();
 
     public MutableLiveData<List<LeagueModel>> getLeaguesList() {
         return leaguesModelList;
@@ -29,6 +32,14 @@ public class LeaguesViewModel extends BaseViewModel {
 
     public MutableLiveData<Boolean> getIsErrorShown() {
         return isErrorShown;
+    }
+
+    public MutableLiveData<Boolean> getIsLeagueClicked() {
+        return isLeagueClicked;
+    }
+
+    public MutableLiveData<String> getLeagueName() {
+        return leagueName;
     }
 
     @Inject
@@ -66,5 +77,10 @@ public class LeaguesViewModel extends BaseViewModel {
                 isErrorShown.postValue(true);
             }
         });
+    }
+
+    public void onLeagueClicked(LeagueModel leagueModel) {
+        leagueName.setValue(leagueModel.getLeagueName());
+        isLeagueClicked.setValue(true);
     }
 }

@@ -9,10 +9,15 @@
             name="item"
             type="com.pavelkovachev.sportsinfo.persistence.model.league.LeagueModel" />
 
+        <variable
+            name="viewModel"
+            type="com.pavelkovachev.sportsinfo.ui.fragment.leagues.LeaguesViewModel" />
+
     </data>
 
     <android.support.design.card.MaterialCardView
         android:layout_width="match_parent"
+        android:onClick="@{()->viewModel.onLeagueClicked(item)}"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin_between_elements"
         app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius">

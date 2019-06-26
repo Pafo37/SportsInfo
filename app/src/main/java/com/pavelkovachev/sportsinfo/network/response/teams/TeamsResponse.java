@@ -8,8 +8,8 @@ public class TeamsResponse {
     private String idTeam;
     @SerializedName("strTeam")
     private String strTeam;
-    @SerializedName("intFormedYear")
-    private String intFormedYear;
+    @SerializedName("yearFormed")
+    private String yearFormed;
     @SerializedName("strSport")
     private String strSport;
     @SerializedName("strLeague")
@@ -39,12 +39,12 @@ public class TeamsResponse {
         this.strTeam = strTeam;
     }
 
-    public String getIntFormedYear() {
-        return intFormedYear;
+    public String getYearFormed() {
+        return yearFormed;
     }
 
-    public void setIntFormedYear(String intFormedYear) {
-        this.intFormedYear = intFormedYear;
+    public void setYearFormed(String yearFormed) {
+        this.yearFormed = yearFormed;
     }
 
     public String getStrSport() {

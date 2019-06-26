@@ -8,5 +8,6 @@ public class Constants {
     public final static String BUNDLE_DATE = "date";
     public final static String DATE_FORMAT_PATTERN = "yyyy-MM-dd";
     public final static String BUNDLE_SPORT_NAME = "sportName";
+    public final static String BUNDLE_LEAGUE_NAME = "leagueName";
     public final static String SPORTS_INFO = "SportsInfo";
 }

@@ -7,13 +7,18 @@ import com.pavelkovachev.sportsinfo.persistence.model.team.TeamRepository;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Single;
 
+@Singleton
 public class TeamDbService implements TeamRepository {
 
     private final TeamModelDao teamModelDao;
     private final AppExecutor executor;
 
+    @Inject
     public TeamDbService(TeamModelDao teamModelDao, AppExecutor executor) {
         this.teamModelDao = teamModelDao;
         this.executor = executor;
