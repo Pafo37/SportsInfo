@@ -49,14 +49,14 @@ public class PlayersViewModel extends BaseViewModel {
 
             @Override
             public void onSuccess(PlayersListResponse playersListResponse) {
-                if (playersListResponse != null) {
+                if (playersListResponse.getPlayers() != null) {
                     List<PlayerModel> playerModelList = new ArrayList<>();
                     Stream.of(playersListResponse.getPlayers())
-                            .forEach(playersResponse -> {
-                                playerModelList.add(PlayerModel.convertToPlayerModel(playersResponse));
-                            });
+                            .forEach(playersResponse -> playerModelList.add(PlayerModel.convertToPlayerModel(playersResponse)));
                     playerList.setValue(playerModelList);
                     playerDbService.insertPlayers(playerModelList);
+                } else {
+                    isErrorShown.setValue(true);
                 }
             }
 

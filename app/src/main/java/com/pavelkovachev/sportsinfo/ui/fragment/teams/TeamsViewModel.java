@@ -59,13 +59,15 @@ public class TeamsViewModel extends BaseViewModel {
 
             @Override
             public void onSuccess(TeamsListResponse teamsListResponse) {
-                if (teamsListResponse != null) {
+                if (teamsListResponse.getTeams() != null) {
                     List<TeamModel> teamModels = new ArrayList<>();
                     Stream.of(teamsListResponse.getTeams())
                             .forEach(teamsResponse ->
                                     teamModels.add(TeamModel.convertToTeamModel(teamsResponse)));
                     teamDbService.insertTeams(teamModels);
                     teamsList.postValue(teamModels);
+                } else {
+                    isErrorShown.setValue(true);
                 }
             }
 

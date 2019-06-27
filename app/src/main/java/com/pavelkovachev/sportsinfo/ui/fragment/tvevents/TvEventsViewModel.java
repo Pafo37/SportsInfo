@@ -55,12 +55,16 @@ public class TvEventsViewModel extends BaseViewModel {
 
                     @Override
                     public void onSuccess(TvEventsListResponse tvEventsListResponse) {
-                        List<TvEventModel> tvEventModels = new ArrayList<>();
-                        Stream.of(tvEventsListResponse.getTvEvents()).forEach(
-                                tvEventsResponse ->
-                                        tvEventModels.add(TvEventModel.convertToTvEventModel(tvEventsResponse)));
-                        tvEventDbService.insertTvEvents(tvEventModels);
-                        tvEventsList.setValue(tvEventModels);
+                        if (tvEventsListResponse.getTvEvents() != null) {
+                            List<TvEventModel> tvEventModels = new ArrayList<>();
+                            Stream.of(tvEventsListResponse.getTvEvents()).forEach(
+                                    tvEventsResponse ->
+                                            tvEventModels.add(TvEventModel.convertToTvEventModel(tvEventsResponse)));
+                            tvEventDbService.insertTvEvents(tvEventModels);
+                            tvEventsList.setValue(tvEventModels);
+                        } else {
+                            isErrorShown.setValue(true);
+                        }
                     }
 
                     @Override

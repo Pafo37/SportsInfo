@@ -61,7 +61,7 @@ public class LeaguesViewModel extends BaseViewModel {
 
             @Override
             public void onSuccess(LeaguesListResponse leaguesListResponse) {
-                if (leaguesListResponse != null) {
+                if (leaguesListResponse.getLeagues() != null) {
                     List<LeagueModel> leagueModels = new ArrayList<>();
                     Stream.of(leaguesListResponse.getLeagues())
                             .filter(sports -> sports.getStrSport().equals(sportName))
@@ -69,6 +69,8 @@ public class LeaguesViewModel extends BaseViewModel {
                                     leagueModels.add(LeagueModel.convertToLeagueModel(leaguesResponse)));
                     leagueDbService.insertLeagues(leagueModels);
                     leaguesModelList.setValue(leagueModels);
+                } else {
+                    isErrorShown.setValue(true);
                 }
             }
 
