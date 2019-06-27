@@ -5,15 +5,21 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.pavelkovachev.sportsinfo.adapters.diffutil.DiffComparable;
+import com.pavelkovachev.sportsinfo.network.response.players.PlayersResponse;
+
 @Entity
-public class PlayerModel {
+public class PlayerModel implements DiffComparable {
 
     @NonNull
     @PrimaryKey
-    private int playerId;
+    private String playerId;
 
     @ColumnInfo(name = "player_name")
     private String playerName;
+
+    @ColumnInfo(name = "player_image")
+    private String playerImage;
 
     @ColumnInfo(name = "player_nationality")
     private String playerNationality;
@@ -33,10 +39,11 @@ public class PlayerModel {
     @ColumnInfo(name = "player_description")
     private String playerDescription;
 
-    public PlayerModel(int playerId, String playerName, String playerNationality, String playerTeamName,
+    public PlayerModel(String playerId, String playerImage, String playerName, String playerNationality, String playerTeamName,
                        String playerHeight, String playerDateBorn, String playerBirthplace,
                        String playerDescription) {
         this.playerId = playerId;
+        this.playerImage = playerImage;
         this.playerName = playerName;
         this.playerNationality = playerNationality;
         this.playerTeamName = playerTeamName;
@@ -46,7 +53,7 @@ public class PlayerModel {
         this.playerDescription = playerDescription;
     }
 
-    public int getPlayerId() {
+    public String getPlayerId() {
         return playerId;
     }
 
@@ -78,7 +85,15 @@ public class PlayerModel {
         return playerDescription;
     }
 
-    public void setPlayerId(int playerId) {
+    public String getPlayerImage() {
+        return playerImage;
+    }
+
+    public void setPlayerImage(String playerImage) {
+        this.playerImage = playerImage;
+    }
+
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
     }
 
@@ -108,5 +123,30 @@ public class PlayerModel {
 
     public void setPlayerDescription(String playerDescription) {
         this.playerDescription = playerDescription;
+    }
+
+    @Override
+    public boolean isItemTheSameAs(Object newItem) {
+        PlayerModel newPlayer = (PlayerModel) newItem;
+        return newPlayer.getPlayerId() == newPlayer.getPlayerId();
+    }
+
+    @Override
+    public boolean areContentsTheSameAs(Object newItem) {
+        PlayerModel newPlayer = (PlayerModel) newItem;
+        return this == newPlayer;
+    }
+
+    public static PlayerModel convertToPlayerModel(PlayersResponse playersResponse) {
+        return new PlayerModel(
+                playersResponse.getIdPlayer(),
+                playersResponse.getStrThumb(),
+                playersResponse.getStrPlayer(),
+                playersResponse.getStrNationality(),
+                playersResponse.getStrTeam(),
+                playersResponse.getStrHeight(),
+                playersResponse.getDateBorn(),
+                playersResponse.getStrBirthLocation(),
+                playersResponse.getStrDescriptionEN());
     }
 }

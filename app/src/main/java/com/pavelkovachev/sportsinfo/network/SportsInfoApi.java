@@ -24,7 +24,7 @@ public interface SportsInfoApi {
     Single<TeamsListResponse> getTeamsResponse(@Query("l") String leagueName);
 
     @GET("api/v1/json/1/lookup_all_players.php")
-    Single<PlayersListResponse> getPlayersResponse(@Query("id") String teamName);
+    Single<PlayersListResponse> getPlayersResponse(@Query("id") String teamId);
 
     @GET("api/v1/json/1/lookupleague.php")
     Single<LeagueDetailsListResponse> getLeagueDetailsResponse(@Query("id") String leagueId);

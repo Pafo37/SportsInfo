@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PlayersListResponse {
 
-    @SerializedName("players")
+    @SerializedName("player")
     private List<PlayersResponse> players = null;
 
     public List<PlayersResponse> getPlayers() {

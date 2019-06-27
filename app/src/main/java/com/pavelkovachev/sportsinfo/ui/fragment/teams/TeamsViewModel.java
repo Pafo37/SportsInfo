@@ -20,9 +20,24 @@ import io.reactivex.disposables.Disposable;
 public class TeamsViewModel extends BaseViewModel {
 
     private MutableLiveData<List<TeamModel>> teamsList = new MutableLiveData<>();
+    private MutableLiveData<String> teamId = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isTeamClicked = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
 
     public MutableLiveData<List<TeamModel>> getTeamsList() {
         return teamsList;
+    }
+
+    public MutableLiveData<Boolean> getIsTeamClicked() {
+        return isTeamClicked;
+    }
+
+    public MutableLiveData<Boolean> getIsErrorShown() {
+        return isErrorShown;
+    }
+
+    public MutableLiveData<String> getTeamId() {
+        return teamId;
     }
 
     @Inject
@@ -39,7 +54,7 @@ public class TeamsViewModel extends BaseViewModel {
         subscribeSingle(apiService.getTeams(leagueName), new SingleObserver<TeamsListResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                //NOT USED
             }
 
             @Override
@@ -56,8 +71,13 @@ public class TeamsViewModel extends BaseViewModel {
 
             @Override
             public void onError(Throwable e) {
-
+                isErrorShown.setValue(true);
             }
         });
+    }
+
+    public void onTeamClicked(TeamModel teamModel) {
+        teamId.setValue(teamModel.getTeamId());
+        isTeamClicked.setValue(true);
     }
 }
