@@ -9,12 +9,17 @@
             name="item"
             type="com.pavelkovachev.sportsinfo.persistence.model.team.TeamModel" />
 
+        <variable
+            name="viewModel"
+            type="com.pavelkovachev.sportsinfo.ui.fragment.teams.TeamsViewModel" />
+
     </data>
 
     <android.support.design.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin_between_elements"
+        android:onClick="@{()->viewModel.onTeamClicked(item)}"
         app:cardCornerRadius="@dimen/homescreen_cardview_corner_radius">
 
         <android.support.constraint.ConstraintLayout

@@ -62,7 +62,7 @@ public class HomeScreenViewModel extends BaseViewModel {
 
             @Override
             public void onSuccess(SportsListResponse sportsListResponse) {
-                if (sportsListResponse != null) {
+                if (sportsListResponse.getSports() != null) {
                     List<SportModel> sportModels = new ArrayList<>();
                     Stream.of(sportsListResponse.getSports()).
                             forEach(sportsResponse ->
@@ -70,6 +70,8 @@ public class HomeScreenViewModel extends BaseViewModel {
 
                     sportDbService.insertSports(sportModels);
                     sportModelList.setValue(sportModels);
+                } else {
+                    isErrorShown.setValue(true);
                 }
             }
 

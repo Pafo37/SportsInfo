@@ -35,8 +35,8 @@ public class SportsApiService {
         return apiService.getSportsInfoApi().getTeamsResponse(leagueName);
     }
 
-    public Single<PlayersListResponse> getPlayers(String teamName) {
-        return apiService.getSportsInfoApi().getPlayersResponse(teamName);
+    public Single<PlayersListResponse> getPlayers(String teamId) {
+        return apiService.getSportsInfoApi().getPlayersResponse(teamId);
     }
 
     public Single<LeagueDetailsListResponse> getLeagueDetails(String leagueId) {

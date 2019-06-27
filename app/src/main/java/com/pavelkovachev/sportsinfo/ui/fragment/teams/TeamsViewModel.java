@@ -20,9 +20,24 @@ import io.reactivex.disposables.Disposable;
 public class TeamsViewModel extends BaseViewModel {
 
     private MutableLiveData<List<TeamModel>> teamsList = new MutableLiveData<>();
+    private MutableLiveData<String> teamId = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isTeamClicked = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
 
     public MutableLiveData<List<TeamModel>> getTeamsList() {
         return teamsList;
+    }
+
+    public MutableLiveData<Boolean> getIsTeamClicked() {
+        return isTeamClicked;
+    }
+
+    public MutableLiveData<Boolean> getIsErrorShown() {
+        return isErrorShown;
+    }
+
+    public MutableLiveData<String> getTeamId() {
+        return teamId;
     }
 
     @Inject
@@ -39,25 +54,32 @@ public class TeamsViewModel extends BaseViewModel {
         subscribeSingle(apiService.getTeams(leagueName), new SingleObserver<TeamsListResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                //NOT USED
             }
 
             @Override
             public void onSuccess(TeamsListResponse teamsListResponse) {
-                if (teamsListResponse != null) {
+                if (teamsListResponse.getTeams() != null) {
                     List<TeamModel> teamModels = new ArrayList<>();
                     Stream.of(teamsListResponse.getTeams())
                             .forEach(teamsResponse ->
                                     teamModels.add(TeamModel.convertToTeamModel(teamsResponse)));
                     teamDbService.insertTeams(teamModels);
                     teamsList.postValue(teamModels);
+                } else {
+                    isErrorShown.setValue(true);
                 }
             }
 
             @Override
             public void onError(Throwable e) {
-
+                isErrorShown.setValue(true);
             }
         });
+    }
+
+    public void onTeamClicked(TeamModel teamModel) {
+        teamId.setValue(teamModel.getTeamId());
+        isTeamClicked.setValue(true);
     }
 }
