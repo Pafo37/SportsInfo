@@ -21,7 +21,8 @@ public class PlayersViewModel extends BaseViewModel {
 
     private MutableLiveData<List<PlayerModel>> playerList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
-
+    private MutableLiveData<String> playerId = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isPlayerClicked = new MutableLiveData<>();
 
     public MutableLiveData<List<PlayerModel>> getPlayerList() {
         return playerList;
@@ -29,6 +30,14 @@ public class PlayersViewModel extends BaseViewModel {
 
     public MutableLiveData<Boolean> getIsErrorShown() {
         return isErrorShown;
+    }
+
+    public MutableLiveData<String> getPlayerId() {
+        return playerId;
+    }
+
+    public MutableLiveData<Boolean> getIsPlayerClicked() {
+        return isPlayerClicked;
     }
 
     @Inject
@@ -65,5 +74,10 @@ public class PlayersViewModel extends BaseViewModel {
                 isErrorShown.setValue(true);
             }
         });
+    }
+
+    public void onPlayerClicked(PlayerModel playerModel) {
+        playerId.setValue(playerModel.getPlayerId());
+        isPlayerClicked.setValue(true);
     }
 }

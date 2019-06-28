@@ -10,5 +10,6 @@ public class Constants {
     public final static String BUNDLE_SPORT_NAME = "sportName";
     public final static String BUNDLE_LEAGUE_NAME = "leagueName";
     public final static String BUNDLE_TEAM_ID = "teamId";
+    public final static String BUNDLE_PLAYER_ID = "playerID";
     public final static String SPORTS_INFO = "SportsInfo";
 }

@@ -32,9 +32,6 @@ public interface SportsInfoApi {
     @GET("api/v1/json/1/lookupteam.php")
     Single<TeamsListResponse> getTeamDetailsResponse(@Query("id") String teamId);
 
-    @GET("api/v1/json/1/lookupplayer.php")
-    Single<PlayersListResponse> getPlayerDetailsResponse(@Query("id") String playerId);
-
     @GET("api/v1/json/1/eventsday.php")
     Single<EventsListResponse> getEventsResponse(@Query("d") String date);
 
