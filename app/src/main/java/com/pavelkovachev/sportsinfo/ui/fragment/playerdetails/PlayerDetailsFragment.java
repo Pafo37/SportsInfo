@@ -28,5 +28,12 @@ public class PlayerDetailsFragment extends BaseFragment<PlayerDetailViewModel, F
         String playerId = getArguments().getString(Constants.BUNDLE_PLAYER_ID);
         String teamId = getArguments().getString(Constants.BUNDLE_TEAM_ID);
         viewModel.getPlayerDetails(playerId, teamId);
+        viewModel.getIsErrorShown().observe(this, onError -> {
+            if (onError) {
+                showErrorDialog(getString(R.string.error_message_title),
+                        getString(R.string.error_message_description));
+                viewModel.getIsErrorShown().setValue(false);
+            }
+        });
     }
 }

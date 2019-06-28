@@ -34,9 +34,14 @@ public class PlayerDetailViewModel extends BaseViewModel {
     private MutableLiveData<String> playerBirthPlace = new MutableLiveData<>();
     private MutableLiveData<String> playerDescription = new MutableLiveData<>();
     private MutableLiveData<String> playerImage = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
 
     public MutableLiveData<String> getPlayerImage() {
         return playerImage;
+    }
+
+    public MutableLiveData<Boolean> getIsErrorShown() {
+        return isErrorShown;
     }
 
     public SportsApiService getApiService() {
@@ -97,12 +102,14 @@ public class PlayerDetailViewModel extends BaseViewModel {
                     playerDescription.setValue(playerDetails.getValue().getPlayerDescription());
                     playerImage.setValue(playerDetails.getValue().getPlayerImage());
                     playerDbService.insertPlayers(playerModelList);
+                } else {
+                    isErrorShown.setValue(true);
                 }
             }
 
             @Override
             public void onError(Throwable e) {
-                //TODO : add alert dialog
+                isErrorShown.setValue(true);
             }
         });
 
