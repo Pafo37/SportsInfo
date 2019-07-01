@@ -79,6 +79,7 @@ public class LeagueDetailsViewModel extends BaseViewModel {
                     yearFormed.setValue(leagueDetailsModel.getValue().getYearFormed());
                     description.setValue(leagueDetailsModel.getValue().getDescription());
                     leagueLogo.setValue(leagueDetailsModel.getValue().getLeagueLogo());
+                    leagueDetailsDbService.insert(leagueDetailsModel.getValue());
                 } else {
                     isErrorShown.setValue(true);
                 }

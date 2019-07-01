@@ -8,7 +8,7 @@ public class TeamsResponse {
     private String idTeam;
     @SerializedName("strTeam")
     private String strTeam;
-    @SerializedName("yearFormed")
+    @SerializedName("intFormedYear")
     private String yearFormed;
     @SerializedName("strSport")
     private String strSport;

@@ -32,7 +32,12 @@ public class TeamsViewModel extends BaseViewModel {
     private MutableLiveData<List<TeamModel>> teamsList = new MutableLiveData<>();
     private MutableLiveData<String> teamId = new MutableLiveData<>();
     private MutableLiveData<Boolean> isTeamClicked = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isSeeMoreClicked = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
+
+    public MutableLiveData<Boolean> getIsSeeMoreClicked() {
+        return isSeeMoreClicked;
+    }
 
     public MutableLiveData<List<TeamModel>> getTeamsList() {
         return teamsList;
@@ -81,5 +86,10 @@ public class TeamsViewModel extends BaseViewModel {
     public void onTeamClicked(TeamModel teamModel) {
         teamId.setValue(teamModel.getTeamId());
         isTeamClicked.setValue(true);
+    }
+
+    public void onSeeMoreClicked(TeamModel teamModel) {
+        teamId.setValue(teamModel.getTeamId());
+        isSeeMoreClicked.setValue(true);
     }
 }
