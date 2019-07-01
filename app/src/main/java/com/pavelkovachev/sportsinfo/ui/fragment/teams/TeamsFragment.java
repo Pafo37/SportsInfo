@@ -32,6 +32,7 @@ public class TeamsFragment extends BaseFragment<TeamsViewModel, FragmentTeamsBin
         NavController navController = Navigation.findNavController(view);
         viewModel.getTeams(leagueName);
 
+
         viewModel.getIsTeamClicked().observe(this, isClicked -> {
             if (isClicked) {
                 Bundle bundle = new Bundle();
@@ -46,6 +47,15 @@ public class TeamsFragment extends BaseFragment<TeamsViewModel, FragmentTeamsBin
                 showErrorDialog(getString(R.string.error_message_title),
                         getString(R.string.error_message_description));
                 viewModel.getIsErrorShown().setValue(false);
+            }
+        });
+
+        viewModel.getIsSeeMoreClicked().observe(this, isClicked -> {
+            if (isClicked) {
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.BUNDLE_TEAM_ID, viewModel.getTeamId().getValue());
+                viewModel.getIsSeeMoreClicked().setValue(false);
+                navController.navigate(R.id.action_teamsFragment_to_teamDetailsFragment, bundle);
             }
         });
     }

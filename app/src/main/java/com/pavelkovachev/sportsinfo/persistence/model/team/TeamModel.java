@@ -18,6 +18,9 @@ public class TeamModel implements DiffComparable {
     @ColumnInfo(name = "team_name")
     private String teamName;
 
+    @ColumnInfo(name = "team_sport")
+    private String sportName;
+
     @ColumnInfo(name = "team_league_name")
     private String teamLeagueName;
 
@@ -30,18 +33,23 @@ public class TeamModel implements DiffComparable {
     @ColumnInfo(name = "team_year_formed")
     private String teamYearFormed;
 
-    @ColumnInfo(name = "tea_description")
+    @ColumnInfo(name = "team_description")
     private String teamDescription;
 
-    public TeamModel(String teamId, String teamName, String teamLeagueName, String teamLogo,
+    public TeamModel(String teamId, String sportName, String teamName, String teamLeagueName, String teamLogo,
                      String teamCountry, String teamYearFormed, String teamDescription) {
         this.teamId = teamId;
+        this.sportName = sportName;
         this.teamName = teamName;
         this.teamLeagueName = teamLeagueName;
         this.teamLogo = teamLogo;
         this.teamCountry = teamCountry;
         this.teamYearFormed = teamYearFormed;
         this.teamDescription = teamDescription;
+    }
+
+    public String getSportName() {
+        return sportName;
     }
 
     public String getTeamId() {
@@ -88,6 +96,10 @@ public class TeamModel implements DiffComparable {
         this.teamDescription = teamDescription;
     }
 
+    public void setSportName(String sportName) {
+        this.sportName = sportName;
+    }
+
     public String getTeamCountry() {
         return teamCountry;
     }
@@ -115,6 +127,7 @@ public class TeamModel implements DiffComparable {
     public static TeamModel convertToTeamModel(TeamsResponse teamsResponse) {
         return new TeamModel(
                 teamsResponse.getIdTeam(),
+                teamsResponse.getStrSport(),
                 teamsResponse.getStrTeam(),
                 teamsResponse.getStrLeague(),
                 teamsResponse.getStrTeamLogo(),

@@ -19,7 +19,7 @@ public interface TeamModelDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTeams(List<TeamModel> teamModelList);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTeam(TeamModel teamModel);
 
     @Delete
