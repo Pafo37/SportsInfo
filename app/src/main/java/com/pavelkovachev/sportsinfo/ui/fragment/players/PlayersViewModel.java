@@ -19,6 +19,16 @@ import io.reactivex.disposables.Disposable;
 
 public class PlayersViewModel extends BaseViewModel {
 
+    @Inject
+    SportsApiService apiService;
+
+    @Inject
+    PlayerDbService playerDbService;
+
+    @Inject
+    public PlayersViewModel() {
+    }
+
     private MutableLiveData<List<PlayerModel>> playerList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
     private MutableLiveData<String> playerId = new MutableLiveData<>();
@@ -38,15 +48,6 @@ public class PlayersViewModel extends BaseViewModel {
 
     public MutableLiveData<Boolean> getIsPlayerClicked() {
         return isPlayerClicked;
-    }
-
-    @Inject
-    SportsApiService apiService;
-    @Inject
-    PlayerDbService playerDbService;
-
-    @Inject
-    public PlayersViewModel() {
     }
 
     public void getPlayers(String teamId) {

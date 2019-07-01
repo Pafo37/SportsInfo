@@ -21,10 +21,22 @@ import io.reactivex.disposables.Disposable;
 
 public class LeaguesViewModel extends BaseViewModel {
 
+    @Inject
+    SportsApiService apiService;
+
+    @Inject
+    LeagueDbService leagueDbService;
+
+    @Inject
+    public LeaguesViewModel() {
+    }
+
     private MutableLiveData<List<LeagueModel>> leaguesModelList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
     private MutableLiveData<String> leagueName = new MutableLiveData<>();
+    private MutableLiveData<String> leagueId = new MutableLiveData<>();
     private MutableLiveData<Boolean> isLeagueClicked = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isSeeMoreClicked = new MutableLiveData<>();
 
     public MutableLiveData<List<LeagueModel>> getLeaguesList() {
         return leaguesModelList;
@@ -38,18 +50,16 @@ public class LeaguesViewModel extends BaseViewModel {
         return isLeagueClicked;
     }
 
-    public MutableLiveData<String> getLeagueName() {
-        return leagueName;
+    public MutableLiveData<String> getLeagueId() {
+        return leagueId;
     }
 
-    @Inject
-    SportsApiService apiService;
+    public MutableLiveData<Boolean> getIsSeeMoreClicked() {
+        return isSeeMoreClicked;
+    }
 
-    @Inject
-    LeagueDbService leagueDbService;
-
-    @Inject
-    public LeaguesViewModel() {
+    public MutableLiveData<String> getLeagueName() {
+        return leagueName;
     }
 
     public void getLeagues(String sportName) {
@@ -84,5 +94,10 @@ public class LeaguesViewModel extends BaseViewModel {
     public void onLeagueClicked(LeagueModel leagueModel) {
         leagueName.setValue(leagueModel.getLeagueName());
         isLeagueClicked.setValue(true);
+    }
+
+    public void onSeeMoreClicked(LeagueModel leagueModel) {
+        leagueId.setValue(leagueModel.getLeagueId());
+        isSeeMoreClicked.setValue(true);
     }
 }

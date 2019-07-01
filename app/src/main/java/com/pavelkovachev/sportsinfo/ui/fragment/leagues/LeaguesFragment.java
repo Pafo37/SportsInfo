@@ -47,5 +47,14 @@ public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeag
                 navController.navigate(R.id.action_leaguesFragment_to_teamsFragment, bundle);
             }
         });
+
+        viewModel.getIsSeeMoreClicked().observe(this, isClicked -> {
+            if (isClicked) {
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.BUNDLE_LEAGUE_ID, viewModel.getLeagueId().getValue());
+                viewModel.getIsSeeMoreClicked().setValue(false);
+                navController.navigate(R.id.action_leaguesFragment_to_leagueDetailsFragment, bundle);
+            }
+        });
     }
 }

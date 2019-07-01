@@ -13,7 +13,7 @@ public class LeagueDetailsResponse {
     @SerializedName("strLeagueAlternate")
     private String strLeagueAlternate;
     @SerializedName("intFormedYear")
-    private String intFormedYear;
+    private String yearFormed;
     @SerializedName("strCountry")
     private String strCountry;
     @SerializedName("strDescriptionEN")
@@ -54,11 +54,11 @@ public class LeagueDetailsResponse {
     }
 
     public String getIntFormedYear() {
-        return intFormedYear;
+        return yearFormed;
     }
 
     public void setIntFormedYear(String intFormedYear) {
-        this.intFormedYear = intFormedYear;
+        this.yearFormed = intFormedYear;
     }
 
     public String getStrCountry() {

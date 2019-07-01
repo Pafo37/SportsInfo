@@ -22,8 +22,13 @@ public class PlayerDetailViewModel extends BaseViewModel {
 
     @Inject
     SportsApiService apiService;
+
     @Inject
     PlayerDbService playerDbService;
+
+    @Inject
+    public PlayerDetailViewModel() {
+    }
 
     private MutableLiveData<PlayerModel> playerDetails = new MutableLiveData<>();
     private MutableLiveData<String> playerName = new MutableLiveData<>();
@@ -76,14 +81,11 @@ public class PlayerDetailViewModel extends BaseViewModel {
         return playerName;
     }
 
-    @Inject
-    public PlayerDetailViewModel() {
-    }
-
     public void getPlayerDetails(String playerId, String teamID) {
         subscribeSingle(apiService.getPlayers(teamID), new SingleObserver<PlayersListResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
+                //NOT USED
             }
 
             @Override

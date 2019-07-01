@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.pavelkovachev.sportsinfo.ui.fragment.leaguedetails.LeagueDetailsViewModel" />
+
     </data>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white">
@@ -23,8 +27,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_test_league_details"
-                tools:ignore="ContentDescription" />
+                app:path="@{viewModel.getLeagueLogo()}"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@drawable/img_test_league_details" />
 
             <TextView
                 android:id="@+id/txt_league_sport_title"
@@ -43,6 +48,7 @@
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{viewModel.sportName}"
                 android:textSize="@dimen/material_design_body_txt_size"
                 app:layout_constraintEnd_toStartOf="@id/txt_league_country_body"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +72,7 @@
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{viewModel.leagueName}"
                 android:textSize="@dimen/material_design_body_txt_size"
                 app:layout_constraintEnd_toStartOf="@id/txt_league_year_formed_body"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +95,7 @@
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{viewModel.country}"
                 android:textSize="@dimen/material_design_body_txt_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_league_country_title"
@@ -109,6 +117,7 @@
                 android:layout_width="@dimen/no_dimens"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin_between_elements"
+                android:text="@{viewModel.yearFormed}"
                 android:textSize="@dimen/material_design_body_txt_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_league_year_formed_title"
@@ -131,6 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_margin_between_elements"
                 android:paddingBottom="@dimen/default_margin_between_elements"
+                android:text="@{viewModel.description}"
                 android:textSize="@dimen/material_design_body_txt_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -139,5 +149,5 @@
 
         </android.support.constraint.ConstraintLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 </layout>

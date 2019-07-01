@@ -21,16 +21,20 @@ import io.reactivex.disposables.Disposable;
 
 public class HomeScreenViewModel extends BaseViewModel {
 
-    private MutableLiveData<List<SportModel>> sportModelList = new MutableLiveData<>();
-    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
-    private MutableLiveData<String> sportName = new MutableLiveData<>();
-    private MutableLiveData<Boolean> isSportClicked = new MutableLiveData<>();
-
     @Inject
     SportsApiService apiService;
 
     @Inject
     SportDbService sportDbService;
+
+    @Inject
+    public HomeScreenViewModel() {
+    }
+
+    private MutableLiveData<List<SportModel>> sportModelList = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
+    private MutableLiveData<String> sportName = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isSportClicked = new MutableLiveData<>();
 
     public MutableLiveData<List<SportModel>> getSportsList() {
         return sportModelList;
@@ -38,10 +42,6 @@ public class HomeScreenViewModel extends BaseViewModel {
 
     public MutableLiveData<Boolean> getIsSportClicked() {
         return isSportClicked;
-    }
-
-    @Inject
-    public HomeScreenViewModel() {
     }
 
     public MutableLiveData<Boolean> getIsErrorShown() {
