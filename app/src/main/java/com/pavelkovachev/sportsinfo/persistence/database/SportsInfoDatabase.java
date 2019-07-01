@@ -8,6 +8,8 @@ import com.pavelkovachev.sportsinfo.persistence.model.event.EventModel;
 import com.pavelkovachev.sportsinfo.persistence.model.event.EventModelDao;
 import com.pavelkovachev.sportsinfo.persistence.model.league.LeagueModel;
 import com.pavelkovachev.sportsinfo.persistence.model.league.LeagueModelDao;
+import com.pavelkovachev.sportsinfo.persistence.model.leaguedetails.LeagueDetailsModel;
+import com.pavelkovachev.sportsinfo.persistence.model.leaguedetails.LeagueDetailsModelDao;
 import com.pavelkovachev.sportsinfo.persistence.model.player.PlayerModel;
 import com.pavelkovachev.sportsinfo.persistence.model.player.PlayerModelDao;
 import com.pavelkovachev.sportsinfo.persistence.model.sport.SportModel;
@@ -23,7 +25,8 @@ import com.pavelkovachev.sportsinfo.persistence.model.tvevent.TvEventModelDao;
         PlayerModel.class,
         SportModel.class,
         TeamModel.class,
-        TvEventModel.class}, version = 1, exportSchema = false)
+        TvEventModel.class,
+        LeagueDetailsModel.class}, version = 1, exportSchema = false)
 public abstract class SportsInfoDatabase extends RoomDatabase {
 
     public abstract EventModelDao allEventsModelDao();
@@ -37,5 +40,7 @@ public abstract class SportsInfoDatabase extends RoomDatabase {
     public abstract TeamModelDao teamsModelDao();
 
     public abstract TvEventModelDao tvEventsModelDao();
+
+    public abstract LeagueDetailsModelDao leagueDetailsModelDao();
 
 }

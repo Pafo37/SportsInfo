@@ -25,13 +25,13 @@ public class TvEventsViewModel extends BaseViewModel {
     @Inject
     TvEventDbService tvEventDbService;
 
-    private MutableLiveData<List<TvEventModel>> tvEventsList = new MutableLiveData<>();
-    private MutableLiveData<String> eventDate = new MutableLiveData<>();
-    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
-
     @Inject
     public TvEventsViewModel() {
     }
+
+    private MutableLiveData<List<TvEventModel>> tvEventsList = new MutableLiveData<>();
+    private MutableLiveData<String> eventDate = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
 
     public MutableLiveData<String> getEventDate() {
         return eventDate;

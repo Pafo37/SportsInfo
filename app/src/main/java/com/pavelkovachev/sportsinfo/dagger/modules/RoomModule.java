@@ -6,6 +6,7 @@ import android.arch.persistence.room.Room;
 import com.pavelkovachev.sportsinfo.persistence.database.SportsInfoDatabase;
 import com.pavelkovachev.sportsinfo.persistence.model.event.EventModelDao;
 import com.pavelkovachev.sportsinfo.persistence.model.league.LeagueModelDao;
+import com.pavelkovachev.sportsinfo.persistence.model.leaguedetails.LeagueDetailsModelDao;
 import com.pavelkovachev.sportsinfo.persistence.model.player.PlayerModelDao;
 import com.pavelkovachev.sportsinfo.persistence.model.sport.SportModelDao;
 import com.pavelkovachev.sportsinfo.persistence.model.team.TeamModelDao;
@@ -56,5 +57,10 @@ public class RoomModule {
     @Provides
     TvEventModelDao providesTvEventsModelDao() {
         return database.tvEventsModelDao();
+    }
+
+    @Provides
+    LeagueDetailsModelDao providesLeagueDetailsModelDao() {
+        return database.leagueDetailsModelDao();
     }
 }

@@ -25,6 +25,10 @@ public class AllEventsViewModel extends BaseViewModel {
     @Inject
     EventDbService eventDbService;
 
+    @Inject
+    public AllEventsViewModel() {
+    }
+
     private MutableLiveData<String> eventDate = new MutableLiveData<>();
     private MutableLiveData<List<EventModel>> allEventsList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
@@ -39,10 +43,6 @@ public class AllEventsViewModel extends BaseViewModel {
 
     public MutableLiveData<Boolean> getIsErrorShown() {
         return isErrorShown;
-    }
-
-    @Inject
-    public AllEventsViewModel() {
     }
 
     public void getAllEvents() {

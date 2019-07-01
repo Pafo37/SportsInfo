@@ -9,13 +9,13 @@ import java.util.List;
 public class LeagueDetailsListResponse {
 
     @SerializedName("leagues")
-    private List<LeaguesResponse> leagues = null;
+    private List<LeagueDetailsResponse> leagues = null;
 
-    public List<LeaguesResponse> getLeagues() {
+    public List<LeagueDetailsResponse> getLeagues() {
         return leagues;
     }
 
-    public void setLeagues(List<LeaguesResponse> leagues) {
+    public void setLeagues(List<LeagueDetailsResponse> leagues) {
         this.leagues = leagues;
     }
 }
