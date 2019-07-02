@@ -16,7 +16,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
 import io.reactivex.SingleObserver;
+import io.reactivex.SingleOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
 public class HomeScreenViewModel extends BaseViewModel {
@@ -52,34 +55,47 @@ public class HomeScreenViewModel extends BaseViewModel {
         return sportName;
     }
 
-    void getSports() {
+    public void getSports() {
+        subscribeSingle(
+                Single.zip(
+                        apiService.getSports().onErrorReturnItem(new SportsListResponse()),
+                        sportDbService.getAllSports(),
+                        this::getDataFromDbAndApi), new SingleObserver<List<SportModel>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-        subscribeSingle(apiService.getSports(), new SingleObserver<SportsListResponse>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                //NOT USED
-            }
+                    }
 
-            @Override
-            public void onSuccess(SportsListResponse sportsListResponse) {
-                if (sportsListResponse.getSports() != null) {
-                    List<SportModel> sportModels = new ArrayList<>();
-                    Stream.of(sportsListResponse.getSports()).
-                            forEach(sportsResponse ->
-                                    sportModels.add(SportModel.convertToSportModel(sportsResponse)));
+                    @Override
+                    public void onSuccess(List<SportModel> sportList) {
+                        sportDbService.insertSports(sportList);
+                        sportModelList.setValue(sportList);
+                    }
 
-                    sportDbService.insertSports(sportModels);
-                    sportModelList.setValue(sportModels);
-                } else {
-                    isErrorShown.setValue(true);
+                    @Override
+                    public void onError(Throwable e) {
+                        isErrorShown.postValue(true);
+                    }
                 }
-            }
+        );
+    }
 
-            @Override
-            public void onError(Throwable e) {
+    private List<SportModel> getDataFromDbAndApi(SportsListResponse sportsListResponse, List<SportModel> sportModelList) {
+        List<SportModel> sportModels = new ArrayList<>();
+        if (sportsListResponse.getSports() != null) {
+            Stream.of(sportsListResponse.getSports()).
+                    forEach(sportsResponse ->
+                            sportModels.add(SportModel.convertToSportModel(sportsResponse)));
+        } else {
+            if (sportModelList.size() == 0) {
                 isErrorShown.postValue(true);
             }
-        });
+            return sportModelList;
+        }
+        if (sportModels.size() > sportModelList.size()) {
+            return sportModels;
+        }
+        return sportModels;
     }
 
     public void onSportClicked(SportModel sportModel) {
