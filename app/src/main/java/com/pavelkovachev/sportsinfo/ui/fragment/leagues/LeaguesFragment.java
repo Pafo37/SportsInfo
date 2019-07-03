@@ -60,6 +60,7 @@ public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeag
             if (isClicked) {
                 Bundle bundle = new Bundle();
                 bundle.putString(Constants.BUNDLE_LEAGUE_ID, viewModel.getLeagueId().getValue());
+                bundle.putString(Constants.BUNDLE_LEAGUE_NAME, viewModel.getLeagueName().getValue());
                 viewModel.getIsSeeMoreClicked().setValue(false);
                 navController.navigate(R.id.action_leaguesFragment_to_leagueDetailsFragment, bundle);
             }

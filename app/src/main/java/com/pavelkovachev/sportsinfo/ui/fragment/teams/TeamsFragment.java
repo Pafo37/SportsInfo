@@ -62,6 +62,7 @@ public class TeamsFragment extends BaseFragment<TeamsViewModel, FragmentTeamsBin
             if (isClicked) {
                 Bundle bundle = new Bundle();
                 bundle.putString(Constants.BUNDLE_TEAM_ID, viewModel.getTeamId().getValue());
+                bundle.putString(Constants.BUNDLE_TEAM_NAME, viewModel.getTeamName().getValue());
                 viewModel.getIsSeeMoreClicked().setValue(false);
                 navController.navigate(R.id.action_teamsFragment_to_teamDetailsFragment, bundle);
             }

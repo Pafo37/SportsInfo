@@ -110,6 +110,7 @@ public class LeaguesViewModel extends BaseViewModel {
     }
 
     public void onSeeMoreClicked(LeagueModel leagueModel) {
+        leagueName.setValue(leagueModel.getLeagueName());
         leagueId.setValue(leagueModel.getLeagueId());
         isSeeMoreClicked.setValue(true);
     }

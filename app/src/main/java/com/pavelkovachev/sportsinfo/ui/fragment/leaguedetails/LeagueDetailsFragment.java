@@ -26,6 +26,8 @@ public class LeagueDetailsFragment extends BaseFragment<LeagueDetailsViewModel, 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String leagueId = getArguments().getString(Constants.BUNDLE_LEAGUE_ID);
+        String leagueName = getArguments().getString(Constants.BUNDLE_LEAGUE_NAME);
+        getActivity().setTitle(leagueName);
         viewModel.getLeagueDetails(leagueId);
 
         viewModel.getIsErrorShown().observe(this, isError -> {

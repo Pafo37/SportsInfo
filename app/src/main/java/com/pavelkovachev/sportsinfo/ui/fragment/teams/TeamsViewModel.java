@@ -110,6 +110,7 @@ public class TeamsViewModel extends BaseViewModel {
     }
 
     public void onSeeMoreClicked(TeamModel teamModel) {
+        teamName.setValue(teamModel.getTeamName());
         teamId.setValue(teamModel.getTeamId());
         isSeeMoreClicked.setValue(true);
     }
