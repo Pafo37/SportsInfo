@@ -53,7 +53,8 @@ public class PlayersViewModel extends BaseViewModel {
 
     public void getPlayers(String teamId) {
 
-        subscribeSingle(Single.zip(apiService.getPlayers(teamId),
+        subscribeSingle(Single.zip(
+                apiService.getPlayers(teamId).onErrorReturnItem(new PlayersListResponse()),
                 playerDbService.getAllPlayers(), this::getDataFromApiAndDb),
                 new SingleObserver<List<PlayerModel>>() {
                     @Override

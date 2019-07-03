@@ -64,7 +64,7 @@ public class LeaguesViewModel extends BaseViewModel {
     }
 
     public void getLeagues(String sportName) {
-        subscribeSingle(Single.zip(apiService.getLeagues(),
+        subscribeSingle(Single.zip(apiService.getLeagues().onErrorReturnItem(new LeaguesListResponse()),
                 leagueDbService.getAllLeagues(),
                 this::getDataFromApiAndDb), new SingleObserver<List<LeagueModel>>() {
             @Override

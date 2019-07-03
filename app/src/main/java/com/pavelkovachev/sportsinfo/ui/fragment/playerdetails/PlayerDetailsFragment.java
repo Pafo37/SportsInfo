@@ -23,11 +23,17 @@ public class PlayerDetailsFragment extends BaseFragment<PlayerDetailViewModel, F
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         String playerId = getArguments().getString(Constants.BUNDLE_PLAYER_ID);
         String teamId = getArguments().getString(Constants.BUNDLE_TEAM_ID);
         viewModel.getPlayerDetails(playerId, teamId);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         viewModel.getIsErrorShown().observe(this, onError -> {
             if (onError) {
                 showErrorDialog(getString(R.string.error_message_title),

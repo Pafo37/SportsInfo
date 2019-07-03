@@ -58,8 +58,8 @@ public class TeamsViewModel extends BaseViewModel {
 
     public void getTeams(String leagueName) {
 
-
-        subscribeSingle(Single.zip(apiService.getTeams(leagueName),
+        subscribeSingle(Single.zip(
+                apiService.getTeams(leagueName).onErrorReturnItem(new TeamsListResponse()),
                 teamDbService.getAllTeams(),
                 this::getDataFromApiAndDb),
                 new SingleObserver<List<TeamModel>>() {
