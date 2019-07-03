@@ -63,7 +63,7 @@ public class HomeScreenViewModel extends BaseViewModel {
                         this::getDataFromDbAndApi), new SingleObserver<List<SportModel>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        //NOT USED
                     }
 
                     @Override
@@ -87,14 +87,10 @@ public class HomeScreenViewModel extends BaseViewModel {
                     forEach(sportsResponse ->
                             sportModels.add(SportModel.convertToSportModel(sportsResponse)));
         } else {
-            if (sportModelList.size() == 0) {
-                isErrorShown.postValue(true);
-            }
+            isErrorShown.postValue(true);
             return sportModelList;
         }
-        if (sportModels.size() > sportModelList.size()) {
-            return sportModels;
-        }
+
         return sportModels;
     }
 

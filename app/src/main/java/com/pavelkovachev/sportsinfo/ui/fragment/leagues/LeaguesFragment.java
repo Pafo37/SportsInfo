@@ -26,11 +26,17 @@ public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeag
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         String sportName = getArguments().getString(Constants.BUNDLE_SPORT_NAME);
         getActivity().setTitle(sportName);
         viewModel.getLeagues(sportName);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         NavController navController = Navigation.findNavController(view);
         viewModel.getIsErrorShown().observe(this, isError -> {
             if (isError) {

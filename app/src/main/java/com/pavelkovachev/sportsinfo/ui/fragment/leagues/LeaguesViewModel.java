@@ -16,6 +16,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
@@ -63,25 +64,22 @@ public class LeaguesViewModel extends BaseViewModel {
     }
 
     public void getLeagues(String sportName) {
-        subscribeSingle(apiService.getLeagues(), new SingleObserver<LeaguesListResponse>() {
+        subscribeSingle(Single.zip(apiService.getLeagues(),
+                leagueDbService.getAllLeagues(),
+                this::getDataFromApiAndDb), new SingleObserver<List<LeagueModel>>() {
             @Override
             public void onSubscribe(Disposable d) {
                 //NOT USED
             }
 
             @Override
-            public void onSuccess(LeaguesListResponse leaguesListResponse) {
-                if (leaguesListResponse.getLeagues() != null) {
-                    List<LeagueModel> leagueModels = new ArrayList<>();
-                    Stream.of(leaguesListResponse.getLeagues())
-                            .filter(sports -> sports.getStrSport().equals(sportName))
-                            .forEach(leaguesResponse ->
-                                    leagueModels.add(LeagueModel.convertToLeagueModel(leaguesResponse)));
-                    leagueDbService.insertLeagues(leagueModels);
-                    leaguesModelList.setValue(leagueModels);
-                } else {
-                    isErrorShown.setValue(true);
-                }
+            public void onSuccess(List<LeagueModel> leagueModelList) {
+                List<LeagueModel> leagueModels = new ArrayList<>();
+                Stream.of(leagueModelList)
+                        .filter(sports -> sports.getLeagueSport().equals(sportName))
+                        .forEach(leagueModels::add);
+                leagueDbService.insertLeagues(leagueModels);
+                leaguesModelList.setValue(leagueModels);
             }
 
             @Override
@@ -89,6 +87,20 @@ public class LeaguesViewModel extends BaseViewModel {
                 isErrorShown.postValue(true);
             }
         });
+    }
+
+    private List<LeagueModel> getDataFromApiAndDb(LeaguesListResponse leaguesListResponse,
+                                                  List<LeagueModel> leagueModelList) {
+        List<LeagueModel> leagueModels = new ArrayList<>();
+        if (leaguesListResponse.getLeagues() != null) {
+            Stream.of(leaguesListResponse.getLeagues())
+                    .forEach(leaguesResponse ->
+                            leagueModels.add(LeagueModel.convertToLeagueModel(leaguesResponse)));
+        } else {
+            isErrorShown.postValue(true);
+            return leagueModelList;
+        }
+        return leagueModels;
     }
 
     public void onLeagueClicked(LeagueModel leagueModel) {
