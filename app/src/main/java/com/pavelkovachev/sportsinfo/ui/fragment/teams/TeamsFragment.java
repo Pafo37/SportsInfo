@@ -26,12 +26,17 @@ public class TeamsFragment extends BaseFragment<TeamsViewModel, FragmentTeamsBin
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        String leagueName = getArguments().getString(Constants.BUNDLE_LEAGUE_NAME);
+        viewModel.getTeams(leagueName);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String leagueName = getArguments().getString(Constants.BUNDLE_LEAGUE_NAME);
-        NavController navController = Navigation.findNavController(view);
-        viewModel.getTeams(leagueName);
 
+        NavController navController = Navigation.findNavController(view);
 
         viewModel.getIsTeamClicked().observe(this, isClicked -> {
             if (isClicked) {

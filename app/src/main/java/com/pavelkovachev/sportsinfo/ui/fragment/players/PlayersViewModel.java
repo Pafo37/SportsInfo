@@ -14,6 +14,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
@@ -51,34 +52,45 @@ public class PlayersViewModel extends BaseViewModel {
     }
 
     public void getPlayers(String teamId) {
-        subscribeSingle(apiService.getPlayers(teamId), new SingleObserver<PlayersListResponse>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                //NOT USED
-            }
 
-            @Override
-            public void onSuccess(PlayersListResponse playersListResponse) {
-                if (playersListResponse.getPlayers() != null) {
-                    List<PlayerModel> playerModelList = new ArrayList<>();
-                    Stream.of(playersListResponse.getPlayers())
-                            .forEach(playersResponse -> playerModelList.add(PlayerModel.convertToPlayerModel(playersResponse)));
-                    playerList.setValue(playerModelList);
-                    playerDbService.insertPlayers(playerModelList);
-                } else {
-                    isErrorShown.setValue(true);
-                }
-            }
+        subscribeSingle(Single.zip(apiService.getPlayers(teamId),
+                playerDbService.getAllPlayers(), this::getDataFromApiAndDb),
+                new SingleObserver<List<PlayerModel>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        //NOT USED
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                isErrorShown.setValue(true);
-            }
-        });
+                    @Override
+                    public void onSuccess(List<PlayerModel> playerModels) {
+                        playerDbService.insertPlayers(playerModels);
+                        playerList.setValue(playerModels);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        isErrorShown.postValue(true);
+                    }
+                });
     }
 
     public void onPlayerClicked(PlayerModel playerModel) {
         playerId.setValue(playerModel.getPlayerId());
         isPlayerClicked.setValue(true);
+    }
+
+    private List<PlayerModel> getDataFromApiAndDb(PlayersListResponse playersListResponse,
+                                                  List<PlayerModel> playerModels) {
+        List<PlayerModel> playerModelList = new ArrayList<>();
+        if (playersListResponse.getPlayers() != null) {
+            Stream.of(playersListResponse.getPlayers())
+                    .forEach(playersResponse -> playerModelList.add(PlayerModel.convertToPlayerModel(playersResponse)));
+
+        } else if (playerModels != null) {
+            return playerModels;
+        } else {
+            isErrorShown.setValue(true);
+        }
+        return playerModelList;
     }
 }

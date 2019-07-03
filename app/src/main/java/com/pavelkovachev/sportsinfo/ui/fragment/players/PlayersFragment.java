@@ -15,6 +15,8 @@ import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
 public class PlayersFragment extends BaseFragment<PlayersViewModel, FragmentPlayerDetailsBinding> {
 
+    private String teamId;
+
     @Override
     protected int getLayoutResId() {
         return R.layout.fragment_players;
@@ -26,12 +28,16 @@ public class PlayersFragment extends BaseFragment<PlayersViewModel, FragmentPlay
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        teamId = getArguments().getString(Constants.BUNDLE_TEAM_ID);
+        viewModel.getPlayers(teamId);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String teamId = getArguments().getString(Constants.BUNDLE_TEAM_ID);
         NavController navController = Navigation.findNavController(view);
-
-        viewModel.getPlayers(teamId);
 
         viewModel.getIsErrorShown().observe(this, onError -> {
             if (onError) {

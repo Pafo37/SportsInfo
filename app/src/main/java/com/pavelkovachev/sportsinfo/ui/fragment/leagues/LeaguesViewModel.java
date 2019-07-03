@@ -96,9 +96,10 @@ public class LeaguesViewModel extends BaseViewModel {
             Stream.of(leaguesListResponse.getLeagues())
                     .forEach(leaguesResponse ->
                             leagueModels.add(LeagueModel.convertToLeagueModel(leaguesResponse)));
+        } else if (leagueModelList != null) {
+            return leagueModelList;
         } else {
             isErrorShown.postValue(true);
-            return leagueModelList;
         }
         return leagueModels;
     }

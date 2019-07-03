@@ -80,15 +80,17 @@ public class HomeScreenViewModel extends BaseViewModel {
         );
     }
 
-    private List<SportModel> getDataFromDbAndApi(SportsListResponse sportsListResponse, List<SportModel> sportModelList) {
+    private List<SportModel> getDataFromDbAndApi(SportsListResponse sportsListResponse,
+                                                 List<SportModel> sportModelList) {
         List<SportModel> sportModels = new ArrayList<>();
         if (sportsListResponse.getSports() != null) {
             Stream.of(sportsListResponse.getSports()).
                     forEach(sportsResponse ->
                             sportModels.add(SportModel.convertToSportModel(sportsResponse)));
+        } else if (sportModelList != null) {
+            return sportModelList;
         } else {
             isErrorShown.postValue(true);
-            return sportModelList;
         }
 
         return sportModels;
