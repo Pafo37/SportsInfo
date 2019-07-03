@@ -15,6 +15,8 @@ import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseFragment;
 
 public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeaguesBinding> {
 
+    private String sportName;
+
     @Override
     protected int getLayoutResId() {
         return R.layout.fragment_leagues;
@@ -28,15 +30,15 @@ public class LeaguesFragment extends BaseFragment<LeaguesViewModel, FragmentLeag
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String sportName = getArguments().getString(Constants.BUNDLE_SPORT_NAME);
-        getActivity().setTitle(sportName);
+        sportName = getArguments().getString(Constants.BUNDLE_SPORT_NAME);
+
         viewModel.getLeagues(sportName);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        getActivity().setTitle(sportName);
         NavController navController = Navigation.findNavController(view);
         viewModel.getIsErrorShown().observe(this, isError -> {
             if (isError) {

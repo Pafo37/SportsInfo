@@ -33,7 +33,12 @@ public class PlayersViewModel extends BaseViewModel {
     private MutableLiveData<List<PlayerModel>> playerList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
     private MutableLiveData<String> playerId = new MutableLiveData<>();
+    private MutableLiveData<String> playerName = new MutableLiveData<>();
     private MutableLiveData<Boolean> isPlayerClicked = new MutableLiveData<>();
+
+    public MutableLiveData<String> getPlayerName() {
+        return playerName;
+    }
 
     public MutableLiveData<List<PlayerModel>> getPlayerList() {
         return playerList;
@@ -77,6 +82,7 @@ public class PlayersViewModel extends BaseViewModel {
 
     public void onPlayerClicked(PlayerModel playerModel) {
         playerId.setValue(playerModel.getPlayerId());
+        playerName.setValue(playerModel.getPlayerName());
         isPlayerClicked.setValue(true);
     }
 

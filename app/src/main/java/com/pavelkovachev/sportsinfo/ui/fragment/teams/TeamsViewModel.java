@@ -32,6 +32,7 @@ public class TeamsViewModel extends BaseViewModel {
 
     private MutableLiveData<List<TeamModel>> teamsList = new MutableLiveData<>();
     private MutableLiveData<String> teamId = new MutableLiveData<>();
+    private MutableLiveData<String> teamName = new MutableLiveData<>();
     private MutableLiveData<Boolean> isTeamClicked = new MutableLiveData<>();
     private MutableLiveData<Boolean> isSeeMoreClicked = new MutableLiveData<>();
     private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
@@ -54,6 +55,10 @@ public class TeamsViewModel extends BaseViewModel {
 
     public MutableLiveData<String> getTeamId() {
         return teamId;
+    }
+
+    public MutableLiveData<String> getTeamName() {
+        return teamName;
     }
 
     public void getTeams(String leagueName) {
@@ -99,6 +104,7 @@ public class TeamsViewModel extends BaseViewModel {
     }
 
     public void onTeamClicked(TeamModel teamModel) {
+        teamName.setValue(teamModel.getTeamName());
         teamId.setValue(teamModel.getTeamId());
         isTeamClicked.setValue(true);
     }
