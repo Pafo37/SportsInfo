@@ -26,11 +26,17 @@ public class HomeScreenFragment extends BaseFragment<HomeScreenViewModel, Fragme
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel.getSports();
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NavController navController = Navigation.findNavController(view);
         getActivity().setTitle(Constants.SPORTS_INFO);
-        viewModel.getSports();
+
         viewModel.getIsErrorShown().observe(this, isError -> {
             if (isError) {
                 showErrorDialog(getString(R.string.error_message_title),

@@ -66,7 +66,7 @@ public class LeagueDetailsViewModel extends BaseViewModel {
         subscribeSingle(apiService.getLeagueDetails(id), new SingleObserver<LeagueDetailsListResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                //NOT USED
             }
 
             @Override

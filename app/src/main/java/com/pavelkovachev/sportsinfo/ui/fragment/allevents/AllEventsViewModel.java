@@ -66,12 +66,11 @@ public class AllEventsViewModel extends BaseViewModel {
                         } else {
                             isErrorShown.setValue(true);
                         }
-
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        isErrorShown.postValue(true);
+                        isErrorShown.setValue(true);
                     }
                 });
     }

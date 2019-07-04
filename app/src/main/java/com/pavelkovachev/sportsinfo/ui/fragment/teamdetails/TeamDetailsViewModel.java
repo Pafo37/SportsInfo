@@ -32,6 +32,11 @@ public class TeamDetailsViewModel extends BaseViewModel {
     private MutableLiveData<String> country = new MutableLiveData<>();
     private MutableLiveData<String> yearFormed = new MutableLiveData<>();
     private MutableLiveData<String> description = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isErrorShown = new MutableLiveData<>();
+
+    public MutableLiveData<Boolean> getIsErrorShown() {
+        return isErrorShown;
+    }
 
     public MutableLiveData<String> getTeamLogo() {
         return teamLogo;
@@ -61,7 +66,7 @@ public class TeamDetailsViewModel extends BaseViewModel {
         subscribeSingle(apiService.getTeamDetails(id), new SingleObserver<TeamsListResponse>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                //NOT USED
             }
 
             @Override
@@ -80,7 +85,7 @@ public class TeamDetailsViewModel extends BaseViewModel {
 
             @Override
             public void onError(Throwable e) {
-
+                isErrorShown.setValue(true);
             }
         });
     }

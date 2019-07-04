@@ -15,6 +15,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 
@@ -82,31 +83,31 @@ public class PlayerDetailViewModel extends BaseViewModel {
     }
 
     public void getPlayerDetails(String playerId, String teamID) {
-        subscribeSingle(apiService.getPlayers(teamID), new SingleObserver<PlayersListResponse>() {
+
+        subscribeSingle(Single.zip(apiService.getPlayers(teamID),
+                playerDbService.getAllPlayers(),
+                this::getDataFromApiAndDb), new SingleObserver<List<PlayerModel>>() {
             @Override
             public void onSubscribe(Disposable d) {
                 //NOT USED
             }
 
             @Override
-            public void onSuccess(PlayersListResponse playersListResponse) {
-                if (playersListResponse.getPlayers() != null) {
-                    List<PlayerModel> playerModelList = new ArrayList<>();
-                    Stream.of(playersListResponse.getPlayers()).filter(player -> player.getIdPlayer().equals(playerId))
-                            .forEach(playersResponse -> playerModelList.add(PlayerModel.convertToPlayerModel(playersResponse)));
-                    playerDetails.setValue(playerModelList.get(0));
-                    playerName.setValue(playerDetails.getValue().getPlayerName());
-                    playerNationality.setValue(playerDetails.getValue().getPlayerNationality());
-                    playerTeam.setValue(playerDetails.getValue().getPlayerTeamName());
-                    playerHeight.setValue(playerDetails.getValue().getPlayerHeight());
-                    playerDateOfBirth.setValue(playerDetails.getValue().getPlayerDateBorn());
-                    playerBirthPlace.setValue(playerDetails.getValue().getPlayerBirthplace());
-                    playerDescription.setValue(playerDetails.getValue().getPlayerDescription());
-                    playerImage.setValue(playerDetails.getValue().getPlayerImage());
-                    playerDbService.insertPlayers(playerModelList);
-                } else {
-                    isErrorShown.setValue(true);
-                }
+            public void onSuccess(List<PlayerModel> playerModels) {
+                List<PlayerModel> playerModelList = new ArrayList<>();
+                Stream.of(playerModels)
+                        .filter(player -> player.getPlayerId().equals(playerId))
+                        .forEach(playerModelList::add);
+                playerDetails.setValue(playerModelList.get(0));
+                playerName.setValue(playerDetails.getValue().getPlayerName());
+                playerNationality.setValue(playerDetails.getValue().getPlayerNationality());
+                playerTeam.setValue(playerDetails.getValue().getPlayerTeamName());
+                playerHeight.setValue(playerDetails.getValue().getPlayerHeight());
+                playerDateOfBirth.setValue(playerDetails.getValue().getPlayerDateBorn());
+                playerBirthPlace.setValue(playerDetails.getValue().getPlayerBirthplace());
+                playerDescription.setValue(playerDetails.getValue().getPlayerDescription());
+                playerImage.setValue(playerDetails.getValue().getPlayerImage());
+                playerDbService.insertPlayer(playerDetails.getValue());
             }
 
             @Override
@@ -114,6 +115,20 @@ public class PlayerDetailViewModel extends BaseViewModel {
                 isErrorShown.setValue(true);
             }
         });
+    }
 
+    private List<PlayerModel> getDataFromApiAndDb(PlayersListResponse playersListResponse,
+                                                  List<PlayerModel> playerModels) {
+        List<PlayerModel> playerModelList = new ArrayList<>();
+        if (playersListResponse.getPlayers() != null) {
+            Stream.of(playersListResponse.getPlayers())
+                    .forEach(playersResponse -> playerModelList
+                            .add(PlayerModel.convertToPlayerModel(playersResponse)));
+        } else if (playerModels != null) {
+            return playerModels;
+        } else {
+            isErrorShown.setValue(true);
+        }
+        return playerModelList;
     }
 }
