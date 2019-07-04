@@ -63,32 +63,33 @@ public class LeagueDetailsViewModel extends BaseViewModel {
     }
 
     public void getLeagueDetails(String id) {
-        subscribeSingle(apiService.getLeagueDetails(id), new SingleObserver<LeagueDetailsListResponse>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                //NOT USED
-            }
+        subscribeSingle(apiService.getLeagueDetails(id),
+                new SingleObserver<LeagueDetailsListResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        //NOT USED
+                    }
 
-            @Override
-            public void onSuccess(LeagueDetailsListResponse leagueDetailsListResponse) {
-                if (leagueDetailsListResponse.getLeagues() != null) {
-                    leagueDetailsModel.setValue(LeagueDetailsModel.convertToLeagueDetailsModel(leagueDetailsListResponse.getLeagues().get(0)));
-                    sportName.setValue(leagueDetailsModel.getValue().getSportName());
-                    leagueName.setValue(leagueDetailsModel.getValue().getLeagueName());
-                    country.setValue(leagueDetailsModel.getValue().getCountry());
-                    yearFormed.setValue(leagueDetailsModel.getValue().getYearFormed());
-                    description.setValue(leagueDetailsModel.getValue().getDescription());
-                    leagueLogo.setValue(leagueDetailsModel.getValue().getLeagueLogo());
-                    leagueDetailsDbService.insert(leagueDetailsModel.getValue());
-                } else {
-                    isErrorShown.setValue(true);
-                }
-            }
+                    @Override
+                    public void onSuccess(LeagueDetailsListResponse leagueDetailsListResponse) {
+                        if (leagueDetailsListResponse.getLeagues() != null) {
+                            leagueDetailsModel.setValue(LeagueDetailsModel.convertToLeagueDetailsModel(leagueDetailsListResponse.getLeagues().get(0)));
+                            sportName.setValue(leagueDetailsModel.getValue().getSportName());
+                            leagueName.setValue(leagueDetailsModel.getValue().getLeagueName());
+                            country.setValue(leagueDetailsModel.getValue().getCountry());
+                            yearFormed.setValue(leagueDetailsModel.getValue().getYearFormed());
+                            description.setValue(leagueDetailsModel.getValue().getDescription());
+                            leagueLogo.setValue(leagueDetailsModel.getValue().getLeagueLogo());
+                            leagueDetailsDbService.insert(leagueDetailsModel.getValue());
+                        } else {
+                            isErrorShown.setValue(true);
+                        }
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                isErrorShown.setValue(true);
-            }
-        });
+                    @Override
+                    public void onError(Throwable e) {
+                        isErrorShown.setValue(true);
+                    }
+                });
     }
 }

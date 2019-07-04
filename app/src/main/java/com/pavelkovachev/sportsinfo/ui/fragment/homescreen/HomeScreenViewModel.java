@@ -1,12 +1,10 @@
 package com.pavelkovachev.sportsinfo.ui.fragment.homescreen;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.util.Log;
 
 import com.annimon.stream.Stream;
 import com.pavelkovachev.sportsinfo.network.SportsApiService;
 import com.pavelkovachev.sportsinfo.network.response.sports.SportsListResponse;
-import com.pavelkovachev.sportsinfo.network.response.sports.SportsResponse;
 import com.pavelkovachev.sportsinfo.persistence.model.sport.SportModel;
 import com.pavelkovachev.sportsinfo.services.SportDbService;
 import com.pavelkovachev.sportsinfo.ui.fragment.base.BaseViewModel;
@@ -17,9 +15,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Single;
-import io.reactivex.SingleEmitter;
 import io.reactivex.SingleObserver;
-import io.reactivex.SingleOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
 public class HomeScreenViewModel extends BaseViewModel {
@@ -60,7 +56,8 @@ public class HomeScreenViewModel extends BaseViewModel {
                 Single.zip(
                         apiService.getSports().onErrorReturnItem(new SportsListResponse()),
                         sportDbService.getAllSports(),
-                        this::getDataFromDbAndApi), new SingleObserver<List<SportModel>>() {
+                        this::combineDataFromDbAndApi),
+                new SingleObserver<List<SportModel>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         //NOT USED
@@ -80,17 +77,17 @@ public class HomeScreenViewModel extends BaseViewModel {
         );
     }
 
-    private List<SportModel> getDataFromDbAndApi(SportsListResponse sportsListResponse,
-                                                 List<SportModel> sportModelList) {
+    private List<SportModel> combineDataFromDbAndApi(SportsListResponse sportsListResponse,
+                                                     List<SportModel> sportModelList) {
         List<SportModel> sportModels = new ArrayList<>();
         if (sportsListResponse.getSports() != null) {
             Stream.of(sportsListResponse.getSports()).
                     forEach(sportsResponse ->
                             sportModels.add(SportModel.convertToSportModel(sportsResponse)));
-        } else if (sportModelList != null) {
+        } else if (sportModelList.size() != 0) {
             return sportModelList;
         } else {
-            isErrorShown.postValue(true);
+            throw new NullPointerException();
         }
 
         return sportModels;

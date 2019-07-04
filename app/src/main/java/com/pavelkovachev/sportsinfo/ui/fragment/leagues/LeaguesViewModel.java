@@ -66,27 +66,28 @@ public class LeaguesViewModel extends BaseViewModel {
     public void getLeagues(String sportName) {
         subscribeSingle(Single.zip(apiService.getLeagues().onErrorReturnItem(new LeaguesListResponse()),
                 leagueDbService.getAllLeagues(),
-                this::getDataFromApiAndDb), new SingleObserver<List<LeagueModel>>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                //NOT USED
-            }
+                this::getDataFromApiAndDb),
+                new SingleObserver<List<LeagueModel>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        //NOT USED
+                    }
 
-            @Override
-            public void onSuccess(List<LeagueModel> leagueModelList) {
-                List<LeagueModel> leagueModels = new ArrayList<>();
-                Stream.of(leagueModelList)
-                        .filter(sports -> sports.getLeagueSport().equals(sportName))
-                        .forEach(leagueModels::add);
-                leagueDbService.insertLeagues(leagueModels);
-                leaguesModelList.setValue(leagueModels);
-            }
+                    @Override
+                    public void onSuccess(List<LeagueModel> leagueModelList) {
+                        List<LeagueModel> leagueModels = new ArrayList<>();
+                        Stream.of(leagueModelList)
+                                .filter(sports -> sports.getLeagueSport().equals(sportName))
+                                .forEach(leagueModels::add);
+                        leagueDbService.insertLeagues(leagueModels);
+                        leaguesModelList.setValue(leagueModels);
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                isErrorShown.setValue(true);
-            }
-        });
+                    @Override
+                    public void onError(Throwable e) {
+                        isErrorShown.setValue(true);
+                    }
+                });
     }
 
     private List<LeagueModel> getDataFromApiAndDb(LeaguesListResponse leaguesListResponse,
@@ -96,10 +97,10 @@ public class LeaguesViewModel extends BaseViewModel {
             Stream.of(leaguesListResponse.getLeagues())
                     .forEach(leaguesResponse ->
                             leagueModels.add(LeagueModel.convertToLeagueModel(leaguesResponse)));
-        } else if (leagueModelList != null) {
+        } else if (leagueModelList.size() != 0) {
             return leagueModelList;
         } else {
-            isErrorShown.postValue(true);
+            throw new NullPointerException();
         }
         return leagueModels;
     }

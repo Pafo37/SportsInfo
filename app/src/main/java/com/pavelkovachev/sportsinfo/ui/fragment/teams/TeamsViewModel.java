@@ -93,10 +93,10 @@ public class TeamsViewModel extends BaseViewModel {
             Stream.of(teamsListResponse.getTeams())
                     .forEach(teamsResponse ->
                             teamModels.add(TeamModel.convertToTeamModel(teamsResponse)));
-        } else if (teamModelList != null) {
+        } else if (teamModelList.size() != 0) {
             return teamModelList;
         } else {
-            isErrorShown.setValue(true);
+            throw new NullPointerException();
         }
 
         return teamModels;
