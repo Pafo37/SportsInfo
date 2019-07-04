@@ -29,5 +29,13 @@ public class TeamDetailsFragment extends BaseFragment<TeamDetailsViewModel, Frag
         String teamName = getArguments().getString(Constants.BUNDLE_TEAM_NAME);
         getActivity().setTitle(teamName);
         viewModel.getTeamDetails(teamId);
+
+        viewModel.getIsErrorShown().observe(this, onError -> {
+            if (onError) {
+                showErrorDialog(getString(R.string.error_message_title),
+                        getString(R.string.error_message_description));
+                viewModel.getIsErrorShown().setValue(false);
+            }
+        });
     }
 }

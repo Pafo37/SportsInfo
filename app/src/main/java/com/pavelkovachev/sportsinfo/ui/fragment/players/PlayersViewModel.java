@@ -75,7 +75,7 @@ public class PlayersViewModel extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        isErrorShown.postValue(true);
+                        isErrorShown.setValue(true);
                     }
                 });
     }

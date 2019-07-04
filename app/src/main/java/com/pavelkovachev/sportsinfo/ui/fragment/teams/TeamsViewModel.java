@@ -96,7 +96,7 @@ public class TeamsViewModel extends BaseViewModel {
         } else if (teamModelList != null) {
             return teamModelList;
         } else {
-            isErrorShown.postValue(true);
+            isErrorShown.setValue(true);
         }
 
         return teamModels;
