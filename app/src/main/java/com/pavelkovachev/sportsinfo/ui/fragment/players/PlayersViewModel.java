@@ -96,7 +96,7 @@ public class PlayersViewModel extends BaseViewModel {
         } else if (playerModels != null) {
             return playerModels;
         } else {
-            isErrorShown.setValue(true);
+            throw new NullPointerException();
         }
         return playerModelList;
     }

@@ -124,10 +124,10 @@ public class PlayerDetailViewModel extends BaseViewModel {
             Stream.of(playersListResponse.getPlayers())
                     .forEach(playersResponse -> playerModelList
                             .add(PlayerModel.convertToPlayerModel(playersResponse)));
-        } else if (playerModels != null) {
+        } else if (playerModels.size() != 0) {
             return playerModels;
         } else {
-            isErrorShown.setValue(true);
+            throw new NullPointerException();
         }
         return playerModelList;
     }

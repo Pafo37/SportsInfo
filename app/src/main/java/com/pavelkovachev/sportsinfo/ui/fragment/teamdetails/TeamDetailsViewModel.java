@@ -63,30 +63,31 @@ public class TeamDetailsViewModel extends BaseViewModel {
     }
 
     public void getTeamDetails(String id) {
-        subscribeSingle(apiService.getTeamDetails(id), new SingleObserver<TeamsListResponse>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                //NOT USED
-            }
+        subscribeSingle(apiService.getTeamDetails(id),
+                new SingleObserver<TeamsListResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        //NOT USED
+                    }
 
-            @Override
-            public void onSuccess(TeamsListResponse teamsListResponse) {
-                if (teamsListResponse.getTeams() != null) {
-                    teamDetails.setValue(TeamModel.convertToTeamModel(teamsListResponse.getTeams().get(0)));
-                    teamLogo.setValue(teamDetails.getValue().getTeamLogo());
-                    sport.setValue(teamDetails.getValue().getSportName());
-                    teamName.setValue(teamDetails.getValue().getTeamName());
-                    country.setValue(teamDetails.getValue().getTeamCountry());
-                    yearFormed.setValue(teamDetails.getValue().getTeamYearFormed());
-                    description.setValue(teamDetails.getValue().getTeamDescription());
-                    teamDbService.insertTeam(teamDetails.getValue());
-                }
-            }
+                    @Override
+                    public void onSuccess(TeamsListResponse teamsListResponse) {
+                        if (teamsListResponse.getTeams() != null) {
+                            teamDetails.setValue(TeamModel.convertToTeamModel(teamsListResponse.getTeams().get(0)));
+                            teamLogo.setValue(teamDetails.getValue().getTeamLogo());
+                            sport.setValue(teamDetails.getValue().getSportName());
+                            teamName.setValue(teamDetails.getValue().getTeamName());
+                            country.setValue(teamDetails.getValue().getTeamCountry());
+                            yearFormed.setValue(teamDetails.getValue().getTeamYearFormed());
+                            description.setValue(teamDetails.getValue().getTeamDescription());
+                            teamDbService.insertTeam(teamDetails.getValue());
+                        }
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                isErrorShown.setValue(true);
-            }
-        });
+                    @Override
+                    public void onError(Throwable e) {
+                        isErrorShown.setValue(true);
+                    }
+                });
     }
 }
