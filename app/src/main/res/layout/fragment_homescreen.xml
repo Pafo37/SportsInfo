@@ -13,13 +13,25 @@
 
     </data>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerViewSports"
+    <com.pavelkovachev.sportsinfo.view.LoadingView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:items="@{viewModel.getSportsList()}"
-        app:layoutId="@{R.layout.item_homescreen}"
-        app:vm="@{viewModel}"
-        tools:listitem="@layout/item_homescreen" />
+        android:layout_height="match_parent"
+        app:setProgressBarVisibility="@{viewModel.getProgressBarVisibility()}"
+        app:setTextViewVisibility="@{viewModel.getTextViewVisibility()}">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewSports"
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="@dimen/no_dimens"
+            app:items="@{viewModel.getSportsList()}"
+            app:layoutId="@{R.layout.item_homescreen}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:vm="@{viewModel}"
+            tools:listitem="@layout/item_homescreen" />
+
+    </com.pavelkovachev.sportsinfo.view.LoadingView>
 
 </layout>

@@ -94,6 +94,7 @@ public class PlayerDetailViewModel extends BaseViewModel {
 
             @Override
             public void onSuccess(List<PlayerModel> playerModels) {
+                setProgressBarVisibility(false);
                 List<PlayerModel> playerModelList = new ArrayList<>();
                 Stream.of(playerModels)
                         .filter(player -> player.getPlayerId().equals(playerId))
@@ -112,6 +113,7 @@ public class PlayerDetailViewModel extends BaseViewModel {
 
             @Override
             public void onError(Throwable e) {
+                setProgressBarVisibility(false);
                 isErrorShown.setValue(true);
             }
         });

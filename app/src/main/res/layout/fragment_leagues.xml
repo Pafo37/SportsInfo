@@ -13,12 +13,24 @@
 
     </data>
 
-    <android.support.v7.widget.RecyclerView
+    <com.pavelkovachev.sportsinfo.view.LoadingView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/default_margin_between_elements"
-        app:items="@{viewModel.getLeaguesList()}"
-        app:layoutId="@{R.layout.item_leagues}"
-        app:vm="@{viewModel}"
-        tools:listitem="@layout/item_leagues" />
+        app:setProgressBarVisibility="@{viewModel.getProgressBarVisibility()}"
+        app:setTextViewVisibility="@{viewModel.getTextViewVisibility()}">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="@dimen/no_dimens"
+            android:layout_margin="@dimen/default_margin_between_elements"
+            app:items="@{viewModel.getLeaguesList()}"
+            app:layoutId="@{R.layout.item_leagues}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:vm="@{viewModel}"
+            tools:listitem="@layout/item_leagues" />
+
+    </com.pavelkovachev.sportsinfo.view.LoadingView>
 </layout>

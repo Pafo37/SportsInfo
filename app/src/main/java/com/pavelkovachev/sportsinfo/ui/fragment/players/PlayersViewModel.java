@@ -69,13 +69,16 @@ public class PlayersViewModel extends BaseViewModel {
 
                     @Override
                     public void onSuccess(List<PlayerModel> playerModels) {
+                        setProgressBarVisibility(false);
                         playerDbService.insertPlayers(playerModels);
                         playerList.setValue(playerModels);
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        setProgressBarVisibility(false);
                         isErrorShown.setValue(true);
+                        setTextViewVisibility(true);
                     }
                 });
     }

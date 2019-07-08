@@ -56,6 +56,7 @@ public class AllEventsViewModel extends BaseViewModel {
                     @Override
                     public void onSuccess(EventsListResponse eventsListResponse) {
                         if (eventsListResponse.getEvents() != null) {
+                            setProgressBarVisibility(false);
                             List<EventModel> eventModelList = new ArrayList<>();
                             Stream.of(eventsListResponse.getEvents()).forEach(
                                     eventsResponse ->
@@ -65,12 +66,15 @@ public class AllEventsViewModel extends BaseViewModel {
                             allEventsList.setValue(eventModelList);
                         } else {
                             isErrorShown.setValue(true);
+                            setTextViewVisibility(true);
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        setProgressBarVisibility(false);
                         isErrorShown.setValue(true);
+                        setTextViewVisibility(true);
                     }
                 });
     }

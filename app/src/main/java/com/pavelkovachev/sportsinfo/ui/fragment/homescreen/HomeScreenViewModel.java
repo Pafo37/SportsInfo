@@ -65,13 +65,16 @@ public class HomeScreenViewModel extends BaseViewModel {
 
                     @Override
                     public void onSuccess(List<SportModel> sportList) {
+                        setProgressBarVisibility(false);
                         sportDbService.insertSports(sportList);
                         sportModelList.setValue(sportList);
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        setProgressBarVisibility(false);
                         isErrorShown.setValue(true);
+                        setTextViewVisibility(true);
                     }
                 }
         );
