@@ -12,12 +12,24 @@
             type="com.pavelkovachev.sportsinfo.ui.fragment.players.PlayersViewModel" />
     </data>
 
-    <android.support.v7.widget.RecyclerView
+    <com.pavelkovachev.sportsinfo.view.LoadingView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:items="@{viewModel.getPlayerList()}"
-        app:layoutId="@{R.layout.item_players}"
-        app:vm="@{viewModel}"
-        tools:listitem="@layout/item_players" />
+        app:setProgressBarVisibility="@{viewModel.getProgressBarVisibility()}"
+        app:setTextViewVisibility="@{viewModel.getTextViewVisibility()}">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="@dimen/no_dimens"
+            app:items="@{viewModel.getPlayerList()}"
+            app:layoutId="@{R.layout.item_players}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:vm="@{viewModel}"
+            tools:listitem="@layout/item_players" />
+
+    </com.pavelkovachev.sportsinfo.view.LoadingView>
 
 </layout>

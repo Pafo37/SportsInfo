@@ -56,6 +56,7 @@ public class TvEventsViewModel extends BaseViewModel {
                     @Override
                     public void onSuccess(TvEventsListResponse tvEventsListResponse) {
                         if (tvEventsListResponse.getTvEvents() != null) {
+                            setProgressBarVisibility(false);
                             List<TvEventModel> tvEventModels = new ArrayList<>();
                             Stream.of(tvEventsListResponse.getTvEvents()).forEach(
                                     tvEventsResponse ->
@@ -64,12 +65,15 @@ public class TvEventsViewModel extends BaseViewModel {
                             tvEventsList.setValue(tvEventModels);
                         } else {
                             isErrorShown.setValue(true);
+                            setTextViewVisibility(true);
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        setProgressBarVisibility(false);
                         isErrorShown.setValue(true);
+                        setTextViewVisibility(true);
                     }
                 });
     }

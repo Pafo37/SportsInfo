@@ -73,6 +73,7 @@ public class LeagueDetailsViewModel extends BaseViewModel {
                     @Override
                     public void onSuccess(LeagueDetailsListResponse leagueDetailsListResponse) {
                         if (leagueDetailsListResponse.getLeagues() != null) {
+                            setProgressBarVisibility(false);
                             leagueDetailsModel.setValue(LeagueDetailsModel.convertToLeagueDetailsModel(leagueDetailsListResponse.getLeagues().get(0)));
                             sportName.setValue(leagueDetailsModel.getValue().getSportName());
                             leagueName.setValue(leagueDetailsModel.getValue().getLeagueName());
@@ -88,6 +89,7 @@ public class LeagueDetailsViewModel extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable e) {
+                        setProgressBarVisibility(false);
                         isErrorShown.setValue(true);
                     }
                 });

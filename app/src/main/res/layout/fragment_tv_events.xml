@@ -13,10 +13,21 @@
 
     </data>
 
-    <android.support.v7.widget.RecyclerView
+    <com.pavelkovachev.sportsinfo.view.LoadingView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:items="@{viewModel.getTvEventsList()}"
-        app:layoutId="@{R.layout.item_tv_events}"
-        tools:listitem="@layout/item_tv_events" />
+        android:layout_height="match_parent"
+        app:setProgressBarVisibility="@{viewModel.getProgressBarVisibility()}"
+        app:setTextViewVisibility="@{viewModel.getTextViewVisibility()}">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="@dimen/no_dimens"
+            android:layout_height="@dimen/no_dimens"
+            app:items="@{viewModel.getTvEventsList()}"
+            app:layoutId="@{R.layout.item_tv_events}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_tv_events" />
+    </com.pavelkovachev.sportsinfo.view.LoadingView>
 </layout>

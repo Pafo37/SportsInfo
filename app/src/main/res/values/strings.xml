@@ -46,5 +46,6 @@
     <string name="error_message_title">Error</string>
     <string name="error_message_description">A network connection occurred.</string>
     <string name="ok_message">OK</string>
+    <string name="loading_view_error">Nothing to see here</string>
 
 </resources>

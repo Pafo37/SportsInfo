@@ -75,6 +75,7 @@ public class LeaguesViewModel extends BaseViewModel {
 
                     @Override
                     public void onSuccess(List<LeagueModel> leagueModelList) {
+                        setProgressBarVisibility(false);
                         List<LeagueModel> leagueModels = new ArrayList<>();
                         Stream.of(leagueModelList)
                                 .filter(sports -> sports.getLeagueSport().equals(sportName))
@@ -85,7 +86,9 @@ public class LeaguesViewModel extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable e) {
+                        setProgressBarVisibility(false);
                         isErrorShown.setValue(true);
+                        setTextViewVisibility(true);
                     }
                 });
     }

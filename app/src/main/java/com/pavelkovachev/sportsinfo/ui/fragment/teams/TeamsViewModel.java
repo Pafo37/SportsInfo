@@ -75,13 +75,16 @@ public class TeamsViewModel extends BaseViewModel {
 
                     @Override
                     public void onSuccess(List<TeamModel> teamModelList) {
+                        setProgressBarVisibility(false);
                         teamDbService.insertTeams(teamModelList);
                         teamsList.postValue(teamModelList);
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        setProgressBarVisibility(false);
                         isErrorShown.setValue(true);
+                        setTextViewVisibility(true);
                     }
                 });
     }

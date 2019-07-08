@@ -73,6 +73,7 @@ public class TeamDetailsViewModel extends BaseViewModel {
                     @Override
                     public void onSuccess(TeamsListResponse teamsListResponse) {
                         if (teamsListResponse.getTeams() != null) {
+                            setProgressBarVisibility(false);
                             teamDetails.setValue(TeamModel.convertToTeamModel(teamsListResponse.getTeams().get(0)));
                             teamLogo.setValue(teamDetails.getValue().getTeamLogo());
                             sport.setValue(teamDetails.getValue().getSportName());
@@ -86,6 +87,7 @@ public class TeamDetailsViewModel extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable e) {
+                        setProgressBarVisibility(false);
                         isErrorShown.setValue(true);
                     }
                 });
